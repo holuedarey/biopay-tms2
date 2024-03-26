@@ -1,0 +1,2964 @@
+{
+  "banks": [
+    {
+      "bank_cbn_code": "232",
+      "bank_nip_code": "000001",
+      "bank_name": "Sterling Bank"
+    },
+    {
+      "bank_cbn_code": "082",
+      "bank_nip_code": "000002",
+      "bank_name": "Keystone Bank"
+    },
+    {
+      "bank_cbn_code": "214",
+      "bank_nip_code": null,
+      "bank_name": "FCMB"
+    },
+    {
+      "bank_cbn_code": "033",
+      "bank_nip_code": null,
+      "bank_name": "UBA"
+    },
+    {
+      "bank_cbn_code": "063",
+      "bank_nip_code": null,
+      "bank_name": "Access Bank(Diamond)"
+    },
+    {
+      "bank_cbn_code": "301",
+      "bank_nip_code": "000006",
+      "bank_name": "JAIZ Bank"
+    },
+    {
+      "bank_cbn_code": "070",
+      "bank_nip_code": "000007",
+      "bank_name": "Fidelity Bank"
+    },
+    {
+      "bank_cbn_code": "076",
+      "bank_nip_code": null,
+      "bank_name": "Polaris Bank Limited"
+    },
+    {
+      "bank_cbn_code": "023",
+      "bank_nip_code": "000009",
+      "bank_name": "Citi Bank"
+    },
+    {
+      "bank_cbn_code": "050",
+      "bank_nip_code": null,
+      "bank_name": "EcoBank Bank"
+    },
+    {
+      "bank_cbn_code": "215",
+      "bank_nip_code": "000011",
+      "bank_name": "Unity Bank"
+    },
+    {
+      "bank_cbn_code": "221",
+      "bank_nip_code": null,
+      "bank_name": "StanbicIBTC Bank"
+    },
+    {
+      "bank_cbn_code": "058",
+      "bank_nip_code": null,
+      "bank_name": "GTBank"
+    },
+    {
+      "bank_cbn_code": "044",
+      "bank_nip_code": "000014",
+      "bank_name": "Access Bank"
+    },
+    {
+      "bank_cbn_code": "057",
+      "bank_nip_code": "000015",
+      "bank_name": "Zenith Bank"
+    },
+    {
+      "bank_cbn_code": "011",
+      "bank_nip_code": null,
+      "bank_name": "First Bank"
+    },
+    {
+      "bank_cbn_code": "035",
+      "bank_nip_code": "000017",
+      "bank_name": "Wema Bank"
+    },
+    {
+      "bank_cbn_code": "032",
+      "bank_nip_code": "000018",
+      "bank_name": "Union Bank"
+    },
+    {
+      "bank_cbn_code": "084",
+      "bank_nip_code": "000019",
+      "bank_name": "Enterprise Bank"
+    },
+    {
+      "bank_cbn_code": "030",
+      "bank_nip_code": null,
+      "bank_name": "Heritage"
+    },
+    {
+      "bank_cbn_code": "068",
+      "bank_nip_code": null,
+      "bank_name": "StandardChartered"
+    },
+    {
+      "bank_cbn_code": "993",
+      "bank_nip_code": null,
+      "bank_name": "Coronation Merchant Bank"
+    },
+    {
+      "bank_cbn_code": "501",
+      "bank_nip_code": "070002",
+      "bank_name": "Fortis Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "551",
+      "bank_nip_code": null,
+      "bank_name": "Covenant"
+    },
+    {
+      "bank_cbn_code": "401",
+      "bank_nip_code": null,
+      "bank_name": "ASOSavings"
+    },
+    {
+      "bank_cbn_code": "402",
+      "bank_nip_code": null,
+      "bank_name": "JubileeLife"
+    },
+    {
+      "bank_cbn_code": "526",
+      "bank_nip_code": null,
+      "bank_name": "Parralex"
+    },
+    {
+      "bank_cbn_code": "523",
+      "bank_nip_code": "090005",
+      "bank_name": "Trustbond"
+    },
+    {
+      "bank_cbn_code": "314",
+      "bank_nip_code": "100001",
+      "bank_name": "FET"
+    },
+    {
+      "bank_cbn_code": "327",
+      "bank_nip_code": "100002",
+      "bank_name": "Pagatech"
+    },
+    {
+      "bank_cbn_code": "311",
+      "bank_nip_code": "100003",
+      "bank_name": "Parkway-ReadyCash"
+    },
+    {
+      "bank_cbn_code": "305",
+      "bank_nip_code": null,
+      "bank_name": "OPAY DIGITAL SERVICES LIMITED"
+    },
+    {
+      "bank_cbn_code": "317",
+      "bank_nip_code": "100005",
+      "bank_name": "Cellulant"
+    },
+    {
+      "bank_cbn_code": "306",
+      "bank_nip_code": "100006",
+      "bank_name": "eTranzact"
+    },
+    {
+      "bank_cbn_code": "304",
+      "bank_nip_code": null,
+      "bank_name": "StanbicMobileMoney"
+    },
+    {
+      "bank_cbn_code": "307",
+      "bank_nip_code": "100030",
+      "bank_name": "EcoMobile"
+    },
+    {
+      "bank_cbn_code": "315",
+      "bank_nip_code": null,
+      "bank_name": "GTMobile"
+    },
+    {
+      "bank_cbn_code": "319",
+      "bank_nip_code": "100010",
+      "bank_name": "TeasyMobile"
+    },
+    {
+      "bank_cbn_code": "313",
+      "bank_nip_code": null,
+      "bank_name": "Mkudi"
+    },
+    {
+      "bank_cbn_code": "320",
+      "bank_nip_code": "100012",
+      "bank_name": "VTNetworks"
+    },
+    {
+      "bank_cbn_code": "323",
+      "bank_nip_code": null,
+      "bank_name": "AccessMobile"
+    },
+    {
+      "bank_cbn_code": "309",
+      "bank_nip_code": null,
+      "bank_name": "FirstMonie Wallet"
+    },
+    {
+      "bank_cbn_code": "303",
+      "bank_nip_code": null,
+      "bank_name": "ChamsMobile"
+    },
+    {
+      "bank_cbn_code": "308",
+      "bank_nip_code": null,
+      "bank_name": "FortisMobile"
+    },
+    {
+      "bank_cbn_code": "324",
+      "bank_nip_code": "100017",
+      "bank_name": "Hedonmark"
+    },
+    {
+      "bank_cbn_code": "322",
+      "bank_nip_code": null,
+      "bank_name": "ZenithMobile"
+    },
+    {
+      "bank_cbn_code": "997",
+      "bank_nip_code": null,
+      "bank_name": "OLOWOLAGBA MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "325",
+      "bank_nip_code": null,
+      "bank_name": "MoneyBox"
+    },
+    {
+      "bank_cbn_code": "302",
+      "bank_nip_code": "100021",
+      "bank_name": "Eartholeum"
+    },
+    {
+      "bank_cbn_code": "601",
+      "bank_nip_code": "400001",
+      "bank_name": "FSDH"
+    },
+    {
+      "bank_cbn_code": "999",
+      "bank_nip_code": "999999",
+      "bank_name": "NIP Virtual Bank"
+    },
+    {
+      "bank_cbn_code": "403",
+      "bank_nip_code": null,
+      "bank_name": "SafeTrust Mortgage"
+    },
+    {
+      "bank_cbn_code": "991",
+      "bank_nip_code": null,
+      "bank_name": "GOMONEY"
+    },
+    {
+      "bank_cbn_code": "992",
+      "bank_nip_code": "100023",
+      "bank_name": "TagPay"
+    },
+    {
+      "bank_cbn_code": "990",
+      "bank_nip_code": "000022",
+      "bank_name": "Suntrust Bank"
+    },
+    {
+      "bank_cbn_code": "329",
+      "bank_nip_code": "110001",
+      "bank_name": "PayAttitude Online"
+    },
+    {
+      "bank_cbn_code": "901",
+      "bank_nip_code": null,
+      "bank_name": "LIVINGTRUST MORTGAGE BANK PLC"
+    },
+    {
+      "bank_cbn_code": "415",
+      "bank_nip_code": null,
+      "bank_name": "Imperial Homes"
+    },
+    {
+      "bank_cbn_code": "560",
+      "bank_nip_code": null,
+      "bank_name": "Page Financials"
+    },
+    {
+      "bank_cbn_code": "561",
+      "bank_nip_code": null,
+      "bank_name": "New Prudent Mort"
+    },
+    {
+      "bank_cbn_code": "565",
+      "bank_nip_code": null,
+      "bank_name": "CARBON MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "566",
+      "bank_nip_code": null,
+      "bank_name": "VFD MFB"
+    },
+    {
+      "bank_cbn_code": "101",
+      "bank_nip_code": "000023",
+      "bank_name": "Providus Bank"
+    },
+    {
+      "bank_cbn_code": "XX1",
+      "bank_nip_code": null,
+      "bank_name": "NIBSS Aggregator"
+    },
+    {
+      "bank_cbn_code": "902",
+      "bank_nip_code": "000024",
+      "bank_name": "Rand Merchant Bank"
+    },
+    {
+      "bank_cbn_code": "903",
+      "bank_nip_code": null,
+      "bank_name": "Ekondo MFB"
+    },
+    {
+      "bank_cbn_code": "904",
+      "bank_nip_code": null,
+      "bank_name": "First Trust Mortgage Bank PLC"
+    },
+    {
+      "bank_cbn_code": "906",
+      "bank_nip_code": "090111",
+      "bank_name": "FinaTrust Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "907",
+      "bank_nip_code": "090112",
+      "bank_name": "Seed Capital Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "909",
+      "bank_nip_code": null,
+      "bank_name": "TCF"
+    },
+    {
+      "bank_cbn_code": "910",
+      "bank_nip_code": null,
+      "bank_name": "AMML MFB"
+    },
+    {
+      "bank_cbn_code": "911",
+      "bank_nip_code": null,
+      "bank_name": "Boctrust Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "912",
+      "bank_nip_code": "100025",
+      "bank_name": "KONGAPAY"
+    },
+    {
+      "bank_cbn_code": "914",
+      "bank_nip_code": null,
+      "bank_name": "AG MORTGAGE BANK PLC"
+    },
+    {
+      "bank_cbn_code": "915",
+      "bank_nip_code": null,
+      "bank_name": "OHAFIA MFB"
+    },
+    {
+      "bank_cbn_code": "916",
+      "bank_nip_code": null,
+      "bank_name": "WETLAND MFB"
+    },
+    {
+      "bank_cbn_code": "917",
+      "bank_nip_code": null,
+      "bank_name": "GOWANS MFB"
+    },
+    {
+      "bank_cbn_code": "918",
+      "bank_nip_code": null,
+      "bank_name": "Intellifin"
+    },
+    {
+      "bank_cbn_code": "919",
+      "bank_nip_code": null,
+      "bank_name": "Regent MFB"
+    },
+    {
+      "bank_cbn_code": "920",
+      "bank_nip_code": null,
+      "bank_name": "IBILE MFB"
+    },
+    {
+      "bank_cbn_code": "921",
+      "bank_nip_code": null,
+      "bank_name": "Gateway Mortgage"
+    },
+    {
+      "bank_cbn_code": "922",
+      "bank_nip_code": null,
+      "bank_name": "Consumer MFB"
+    },
+    {
+      "bank_cbn_code": "923",
+      "bank_nip_code": "060002",
+      "bank_name": "FBNQuest merchant Bank"
+    },
+    {
+      "bank_cbn_code": "924",
+      "bank_nip_code": "070010",
+      "bank_name": "ABBEY MORTGAGE BANK"
+    },
+    {
+      "bank_cbn_code": "925",
+      "bank_nip_code": "070011",
+      "bank_name": "Refuge Mortgage Bank"
+    },
+    {
+      "bank_cbn_code": "926",
+      "bank_nip_code": null,
+      "bank_name": "HASAL MFB"
+    },
+    {
+      "bank_cbn_code": "927",
+      "bank_nip_code": null,
+      "bank_name": "TrustBanc MFB"
+    },
+    {
+      "bank_cbn_code": "928",
+      "bank_nip_code": "090124",
+      "bank_name": "XSLNCE Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "929",
+      "bank_nip_code": null,
+      "bank_name": "FidFund MFB"
+    },
+    {
+      "bank_cbn_code": "930",
+      "bank_nip_code": null,
+      "bank_name": "BC Kash MFB"
+    },
+    {
+      "bank_cbn_code": "931",
+      "bank_nip_code": null,
+      "bank_name": "Ndiorah MFB"
+    },
+    {
+      "bank_cbn_code": "226",
+      "bank_nip_code": null,
+      "bank_name": "GTI MFB"
+    },
+    {
+      "bank_cbn_code": "933",
+      "bank_nip_code": null,
+      "bank_name": "ALLWORKERS MFB"
+    },
+    {
+      "bank_cbn_code": "934",
+      "bank_nip_code": null,
+      "bank_name": "RICHWAY MFB"
+    },
+    {
+      "bank_cbn_code": "935",
+      "bank_nip_code": null,
+      "bank_name": "AL-BARKAH MFB"
+    },
+    {
+      "bank_cbn_code": "936",
+      "bank_nip_code": null,
+      "bank_name": "ACCION MFB"
+    },
+    {
+      "bank_cbn_code": "938",
+      "bank_nip_code": null,
+      "bank_name": "Eco mobile"
+    },
+    {
+      "bank_cbn_code": "939",
+      "bank_nip_code": null,
+      "bank_name": "PERSONAL TRUST MFB"
+    },
+    {
+      "bank_cbn_code": "994",
+      "bank_nip_code": "070013",
+      "bank_name": "Platinum Mortgage Bank"
+    },
+    {
+      "bank_cbn_code": "940",
+      "bank_nip_code": null,
+      "bank_name": "LBIC Mortgage Bank"
+    },
+    {
+      "bank_cbn_code": "941",
+      "bank_nip_code": null,
+      "bank_name": "BAOBAB MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "942",
+      "bank_nip_code": null,
+      "bank_name": "Pecan Trust Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "943",
+      "bank_nip_code": null,
+      "bank_name": "Royal Exchange MFB"
+    },
+    {
+      "bank_cbn_code": "944",
+      "bank_nip_code": "090139",
+      "bank_name": "Visa Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "945",
+      "bank_nip_code": "090140",
+      "bank_name": "Sagamu Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "946",
+      "bank_nip_code": null,
+      "bank_name": "Yes MFB"
+    },
+    {
+      "bank_cbn_code": "947",
+      "bank_nip_code": "090143",
+      "bank_name": "APEKS Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "948",
+      "bank_nip_code": "090146",
+      "bank_name": "Trident Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "949",
+      "bank_nip_code": "090149",
+      "bank_name": "IRL Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "950",
+      "bank_nip_code": "090150",
+      "bank_name": "Virtue Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "951",
+      "bank_nip_code": "090129",
+      "bank_name": "Money Trust Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "952",
+      "bank_nip_code": "070015",
+      "bank_name": "BRENT Mortgage Bank"
+    },
+    {
+      "bank_cbn_code": "953",
+      "bank_nip_code": "090160",
+      "bank_name": "Addosser Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "954",
+      "bank_nip_code": "100031",
+      "bank_name": "FCMB MOBILE"
+    },
+    {
+      "bank_cbn_code": "955",
+      "bank_nip_code": null,
+      "bank_name": "Contec Global Infotech Limited"
+    },
+    {
+      "bank_cbn_code": "222",
+      "bank_nip_code": null,
+      "bank_name": "SeedVest MFB"
+    },
+    {
+      "bank_cbn_code": "958",
+      "bank_nip_code": "090157",
+      "bank_name": "Infinity Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "959",
+      "bank_nip_code": "070014",
+      "bank_name": "First Generation Mortgage Bank"
+    },
+    {
+      "bank_cbn_code": "801",
+      "bank_nip_code": null,
+      "bank_name": "Haggai Bank"
+    },
+    {
+      "bank_cbn_code": "960",
+      "bank_nip_code": "090171",
+      "bank_name": "Mainstreet Microfinance bank"
+    },
+    {
+      "bank_cbn_code": "961",
+      "bank_nip_code": null,
+      "bank_name": "ENLISTING AMJU UNIQUE MFB"
+    },
+    {
+      "bank_cbn_code": "962",
+      "bank_nip_code": null,
+      "bank_name": "LA FAYETTE MICROFINANCE BANK "
+    },
+    {
+      "bank_cbn_code": "963",
+      "bank_nip_code": null,
+      "bank_name": "NOVA Merchant Bank Limited"
+    },
+    {
+      "bank_cbn_code": "125",
+      "bank_nip_code": null,
+      "bank_name": "Rubies MFB"
+    },
+    {
+      "bank_cbn_code": "966",
+      "bank_nip_code": "090151",
+      "bank_name": "MUTUAL TRUST MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "967",
+      "bank_nip_code": null,
+      "bank_name": "BAINES CREDIT MICROFINANCE BAN"
+    },
+    {
+      "bank_cbn_code": "968",
+      "bank_nip_code": null,
+      "bank_name": "NIRSAL MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "969",
+      "bank_nip_code": null,
+      "bank_name": "ADEYEMI COLLEGE STAFF MFB"
+    },
+    {
+      "bank_cbn_code": "971",
+      "bank_nip_code": "090205",
+      "bank_name": "New Dawn Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "972",
+      "bank_nip_code": null,
+      "bank_name": "Empire Trust MFB"
+    },
+    {
+      "bank_cbn_code": "973",
+      "bank_nip_code": "090273",
+      "bank_name": "Emeralds Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "974",
+      "bank_nip_code": "090258",
+      "bank_name": "Imo State Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "975",
+      "bank_nip_code": null,
+      "bank_name": "Esan Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "976",
+      "bank_nip_code": null,
+      "bank_name": "Lovonus Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "977",
+      "bank_nip_code": null,
+      "bank_name": "LAPO Microfinance Bank Limited"
+    },
+    {
+      "bank_cbn_code": "978",
+      "bank_nip_code": null,
+      "bank_name": "NIRSAL MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "932",
+      "bank_nip_code": null,
+      "bank_name": "Reliance MFB"
+    },
+    {
+      "bank_cbn_code": "979",
+      "bank_nip_code": null,
+      "bank_name": "AstraPolaris MFB"
+    },
+    {
+      "bank_cbn_code": "103",
+      "bank_nip_code": null,
+      "bank_name": "Globus Bank"
+    },
+    {
+      "bank_cbn_code": "330",
+      "bank_nip_code": "000026",
+      "bank_name": "Taj Bank"
+    },
+    {
+      "bank_cbn_code": "981",
+      "bank_nip_code": null,
+      "bank_name": "KUDA MFB"
+    },
+    {
+      "bank_cbn_code": "980",
+      "bank_nip_code": null,
+      "bank_name": "Greenville MFB"
+    },
+    {
+      "bank_cbn_code": "567",
+      "bank_nip_code": null,
+      "bank_name": "Nigerian Navy MFB"
+    },
+    {
+      "bank_cbn_code": "223",
+      "bank_nip_code": null,
+      "bank_name": "Nuture MFB"
+    },
+    {
+      "bank_cbn_code": "227",
+      "bank_nip_code": "090280",
+      "bank_name": "Megapraise Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "333",
+      "bank_nip_code": null,
+      "bank_name": "Access Yello and Beta"
+    },
+    {
+      "bank_cbn_code": "350",
+      "bank_nip_code": null,
+      "bank_name": "First Trust MB"
+    },
+    {
+      "bank_cbn_code": "360",
+      "bank_nip_code": "090274",
+      "bank_name": "Prestige MicroFinance Bank"
+    },
+    {
+      "bank_cbn_code": "102",
+      "bank_nip_code": null,
+      "bank_name": "Titan Trust Bank"
+    },
+    {
+      "bank_cbn_code": "351",
+      "bank_nip_code": "090172",
+      "bank_name": "Astrapolaris Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "352",
+      "bank_nip_code": null,
+      "bank_name": "Brightway Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "353",
+      "bank_nip_code": null,
+      "bank_name": "Alert Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "354",
+      "bank_nip_code": null,
+      "bank_name": "OMIYE Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "355",
+      "bank_nip_code": null,
+      "bank_name": "Olabisi Onabanjo university MFB"
+    },
+    {
+      "bank_cbn_code": "224",
+      "bank_nip_code": null,
+      "bank_name": "Manny MFB"
+    },
+    {
+      "bank_cbn_code": "802",
+      "bank_nip_code": null,
+      "bank_name": "9 Payment Service Bank"
+    },
+    {
+      "bank_cbn_code": "358",
+      "bank_nip_code": null,
+      "bank_name": "EdFin Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "359",
+      "bank_nip_code": null,
+      "bank_name": "Sparkle"
+    },
+    {
+      "bank_cbn_code": "420",
+      "bank_nip_code": null,
+      "bank_name": "Patrickgold Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "430",
+      "bank_nip_code": null,
+      "bank_name": "Balogun Gambari MFB"
+    },
+    {
+      "bank_cbn_code": "995",
+      "bank_nip_code": null,
+      "bank_name": "ISALE OYO MICROFINANCE BANK LTD"
+    },
+    {
+      "bank_cbn_code": "982",
+      "bank_nip_code": "070001",
+      "bank_name": "NPF MicroFinance Bank"
+    },
+    {
+      "bank_cbn_code": "361",
+      "bank_nip_code": null,
+      "bank_name": "Infinity trust  Mortgage Bank"
+    },
+    {
+      "bank_cbn_code": "362",
+      "bank_nip_code": null,
+      "bank_name": "MayFresh Mortgage Bank"
+    },
+    {
+      "bank_cbn_code": "363",
+      "bank_nip_code": "090141",
+      "bank_name": "Chikum Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "364",
+      "bank_nip_code": "090144",
+      "bank_name": "CIT Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "365",
+      "bank_nip_code": null,
+      "bank_name": "Full range MFB"
+    },
+    {
+      "bank_cbn_code": "366",
+      "bank_nip_code": "090147",
+      "bank_name": "Hackman Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "367",
+      "bank_nip_code": null,
+      "bank_name": "Bowen MFB"
+    },
+    {
+      "bank_cbn_code": "368",
+      "bank_nip_code": null,
+      "bank_name": "Nargata MFB"
+    },
+    {
+      "bank_cbn_code": "369",
+      "bank_nip_code": "090153",
+      "bank_name": "FFS Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "370",
+      "bank_nip_code": null,
+      "bank_name": "CEMCS MFB"
+    },
+    {
+      "bank_cbn_code": "371",
+      "bank_nip_code": null,
+      "bank_name": "e-BARCs MFB"
+    },
+    {
+      "bank_cbn_code": "372",
+      "bank_nip_code": null,
+      "bank_name": "FUTO MFB"
+    },
+    {
+      "bank_cbn_code": "373",
+      "bank_nip_code": null,
+      "bank_name": "Credit Afrique MFB"
+    },
+    {
+      "bank_cbn_code": "374",
+      "bank_nip_code": null,
+      "bank_name": "Okpoga MFB"
+    },
+    {
+      "bank_cbn_code": "375",
+      "bank_nip_code": null,
+      "bank_name": "Stanford MFB"
+    },
+    {
+      "bank_cbn_code": "376",
+      "bank_nip_code": null,
+      "bank_name": "First Multiple MFB"
+    },
+    {
+      "bank_cbn_code": "377",
+      "bank_nip_code": null,
+      "bank_name": "First Royal Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "378",
+      "bank_nip_code": null,
+      "bank_name": "Petra Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "379",
+      "bank_nip_code": null,
+      "bank_name": "Eso-E Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "380",
+      "bank_nip_code": "090167",
+      "bank_name": "Daylight Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "381",
+      "bank_nip_code": null,
+      "bank_name": "Gashua Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "382",
+      "bank_nip_code": null,
+      "bank_name": "Alphakapital MFB"
+    },
+    {
+      "bank_cbn_code": "383",
+      "bank_nip_code": null,
+      "bank_name": "Rahama MFB"
+    },
+    {
+      "bank_cbn_code": "384",
+      "bank_nip_code": null,
+      "bank_name": "Malachy MFB"
+    },
+    {
+      "bank_cbn_code": "385",
+      "bank_nip_code": null,
+      "bank_name": "Bosak MFB"
+    },
+    {
+      "bank_cbn_code": "386",
+      "bank_nip_code": null,
+      "bank_name": "GreenBank MFB"
+    },
+    {
+      "bank_cbn_code": "387",
+      "bank_nip_code": null,
+      "bank_name": "FAST MFB"
+    },
+    {
+      "bank_cbn_code": "388",
+      "bank_nip_code": null,
+      "bank_name": "Mutual Benefits MFB"
+    },
+    {
+      "bank_cbn_code": "389",
+      "bank_nip_code": null,
+      "bank_name": "KCMB MFB"
+    },
+    {
+      "bank_cbn_code": "390",
+      "bank_nip_code": null,
+      "bank_name": "Unical MFB"
+    },
+    {
+      "bank_cbn_code": "391",
+      "bank_nip_code": "090195",
+      "bank_name": "Grooming Microfinance bank"
+    },
+    {
+      "bank_cbn_code": "392",
+      "bank_nip_code": "090196",
+      "bank_name": "Pennywise Microfinance bank"
+    },
+    {
+      "bank_cbn_code": "393",
+      "bank_nip_code": "090197",
+      "bank_name": "ABU Microfinance bank"
+    },
+    {
+      "bank_cbn_code": "394",
+      "bank_nip_code": "090198",
+      "bank_name": "Renmoney microfinance bank"
+    },
+    {
+      "bank_cbn_code": "397",
+      "bank_nip_code": "090259",
+      "bank_name": "Alekun Microfinance bank"
+    },
+    {
+      "bank_cbn_code": "398",
+      "bank_nip_code": "090260",
+      "bank_name": "Above Only Microfinance bank"
+    },
+    {
+      "bank_cbn_code": "399",
+      "bank_nip_code": "090261",
+      "bank_name": "QuickFund Microfinance bank"
+    },
+    {
+      "bank_cbn_code": "400",
+      "bank_nip_code": "090262",
+      "bank_name": "Stellas Microfinance bank"
+    },
+    {
+      "bank_cbn_code": "431",
+      "bank_nip_code": "090264",
+      "bank_name": "Auchi Microfinance bank"
+    },
+    {
+      "bank_cbn_code": "432",
+      "bank_nip_code": null,
+      "bank_name": "Uniben Microfinance bank"
+    },
+    {
+      "bank_cbn_code": "433",
+      "bank_nip_code": "090270",
+      "bank_name": "AB Microfinance bank"
+    },
+    {
+      "bank_cbn_code": "434",
+      "bank_nip_code": null,
+      "bank_name": "Lavender Microfinance bank"
+    },
+    {
+      "bank_cbn_code": "435",
+      "bank_nip_code": null,
+      "bank_name": "Meridian MFB"
+    },
+    {
+      "bank_cbn_code": "435",
+      "bank_nip_code": null,
+      "bank_name": "Meridian MFB"
+    },
+    {
+      "bank_cbn_code": "436",
+      "bank_nip_code": "090276",
+      "bank_name": "Trustfund Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "437",
+      "bank_nip_code": null,
+      "bank_name": "Alhayat MFB"
+    },
+    {
+      "bank_cbn_code": "438",
+      "bank_nip_code": null,
+      "bank_name": "Glory MFB"
+    },
+    {
+      "bank_cbn_code": "439",
+      "bank_nip_code": null,
+      "bank_name": "Ikire MFB"
+    },
+    {
+      "bank_cbn_code": "440",
+      "bank_nip_code": null,
+      "bank_name": "Finex MFB"
+    },
+    {
+      "bank_cbn_code": "441",
+      "bank_nip_code": null,
+      "bank_name": "Arise MFB"
+    },
+    {
+      "bank_cbn_code": "442",
+      "bank_nip_code": null,
+      "bank_name": "THRIVE MFB"
+    },
+    {
+      "bank_cbn_code": "443",
+      "bank_nip_code": null,
+      "bank_name": "First Option MFB"
+    },
+    {
+      "bank_cbn_code": "444",
+      "bank_nip_code": null,
+      "bank_name": "Safe Haven MFB"
+    },
+    {
+      "bank_cbn_code": "445",
+      "bank_nip_code": null,
+      "bank_name": "Pillar MFB"
+    },
+    {
+      "bank_cbn_code": "446",
+      "bank_nip_code": null,
+      "bank_name": "FCT MFB"
+    },
+    {
+      "bank_cbn_code": "447",
+      "bank_nip_code": null,
+      "bank_name": "HALALCREDIT MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "448",
+      "bank_nip_code": null,
+      "bank_name": "BRETHREN MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "449",
+      "bank_nip_code": null,
+      "bank_name": "Eagle Flight MFB"
+    },
+    {
+      "bank_cbn_code": "450",
+      "bank_nip_code": null,
+      "bank_name": "Polyuwanna MFB"
+    },
+    {
+      "bank_cbn_code": "451",
+      "bank_nip_code": null,
+      "bank_name": "FederalPoly NasarawaMFB"
+    },
+    {
+      "bank_cbn_code": "452",
+      "bank_nip_code": null,
+      "bank_name": "Kontagora MFB"
+    },
+    {
+      "bank_cbn_code": "453",
+      "bank_nip_code": null,
+      "bank_name": "Purplemoney MFB"
+    },
+    {
+      "bank_cbn_code": "454",
+      "bank_nip_code": null,
+      "bank_name": "Evangel MFB"
+    },
+    {
+      "bank_cbn_code": "455",
+      "bank_nip_code": null,
+      "bank_name": "Sulsap MFB"
+    },
+    {
+      "bank_cbn_code": "456",
+      "bank_nip_code": null,
+      "bank_name": "U AND C MFB"
+    },
+    {
+      "bank_cbn_code": "457",
+      "bank_nip_code": null,
+      "bank_name": "Bayero MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "459",
+      "bank_nip_code": null,
+      "bank_name": "Kadpoly MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "460",
+      "bank_nip_code": null,
+      "bank_name": "Mayfair  MFB"
+    },
+    {
+      "bank_cbn_code": "461",
+      "bank_nip_code": null,
+      "bank_name": "Rephidim MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "462",
+      "bank_nip_code": null,
+      "bank_name": "Mainland MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "463",
+      "bank_nip_code": null,
+      "bank_name": "IKENNE MFB"
+    },
+    {
+      "bank_cbn_code": "464",
+      "bank_nip_code": null,
+      "bank_name": "Trust MFB"
+    },
+    {
+      "bank_cbn_code": "465",
+      "bank_nip_code": null,
+      "bank_name": "UNAAB MFB"
+    },
+    {
+      "bank_cbn_code": "466",
+      "bank_nip_code": null,
+      "bank_name": "Evergreen MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "467",
+      "bank_nip_code": null,
+      "bank_name": "Oche MFB"
+    },
+    {
+      "bank_cbn_code": "468",
+      "bank_nip_code": null,
+      "bank_name": "BIPC MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "469",
+      "bank_nip_code": null,
+      "bank_name": "PalmPay"
+    },
+    {
+      "bank_cbn_code": "458",
+      "bank_nip_code": null,
+      "bank_name": "FEDERAL UNIVERSITY DUTSE  MFB"
+    },
+    {
+      "bank_cbn_code": "216",
+      "bank_nip_code": null,
+      "bank_name": "EYOWO MFB"
+    },
+    {
+      "bank_cbn_code": "217",
+      "bank_nip_code": null,
+      "bank_name": "Molusi MFB"
+    },
+    {
+      "bank_cbn_code": "310",
+      "bank_nip_code": null,
+      "bank_name": "MINT-FINEX MFB"
+    },
+    {
+      "bank_cbn_code": "219",
+      "bank_nip_code": null,
+      "bank_name": "COASTLINE MFB"
+    },
+    {
+      "bank_cbn_code": "210",
+      "bank_nip_code": null,
+      "bank_name": "CORESTEP MFB"
+    },
+    {
+      "bank_cbn_code": "220",
+      "bank_nip_code": null,
+      "bank_name": "CashConnect MFB"
+    },
+    {
+      "bank_cbn_code": "228",
+      "bank_nip_code": null,
+      "bank_name": "Apple Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "229",
+      "bank_nip_code": null,
+      "bank_name": "Davodani Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "230",
+      "bank_nip_code": null,
+      "bank_name": "New Golden Pastures MFB"
+    },
+    {
+      "bank_cbn_code": "233",
+      "bank_nip_code": null,
+      "bank_name": "Think Finance MFB"
+    },
+    {
+      "bank_cbn_code": "234",
+      "bank_nip_code": null,
+      "bank_name": "GIREI MFB"
+    },
+    {
+      "bank_cbn_code": "235",
+      "bank_nip_code": null,
+      "bank_name": "KREDI MONEY MFB"
+    },
+    {
+      "bank_cbn_code": "237",
+      "bank_nip_code": null,
+      "bank_name": "HOPE PAYMENT SERVICE BANK"
+    },
+    {
+      "bank_cbn_code": "238",
+      "bank_nip_code": null,
+      "bank_name": "MONIEPOINT MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "239",
+      "bank_nip_code": null,
+      "bank_name": "NOWNOW DIGITAL SYSTEMS LTD"
+    },
+    {
+      "bank_cbn_code": "240",
+      "bank_nip_code": null,
+      "bank_name": "AMAC MFB"
+    },
+    {
+      "bank_cbn_code": "241",
+      "bank_nip_code": null,
+      "bank_name": "M36"
+    },
+    {
+      "bank_cbn_code": "242",
+      "bank_nip_code": null,
+      "bank_name": "GMB MFB"
+    },
+    {
+      "bank_cbn_code": "243",
+      "bank_nip_code": null,
+      "bank_name": "MARITIME MFB"
+    },
+    {
+      "bank_cbn_code": "244",
+      "bank_nip_code": null,
+      "bank_name": "BUSINESS SUPPORT MFB"
+    },
+    {
+      "bank_cbn_code": "245",
+      "bank_nip_code": null,
+      "bank_name": "AGOSASA MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "246",
+      "bank_nip_code": null,
+      "bank_name": "ZWALLET"
+    },
+    {
+      "bank_cbn_code": "247",
+      "bank_nip_code": null,
+      "bank_name": "ILISAN MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "248",
+      "bank_nip_code": null,
+      "bank_name": "INTERLAND MFB"
+    },
+    {
+      "bank_cbn_code": "249",
+      "bank_nip_code": null,
+      "bank_name": "MOZFIN MFB"
+    },
+    {
+      "bank_cbn_code": "250",
+      "bank_nip_code": null,
+      "bank_name": "FIRMUS MFB"
+    },
+    {
+      "bank_cbn_code": "251",
+      "bank_nip_code": null,
+      "bank_name": "GIGINYA MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "252",
+      "bank_nip_code": null,
+      "bank_name": "COOP MORTGAGE BANK"
+    },
+    {
+      "bank_cbn_code": "253",
+      "bank_nip_code": null,
+      "bank_name": "CHANELLE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "254",
+      "bank_nip_code": null,
+      "bank_name": "PREEMINENT MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "255",
+      "bank_nip_code": null,
+      "bank_name": "CHIBUEZE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "257",
+      "bank_nip_code": null,
+      "bank_name": "AL-Barakah Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "258",
+      "bank_nip_code": null,
+      "bank_name": "LANDGOLD MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "259",
+      "bank_nip_code": null,
+      "bank_name": "PEACE MICRFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "260",
+      "bank_nip_code": null,
+      "bank_name": "Letshego Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "261",
+      "bank_nip_code": null,
+      "bank_name": "IZON MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "262",
+      "bank_nip_code": null,
+      "bank_name": "WINVIEW MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "263",
+      "bank_nip_code": null,
+      "bank_name": "BENYSTA MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "264",
+      "bank_nip_code": null,
+      "bank_name": "ABUCOOP MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "265",
+      "bank_nip_code": null,
+      "bank_name": "HIGHLAND MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "266",
+      "bank_nip_code": null,
+      "bank_name": "SUNBEAM MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "267",
+      "bank_nip_code": null,
+      "bank_name": "BLUEWHALES MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "268",
+      "bank_nip_code": null,
+      "bank_name": "TANGERINE MONEY"
+    },
+    {
+      "bank_cbn_code": "270",
+      "bank_nip_code": null,
+      "bank_name": "IMOWO MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "271",
+      "bank_nip_code": null,
+      "bank_name": "ILORA MICROFINANCE  BANK"
+    },
+    {
+      "bank_cbn_code": "272",
+      "bank_nip_code": null,
+      "bank_name": "EBSU MFB"
+    },
+    {
+      "bank_cbn_code": "273",
+      "bank_nip_code": null,
+      "bank_name": "LINKS MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "274",
+      "bank_nip_code": null,
+      "bank_name": "MEMPHIS MICROFINANCE  BANK"
+    },
+    {
+      "bank_cbn_code": "275",
+      "bank_nip_code": null,
+      "bank_name": "FINCA MFB "
+    },
+    {
+      "bank_cbn_code": "276",
+      "bank_nip_code": null,
+      "bank_name": "MAUTECH MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "277",
+      "bank_nip_code": null,
+      "bank_name": "RIGO MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "278",
+      "bank_nip_code": null,
+      "bank_name": "STB MORTGAGE BANK"
+    },
+    {
+      "bank_cbn_code": "279",
+      "bank_nip_code": null,
+      "bank_name": "FUTMINNA MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "280",
+      "bank_nip_code": null,
+      "bank_name": "INSIGHT MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "281",
+      "bank_nip_code": null,
+      "bank_name": "BANEX MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "282",
+      "bank_nip_code": null,
+      "bank_name": " CRUTECH MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "283",
+      "bank_nip_code": null,
+      "bank_name": "FAME MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "284",
+      "bank_nip_code": null,
+      "bank_name": "Oscotech Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "285",
+      "bank_nip_code": null,
+      "bank_name": "UNILORIN MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "286",
+      "bank_nip_code": null,
+      "bank_name": "BOI MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "287",
+      "bank_nip_code": null,
+      "bank_name": "GREENWICH MERCHANT BANK"
+    },
+    {
+      "bank_cbn_code": "288",
+      "bank_nip_code": null,
+      "bank_name": "SPECTRUM MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "289",
+      "bank_nip_code": null,
+      "bank_name": "CHERISH MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "290",
+      "bank_nip_code": null,
+      "bank_name": "STOCKCORP MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "291",
+      "bank_nip_code": null,
+      "bank_name": "ILORIN MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "292",
+      "bank_nip_code": null,
+      "bank_name": "OSPOLY MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "293",
+      "bank_nip_code": null,
+      "bank_name": "BORSTAL MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "294",
+      "bank_nip_code": null,
+      "bank_name": "UNILAG MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "295",
+      "bank_nip_code": null,
+      "bank_name": "SUPPORT MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "296",
+      "bank_nip_code": null,
+      "bank_name": "PARKWAY MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "297",
+      "bank_nip_code": null,
+      "bank_name": "KWASU MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "298",
+      "bank_nip_code": null,
+      "bank_name": "LOTUS BANK"
+    },
+    {
+      "bank_cbn_code": "299",
+      "bank_nip_code": null,
+      "bank_name": "GIWA MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "300",
+      "bank_nip_code": null,
+      "bank_name": "BONGHE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "407",
+      "bank_nip_code": null,
+      "bank_name": "CAPSTONE MICROFINANCE BANK "
+    },
+    {
+      "bank_cbn_code": "408",
+      "bank_nip_code": null,
+      "bank_name": "CALABAR MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "200",
+      "bank_nip_code": null,
+      "bank_name": "SAFEGATE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "201",
+      "bank_nip_code": null,
+      "bank_name": "UNIBADAN MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "202",
+      "bank_nip_code": null,
+      "bank_name": "ORITABASORUN MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "409",
+      "bank_nip_code": null,
+      "bank_name": " Parallex Bank"
+    },
+    {
+      "bank_cbn_code": "410",
+      "bank_nip_code": null,
+      "bank_name": "NICE  MICROFINANCE  BANK"
+    },
+    {
+      "bank_cbn_code": "203",
+      "bank_nip_code": null,
+      "bank_name": "REX MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "009",
+      "bank_nip_code": null,
+      "bank_name": "Interswitch Financial Inclusion Services (IFIS)"
+    },
+    {
+      "bank_cbn_code": "012",
+      "bank_nip_code": null,
+      "bank_name": "LAPO MFB "
+    },
+    {
+      "bank_cbn_code": "029",
+      "bank_nip_code": null,
+      "bank_name": "YCT MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "031",
+      "bank_nip_code": null,
+      "bank_name": "Standard Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "034",
+      "bank_nip_code": null,
+      "bank_name": "COALCAMP MICROFINANCE  BANK"
+    },
+    {
+      "bank_cbn_code": "037",
+      "bank_nip_code": null,
+      "bank_name": "Verdant Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "038",
+      "bank_nip_code": null,
+      "bank_name": "AFEKHAFE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "039",
+      "bank_nip_code": null,
+      "bank_name": "MARITIME"
+    },
+    {
+      "bank_cbn_code": "040",
+      "bank_nip_code": null,
+      "bank_name": "ISHIE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "041",
+      "bank_nip_code": null,
+      "bank_name": "Oluchukwu MFB"
+    },
+    {
+      "bank_cbn_code": "042",
+      "bank_nip_code": null,
+      "bank_name": "CARETAKER MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "043",
+      "bank_nip_code": null,
+      "bank_name": "Balogun Fulani MFB"
+    },
+    {
+      "bank_cbn_code": "044",
+      "bank_nip_code": null,
+      "bank_name": "Good Neighbours MFB"
+    },
+    {
+      "bank_cbn_code": "045",
+      "bank_nip_code": null,
+      "bank_name": "NEPTUNE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "046",
+      "bank_nip_code": null,
+      "bank_name": "ANCHORAGE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "047",
+      "bank_nip_code": null,
+      "bank_name": "ASSETS MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "048",
+      "bank_nip_code": null,
+      "bank_name": "MUTUAL BENEFITS MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "049",
+      "bank_nip_code": null,
+      "bank_name": "LOVONUS MICROFINANCE BANK LTD"
+    },
+    {
+      "bank_cbn_code": "051",
+      "bank_nip_code": null,
+      "bank_name": "DOT MFB"
+    },
+    {
+      "bank_cbn_code": "052",
+      "bank_nip_code": null,
+      "bank_name": "Giant Stride MFB"
+    },
+    {
+      "bank_cbn_code": "001",
+      "bank_nip_code": null,
+      "bank_name": "ATBU MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "002",
+      "bank_nip_code": null,
+      "bank_name": "CROSSRIVER MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "003",
+      "bank_nip_code": null,
+      "bank_name": "CBN"
+    },
+    {
+      "bank_cbn_code": "017",
+      "bank_nip_code": null,
+      "bank_name": "OAKLAND MICROFINACE BANK"
+    },
+    {
+      "bank_cbn_code": "018",
+      "bank_nip_code": null,
+      "bank_name": "IBETO MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "019",
+      "bank_nip_code": null,
+      "bank_name": "MOYOFADE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "013",
+      "bank_nip_code": null,
+      "bank_name": "MONARCH MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "014",
+      "bank_nip_code": null,
+      "bank_name": "REHOBOTH MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "015",
+      "bank_nip_code": null,
+      "bank_name": "LIGHT MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "020",
+      "bank_nip_code": null,
+      "bank_name": "GARKI MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "021",
+      "bank_nip_code": null,
+      "bank_name": "CROWDFORCE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "021",
+      "bank_nip_code": null,
+      "bank_name": "CROWDFORCE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "022",
+      "bank_nip_code": null,
+      "bank_name": "PRISCO MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "024",
+      "bank_nip_code": null,
+      "bank_name": "KINGDOM COLLEGE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "025",
+      "bank_nip_code": null,
+      "bank_name": "RIMA MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "059",
+      "bank_nip_code": null,
+      "bank_name": "CHUKWUNENYE  MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "056",
+      "bank_nip_code": null,
+      "bank_name": "FEDETH MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "055",
+      "bank_nip_code": null,
+      "bank_name": "UNIUYO MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "054",
+      "bank_nip_code": null,
+      "bank_name": "ORAUKWU MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "053",
+      "bank_nip_code": null,
+      "bank_name": "CHUKWUNENYE  MFB"
+    },
+    {
+      "bank_cbn_code": "026",
+      "bank_nip_code": null,
+      "bank_name": "Microsystems "
+    },
+    {
+      "bank_cbn_code": "028",
+      "bank_nip_code": null,
+      "bank_name": "PRISTINE DIVITIS MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "036",
+      "bank_nip_code": null,
+      "bank_name": "ALVANA MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "060",
+      "bank_nip_code": null,
+      "bank_name": "GOODNEWS Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "061",
+      "bank_nip_code": null,
+      "bank_name": "JESSEFIELD Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "062",
+      "bank_nip_code": null,
+      "bank_name": "Legend Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "064",
+      "bank_nip_code": null,
+      "bank_name": "Iperu MFB"
+    },
+    {
+      "bank_cbn_code": "065",
+      "bank_nip_code": null,
+      "bank_name": "Advans La Fayette  MFB"
+    },
+    {
+      "bank_cbn_code": "066",
+      "bank_nip_code": null,
+      "bank_name": "NSUK MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "067",
+      "bank_nip_code": null,
+      "bank_name": "BOJI BOJI MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "071",
+      "bank_nip_code": null,
+      "bank_name": "SHALOM MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "073",
+      "bank_nip_code": null,
+      "bank_name": "ZIKORA MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "074",
+      "bank_nip_code": null,
+      "bank_name": "PROJECTS MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "075",
+      "bank_nip_code": null,
+      "bank_name": "First Royal Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "077",
+      "bank_nip_code": null,
+      "bank_name": "STANDARD MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "078",
+      "bank_nip_code": null,
+      "bank_name": "First Heritage MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "072",
+      "bank_nip_code": null,
+      "bank_name": "TAJ_PINSPAY"
+    },
+    {
+      "bank_cbn_code": "079",
+      "bank_nip_code": null,
+      "bank_name": "Mozfin mfb"
+    },
+    {
+      "bank_cbn_code": "080",
+      "bank_nip_code": null,
+      "bank_name": "Citizen Trust MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "081",
+      "bank_nip_code": null,
+      "bank_name": "Delta Trust Mortgage Bank"
+    },
+    {
+      "bank_cbn_code": "083",
+      "bank_nip_code": null,
+      "bank_name": "PALMCOAST  MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "085",
+      "bank_nip_code": null,
+      "bank_name": "SOLID ALLIANZE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "086",
+      "bank_nip_code": null,
+      "bank_name": "CAPITALMETRIQ SWIFT MFB"
+    },
+    {
+      "bank_cbn_code": "087",
+      "bank_nip_code": null,
+      "bank_name": "Umunnachi Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "088",
+      "bank_nip_code": null,
+      "bank_name": "Clover Leaf Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "089",
+      "bank_nip_code": null,
+      "bank_name": "Midland Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "090",
+      "bank_nip_code": null,
+      "bank_name": "FIMS MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "091",
+      "bank_nip_code": null,
+      "bank_name": "BUBAYERO MICORFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "092",
+      "bank_nip_code": null,
+      "bank_name": " PREMIUMTRUST BANK"
+    },
+    {
+      "bank_cbn_code": "093",
+      "bank_nip_code": null,
+      "bank_name": "MOMO PAYMENT SERVICE BANK"
+    },
+    {
+      "bank_cbn_code": "094",
+      "bank_nip_code": null,
+      "bank_name": "Nigeria PrisonsMicrofinance bank"
+    },
+    {
+      "bank_cbn_code": "095",
+      "bank_nip_code": null,
+      "bank_name": "SEAP Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "069",
+      "bank_nip_code": null,
+      "bank_name": "SMARTCASH PAYMENT SERVICE BANK"
+    },
+    {
+      "bank_cbn_code": "096",
+      "bank_nip_code": null,
+      "bank_name": "UHURU MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "098",
+      "bank_nip_code": null,
+      "bank_name": "HOMEBASE MORTGAGE BANK"
+    },
+    {
+      "bank_cbn_code": "099",
+      "bank_nip_code": null,
+      "bank_name": "IBOMA FADAMA MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "100",
+      "bank_nip_code": null,
+      "bank_name": "SOLIDROCK MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "104",
+      "bank_nip_code": null,
+      "bank_name": "CATLAND MFB"
+    },
+    {
+      "bank_cbn_code": "105",
+      "bank_nip_code": null,
+      "bank_name": "IC-GLOBAL MFB"
+    },
+    {
+      "bank_cbn_code": "106",
+      "bank_nip_code": null,
+      "bank_name": "FORESIGHT MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "107",
+      "bank_nip_code": null,
+      "bank_name": "CRESCENT MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "108",
+      "bank_nip_code": null,
+      "bank_name": "MONEYMASTER PSB"
+    },
+    {
+      "bank_cbn_code": "109",
+      "bank_nip_code": null,
+      "bank_name": "FEWCHORE FINANCE COMPANY LIMITED"
+    },
+    {
+      "bank_cbn_code": "110",
+      "bank_nip_code": null,
+      "bank_name": "OJOKORO MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "111",
+      "bank_nip_code": null,
+      "bank_name": "AFEMAI MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "112",
+      "bank_nip_code": null,
+      "bank_name": "NUMO MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "113",
+      "bank_nip_code": null,
+      "bank_name": "UZONDU MICROFINANCE BANK LIMITED"
+    },
+    {
+      "bank_cbn_code": "114",
+      "bank_nip_code": null,
+      "bank_name": "Fewchore Finance Company Limited"
+    },
+    {
+      "bank_cbn_code": "115",
+      "bank_nip_code": null,
+      "bank_name": "Akwa savings & Loans Limited"
+    },
+    {
+      "bank_cbn_code": "116",
+      "bank_nip_code": null,
+      "bank_name": "Nasarawa Microfinance bank"
+    },
+    {
+      "bank_cbn_code": "117",
+      "bank_nip_code": null,
+      "bank_name": "Isuofia MFB"
+    },
+    {
+      "bank_cbn_code": "118",
+      "bank_nip_code": null,
+      "bank_name": "Boromu Microfinance bank"
+    },
+    {
+      "bank_cbn_code": "119",
+      "bank_nip_code": null,
+      "bank_name": "Borno Renaissance Microfinance bank"
+    },
+    {
+      "bank_cbn_code": "097",
+      "bank_nip_code": null,
+      "bank_name": "RIMA GROWTH PATHWAY MFB"
+    },
+    {
+      "bank_cbn_code": "121",
+      "bank_nip_code": null,
+      "bank_name": "Chase Microfinance bank"
+    },
+    {
+      "bank_cbn_code": "122",
+      "bank_nip_code": null,
+      "bank_name": "Triple A Microfinance bank"
+    },
+    {
+      "bank_cbn_code": "124",
+      "bank_nip_code": null,
+      "bank_name": "Aku MFB"
+    },
+    {
+      "bank_cbn_code": "132",
+      "bank_nip_code": null,
+      "bank_name": "KORAPAY"
+    },
+    {
+      "bank_cbn_code": "126",
+      "bank_nip_code": null,
+      "bank_name": "Capricorn Digital"
+    },
+    {
+      "bank_cbn_code": "127",
+      "bank_nip_code": null,
+      "bank_name": "Resident Fintech Limited"
+    },
+    {
+      "bank_cbn_code": "128",
+      "bank_nip_code": null,
+      "bank_name": "NetApps Technology Limited"
+    },
+    {
+      "bank_cbn_code": "129",
+      "bank_nip_code": null,
+      "bank_name": "SPAY business"
+    },
+    {
+      "bank_cbn_code": "130",
+      "bank_nip_code": null,
+      "bank_name": "Yello Digital financial services"
+    },
+    {
+      "bank_cbn_code": "131",
+      "bank_nip_code": null,
+      "bank_name": "Nomba financial services Limited"
+    },
+    {
+      "bank_cbn_code": "133",
+      "bank_nip_code": null,
+      "bank_name": "IBU-AJE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "134",
+      "bank_nip_code": null,
+      "bank_name": "ARAMOKO MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "135",
+      "bank_nip_code": null,
+      "bank_name": "IKOYI-OSUN MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "136",
+      "bank_nip_code": null,
+      "bank_name": "MGBIDI MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "137",
+      "bank_nip_code": null,
+      "bank_name": "ENRICH MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "138",
+      "bank_nip_code": null,
+      "bank_name": "POLYBADAN MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "139",
+      "bank_nip_code": null,
+      "bank_name": "AZTEC MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "141",
+      "bank_nip_code": null,
+      "bank_name": "CONFIDENCE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "140",
+      "bank_nip_code": null,
+      "bank_name": "BLUEPRINT INVESTMENTS MFB"
+    },
+    {
+      "bank_cbn_code": "142",
+      "bank_nip_code": null,
+      "bank_name": "LOBREM MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "143",
+      "bank_nip_code": null,
+      "bank_name": "RANDALPHA MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "144",
+      "bank_nip_code": null,
+      "bank_name": "eNaira"
+    },
+    {
+      "bank_cbn_code": "145",
+      "bank_nip_code": null,
+      "bank_name": "ROCKSHIELD MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "146",
+      "bank_nip_code": null,
+      "bank_name": "EXCELLENT MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "147",
+      "bank_nip_code": null,
+      "bank_name": "ABULESORO MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "148",
+      "bank_nip_code": null,
+      "bank_name": "SAGE GREY FINANCE LIMITED"
+    },
+    {
+      "bank_cbn_code": "149",
+      "bank_nip_code": null,
+      "bank_name": "PAYSTACK-TITAN"
+    },
+    {
+      "bank_cbn_code": "150",
+      "bank_nip_code": null,
+      "bank_name": "KAYVEE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "151",
+      "bank_nip_code": null,
+      "bank_name": "ALLY MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "152",
+      "bank_nip_code": null,
+      "bank_name": "UDA MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "153",
+      "bank_nip_code": null,
+      "bank_name": "SUPREME MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "154",
+      "bank_nip_code": null,
+      "bank_name": "COUNTY FINANCE LIMITED"
+    },
+    {
+      "bank_cbn_code": "155",
+      "bank_nip_code": null,
+      "bank_name": "Otuo Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "156",
+      "bank_nip_code": null,
+      "bank_name": "TANADI MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "157",
+      "bank_nip_code": null,
+      "bank_name": "ASPIRE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "158",
+      "bank_nip_code": null,
+      "bank_name": "SHIELD MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "159",
+      "bank_nip_code": null,
+      "bank_name": "CONSISTENT TRUST MFB"
+    },
+    {
+      "bank_cbn_code": "160",
+      "bank_nip_code": null,
+      "bank_name": "LIFEGATE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "161",
+      "bank_nip_code": null,
+      "bank_name": "BishopGate Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "162",
+      "bank_nip_code": null,
+      "bank_name": "Oke-Aro Oredegbe Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "163",
+      "bank_nip_code": null,
+      "bank_name": "Cedar Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "164",
+      "bank_nip_code": null,
+      "bank_name": "Orokam Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "165",
+      "bank_nip_code": null,
+      "bank_name": "KC Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "166",
+      "bank_nip_code": null,
+      "bank_name": "ASSET MATRIX MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "167",
+      "bank_nip_code": null,
+      "bank_name": "Shongom Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "168",
+      "bank_nip_code": null,
+      "bank_name": "Ijebu-Ife Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "169",
+      "bank_nip_code": null,
+      "bank_name": "Balera Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "170",
+      "bank_nip_code": null,
+      "bank_name": "Green Energy Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "171",
+      "bank_nip_code": null,
+      "bank_name": "Okuku Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "172",
+      "bank_nip_code": null,
+      "bank_name": "Ilaro Poly Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "173",
+      "bank_nip_code": null,
+      "bank_name": "Iwoama Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "174",
+      "bank_nip_code": null,
+      "bank_name": "AAA FINANCE AND INV. COMPANY LTD"
+    },
+    {
+      "bank_cbn_code": "175",
+      "bank_nip_code": null,
+      "bank_name": "AKUCHUKWU MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "176",
+      "bank_nip_code": null,
+      "bank_name": "FAIRMONEY MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "177",
+      "bank_nip_code": null,
+      "bank_name": "IYERU OKIN MICROFINANCE BANK LTD"
+    },
+    {
+      "bank_cbn_code": "178",
+      "bank_nip_code": null,
+      "bank_name": "BROADVIEW MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "179",
+      "bank_nip_code": null,
+      "bank_name": "GRANT MFB"
+    },
+    {
+      "bank_cbn_code": "180",
+      "bank_nip_code": null,
+      "bank_name": "FORTRESS MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "189",
+      "bank_nip_code": null,
+      "bank_name": "EKIMOGUN MFB"
+    },
+    {
+      "bank_cbn_code": "190",
+      "bank_nip_code": null,
+      "bank_name": "EWT MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "191",
+      "bank_nip_code": null,
+      "bank_name": "FHA MORTGAGE BANK"
+    },
+    {
+      "bank_cbn_code": "189",
+      "bank_nip_code": null,
+      "bank_name": "EKIMOGUN MFB"
+    },
+    {
+      "bank_cbn_code": "190",
+      "bank_nip_code": null,
+      "bank_name": "EWT MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "191",
+      "bank_nip_code": null,
+      "bank_name": "FHA MORTGAGE BANK"
+    },
+    {
+      "bank_cbn_code": "189",
+      "bank_nip_code": null,
+      "bank_name": "EKIMOGUN MFB"
+    },
+    {
+      "bank_cbn_code": "190",
+      "bank_nip_code": null,
+      "bank_name": "EWT MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "191",
+      "bank_nip_code": null,
+      "bank_name": "FHA MORTGAGE BANK"
+    },
+    {
+      "bank_cbn_code": "181",
+      "bank_nip_code": null,
+      "bank_name": "OAU MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "182",
+      "bank_nip_code": null,
+      "bank_name": "IYAMOYE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "183",
+      "bank_nip_code": null,
+      "bank_name": "OCTOPUS MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "184",
+      "bank_nip_code": null,
+      "bank_name": "BRANCH INT. FINANCIAL SERVICES"
+    },
+    {
+      "bank_cbn_code": "185",
+      "bank_nip_code": null,
+      "bank_name": "SNOW MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "186",
+      "bank_nip_code": null,
+      "bank_name": "FIRST MIDAS MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "187",
+      "bank_nip_code": null,
+      "bank_name": "STATESIDE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "188",
+      "bank_nip_code": null,
+      "bank_name": "OTECH MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "192",
+      "bank_nip_code": null,
+      "bank_name": "GBEDE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "193",
+      "bank_nip_code": null,
+      "bank_name": "QUBE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "194",
+      "bank_nip_code": null,
+      "bank_name": "NKPOLU-UST MFB"
+    },
+    {
+      "bank_cbn_code": "195",
+      "bank_nip_code": null,
+      "bank_name": "GOLDMAN MFB"
+    },
+    {
+      "bank_cbn_code": "196",
+      "bank_nip_code": null,
+      "bank_name": "FAST CREDIT LIMITED"
+    },
+    {
+      "bank_cbn_code": "197",
+      "bank_nip_code": null,
+      "bank_name": " IWADE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "198",
+      "bank_nip_code": null,
+      "bank_name": " WAYA MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "199",
+      "bank_nip_code": null,
+      "bank_name": " MICROBIZ MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "204",
+      "bank_nip_code": null,
+      "bank_name": " MKOBO MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "205",
+      "bank_nip_code": null,
+      "bank_name": " EGWAFIN MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "206",
+      "bank_nip_code": null,
+      "bank_name": " Orisun MFB "
+    },
+    {
+      "bank_cbn_code": "207",
+      "bank_nip_code": null,
+      "bank_name": " FUNDQUEST FINANCIAL SERVICES LMT"
+    },
+    {
+      "bank_cbn_code": "208",
+      "bank_nip_code": null,
+      "bank_name": " SIGNATURE BANK"
+    },
+    {
+      "bank_cbn_code": "209",
+      "bank_nip_code": null,
+      "bank_name": " MERCURY MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "211",
+      "bank_nip_code": null,
+      "bank_name": "GABSYN MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "212",
+      "bank_nip_code": null,
+      "bank_name": "KENECHUKWU MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "213",
+      "bank_nip_code": null,
+      "bank_name": "IBA MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "231",
+      "bank_nip_code": null,
+      "bank_name": "OPTIMUS BANK"
+    },
+    {
+      "bank_cbn_code": "334",
+      "bank_nip_code": null,
+      "bank_name": "ENCO FINANCE COMPANY LTD"
+    },
+    {
+      "bank_cbn_code": "335",
+      "bank_nip_code": null,
+      "bank_name": "KANOPOLY MICROFINANCE BANK LIMITED"
+    },
+    {
+      "bank_cbn_code": "336",
+      "bank_nip_code": null,
+      "bank_name": "AVE MARIA MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "337",
+      "bank_nip_code": null,
+      "bank_name": "AVUENEGBE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "338",
+      "bank_nip_code": null,
+      "bank_name": "TEKLA FACTORING AND FINANCE LIMITED"
+    },
+    {
+      "bank_cbn_code": "339",
+      "bank_nip_code": null,
+      "bank_name": "ISLAND MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "341",
+      "bank_nip_code": null,
+      "bank_name": "TASUED MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "342",
+      "bank_nip_code": null,
+      "bank_name": "AKPO MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "343",
+      "bank_nip_code": null,
+      "bank_name": "AMOYE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "344",
+      "bank_nip_code": null,
+      "bank_name": "DIGNITY FINANCE AND INVESTMENT LTD"
+    },
+    {
+      "bank_cbn_code": "345",
+      "bank_nip_code": null,
+      "bank_name": "MEDEF MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "346",
+      "bank_nip_code": null,
+      "bank_name": "UMMAH MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "347",
+      "bank_nip_code": null,
+      "bank_name": "Federal Polytechnic Nekede MFB"
+    },
+    {
+      "bank_cbn_code": "348",
+      "bank_nip_code": null,
+      "bank_name": "BANC CORP MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "349",
+      "bank_nip_code": null,
+      "bank_name": "IBOLO MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "471",
+      "bank_nip_code": null,
+      "bank_name": "BESTSTAR MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "472",
+      "bank_nip_code": null,
+      "bank_name": "RAYYAN MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "473",
+      "bank_nip_code": null,
+      "bank_name": "TRINITY FINANCIAL"
+    },
+    {
+      "bank_cbn_code": "474",
+      "bank_nip_code": null,
+      "bank_name": "MACROD MICROFINANCE BANK LIMITED"
+    },
+    {
+      "bank_cbn_code": "475",
+      "bank_nip_code": null,
+      "bank_name": "FLOURISH MFB"
+    },
+    {
+      "bank_cbn_code": "476",
+      "bank_nip_code": null,
+      "bank_name": "Creditville Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "477",
+      "bank_nip_code": null,
+      "bank_name": "GIDAUNIYAR ALHERI MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "478",
+      "bank_nip_code": null,
+      "bank_name": "MAB ALLIANZ MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "479",
+      "bank_nip_code": null,
+      "bank_name": "KKU Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "480",
+      "bank_nip_code": null,
+      "bank_name": "LEADREMIT LIMITED"
+    },
+    {
+      "bank_cbn_code": "481",
+      "bank_nip_code": null,
+      "bank_name": "SIMPLE FINANCE LIMITED"
+    },
+    {
+      "bank_cbn_code": "482",
+      "bank_nip_code": null,
+      "bank_name": "LUKEFIELD FINANCE COMPANY LIMITED"
+    },
+    {
+      "bank_cbn_code": "483",
+      "bank_nip_code": null,
+      "bank_name": "AMEGY MICROFINANCE BANK LIMITED"
+    },
+    {
+      "bank_cbn_code": "484",
+      "bank_nip_code": null,
+      "bank_name": "E-FINANCE"
+    },
+    {
+      "bank_cbn_code": "485",
+      "bank_nip_code": null,
+      "bank_name": "GABASAWA MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "486",
+      "bank_nip_code": null,
+      "bank_name": "MADOBI MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "487",
+      "bank_nip_code": null,
+      "bank_name": "DAL MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "488",
+      "bank_nip_code": null,
+      "bank_name": "Cardinalstone Finance"
+    },
+    {
+      "bank_cbn_code": "489",
+      "bank_nip_code": null,
+      "bank_name": "KOPO KOPE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "490",
+      "bank_nip_code": null,
+      "bank_name": "TOTAL TRUST MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "491",
+      "bank_nip_code": null,
+      "bank_name": "NSEHE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "492",
+      "bank_nip_code": null,
+      "bank_name": "OHHA MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "493",
+      "bank_nip_code": null,
+      "bank_name": "CASHBRIDGE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "494",
+      "bank_nip_code": null,
+      "bank_name": "GLOBAL INITIATIVE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "495",
+      "bank_nip_code": null,
+      "bank_name": "BRIYTH-COVENANT MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "496",
+      "bank_nip_code": null,
+      "bank_name": "MINJIBIR MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "497",
+      "bank_nip_code": null,
+      "bank_name": "OYAN MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "498",
+      "bank_nip_code": null,
+      "bank_name": "AWACASH MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "499",
+      "bank_nip_code": null,
+      "bank_name": "MABINAS MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "500",
+      "bank_nip_code": null,
+      "bank_name": "BABURA MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "502",
+      "bank_nip_code": null,
+      "bank_name": "TANGALE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "503",
+      "bank_nip_code": null,
+      "bank_name": "SOURCE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "504",
+      "bank_nip_code": null,
+      "bank_name": "UNIFUND MICROFINANCE BANK LIMITED"
+    },
+    {
+      "bank_cbn_code": "505",
+      "bank_nip_code": null,
+      "bank_name": "GREENACRES MICROFINANCE BANK LTD"
+    },
+    {
+      "bank_cbn_code": "506",
+      "bank_nip_code": null,
+      "bank_name": "AMUCHA MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "507",
+      "bank_nip_code": null,
+      "bank_name": "DIOBU MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "508",
+      "bank_nip_code": null,
+      "bank_name": "PROSPERITY MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "509",
+      "bank_nip_code": null,
+      "bank_name": "YOBE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "510",
+      "bank_nip_code": null,
+      "bank_name": "GOMBE MICROFINANCE BANK LIMITED"
+    },
+    {
+      "bank_cbn_code": "513",
+      "bank_nip_code": null,
+      "bank_name": "Kolomoni Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "514",
+      "bank_nip_code": null,
+      "bank_name": "ABSU MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "516",
+      "bank_nip_code": null,
+      "bank_name": "UMUCHUKWU MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "517",
+      "bank_nip_code": null,
+      "bank_name": "WAYA MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "518",
+      "bank_nip_code": null,
+      "bank_name": "CANAAN MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "515",
+      "bank_nip_code": null,
+      "bank_name": "OKENGWE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "519",
+      "bank_nip_code": null,
+      "bank_name": "LEADCITY MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "123",
+      "bank_nip_code": null,
+      "bank_name": "Bankly Microfinance Bank"
+    },
+    {
+      "bank_cbn_code": "520",
+      "bank_nip_code": null,
+      "bank_name": "NEXIM BANK"
+    },
+    {
+      "bank_cbn_code": "521",
+      "bank_nip_code": null,
+      "bank_name": "ODOAKPU MICROFINANCE BANK LIMITED"
+    },
+    {
+      "bank_cbn_code": "522",
+      "bank_nip_code": null,
+      "bank_name": "BUNKURE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "523",
+      "bank_nip_code": null,
+      "bank_name": "ROYAL BLUE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "524",
+      "bank_nip_code": null,
+      "bank_name": "PYRAMID MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "525",
+      "bank_nip_code": null,
+      "bank_name": "MICHAEL OKPARA UNIAGRIC  MCF BANK"
+    },
+    {
+      "bank_cbn_code": "526",
+      "bank_nip_code": null,
+      "bank_name": "CASHRITE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "527",
+      "bank_nip_code": null,
+      "bank_name": "ALTERNATIVE BANK LIMITED"
+    },
+    {
+      "bank_cbn_code": "528",
+      "bank_nip_code": null,
+      "bank_name": "VALE FINANCE LIMITED"
+    },
+    {
+      "bank_cbn_code": "529",
+      "bank_nip_code": null,
+      "bank_name": "AWESOME MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "530",
+      "bank_nip_code": null,
+      "bank_name": "FCMB MFB"
+    },
+    {
+      "bank_cbn_code": "531",
+      "bank_nip_code": null,
+      "bank_name": "UMUCHINEMERE PROCREDIT MFB"
+    },
+    {
+      "bank_cbn_code": "532",
+      "bank_nip_code": null,
+      "bank_name": "BUNDI MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "533",
+      "bank_nip_code": null,
+      "bank_name": "GWONG MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "534",
+      "bank_nip_code": null,
+      "bank_name": "REVELATION MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "535",
+      "bank_nip_code": null,
+      "bank_name": "ENTITY MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "536",
+      "bank_nip_code": null,
+      "bank_name": "KADUPE MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "537",
+      "bank_nip_code": null,
+      "bank_name": "TREASURES MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "538",
+      "bank_nip_code": null,
+      "bank_name": "78 FINANCE COMPANY LIMITED"
+    },
+    {
+      "bank_cbn_code": "539",
+      "bank_nip_code": null,
+      "bank_name": "IMSU MICROFINANCE BANK"
+    },
+    {
+      "bank_cbn_code": "540",
+      "bank_nip_code": null,
+      "bank_name": "LOMA MICROFINANCE BANK"
+    }
+  ]
+}
