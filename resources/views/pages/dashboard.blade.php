@@ -57,7 +57,7 @@
                                     <tbody>
                                     @foreach($latest_transactions as $transaction)
                                         <tr>
-                                            <td><img class="img-fluid img-30 rounded-circle" src="{{ $transaction->service->icon }}" alt="icon"></td>
+                                            <td><img class="img-fluid img-30 rounded-circle" src="{{ $transaction->service->icon ?? "" }}" alt="icon"></td>
                                             <td class="img-content-box">
                                                 <a class="d-block f-w-500" href="#">{{ $transaction->agent->name }}</a>
                                                 <span class="f-light small">{{ $transaction->created_at->diffForHumans() }}</span>

@@ -79,13 +79,12 @@ class GeneralLedger extends Model
     public static function getBalances(): object
     {
         $gls = self::join('services', 'general_ledgers.service_id', 'services.id')->pluck('balance', 'slug');
-
         return (object) [
             'total' => collect($gls)->sum(),
-            'cashout' => $gls['cashoutwithdrawal'],
-            'airtime_data' => $gls['airtime'] + $gls['internetdata'],
-            'bill_payments' => $gls['cabletv'] + $gls['electricity'],
-            'transfer' => $gls['banktransfer']
+            'cashout' => $gls['cashoutwithdrawal'] ?? 0,
+            'airtime_data' => ($gls['airtime'] ?? 0) + ($gls['internetdata'] ?? 0),
+            'bill_payments' => ($gls['cabletv'] ?? 0) + ($gls['electricity'] ?? 0),
+            'transfer' => $gls['banktransfer'] ?? 0
         ];
     }
 }
