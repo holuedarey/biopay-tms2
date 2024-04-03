@@ -20,7 +20,10 @@ class ServiceSeeder extends Seeder
     public function run()
     {
         $spout_services = ['CABLE TV', 'AIRTIME', 'INTERNET DATA', 'ELECTRICITY', 'BANK TRANSFER'];
-        $services = array_merge($spout_services, ['CASHOUT/WITHDRAWAL', 'WALLET TRANSFER', 'FUNDING/INBOUND', 'LOAN']);
+        $airtimeSubService = ['MTN','GLO','AIRTEL', '9MOBILE',];
+        $electricitySubService = ['AEDC','EEDC','EKEDC', 'KEDCO','PHEDC'];
+        $cableSubService = ['DSTV','GOTV','STARTIME'];
+        $services = array_merge($spout_services, $airtimeSubService, $electricitySubService, $cableSubService, ['CASHOUT/WITHDRAWAL', 'WALLET TRANSFER', 'FUNDING/INBOUND', 'LOAN']);
 
         collect($services)->each(function ($service) use ($spout_services) {
             $s = (new Service([

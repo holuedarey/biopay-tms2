@@ -77,7 +77,7 @@ class Fee extends Model
                 ]);
             }
 
-            if (!in_array($service->slug, [$service::AIRTIME, $service::DATA])) {
+            if (!in_array($service->slug, [$service::AIRTIME, $service::DATA, $service::AIRTEL, $service::GLO, $service::MTN,$service::NINEMOBILE, ])) {
                 // Charge fees
                 Fee::upsert([
                     'amount'        => $transfer ? 0 : 10.00,

@@ -25,8 +25,15 @@ class Service extends Model
     use HasFactory, LogsActivity, MustBeApproved;
 
     const AIRTIME = 'airtime';
+    const MTN = 'mtn';
+    const AIRTEL = 'airtel';
+    const GLO = 'glo';
+    const NINEMOBILE = 'airtime';
+
     const DATA = 'internetdata';
     const CABLETV = 'cabletv';
+    const GOTV = 'GOtv';
+    const DSTV = 'dstv';
     const ELECTRICITY = 'electricity';
     const BANKTRANSFER = 'banktransfer';
     const CASHOUT = 'cashoutwithdrawal';
@@ -46,6 +53,7 @@ class Service extends Model
 
     protected static function boot()
     {
+
         parent::boot();
 
         static::creating(fn ($service) => $service->slug = str($service->name)->slug(''));

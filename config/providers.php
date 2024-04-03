@@ -15,18 +15,18 @@ return [
         ]
     ],
 
-    'spout' => [
-        'token' => env('SPOUT_TOKEN'),
-        'key' => env('SPOUT_API_KEY'),
-        'hashed_key' => env('SPOUT_HASHED_KEY'),
-        'email' => 'andywabali@gmail.com',
-        'identifier' => env('SPOUT_IDENTIFIER'),
-        'pin' => env('SPOUT_PIN'),
-        'url' => [
-            'live' => env('SPOUT_URL_LIVE'),
-            'test' => env('SPOUT_URL_TEST'),
-        ]
-    ],
+                    'spout' => [
+                        'token' => env('SPOUT_TOKEN'),
+                        'key' => env('SPOUT_API_KEY'),
+                        'hashed_key' => env('SPOUT_HASHED_KEY'),
+                        'email' => 'andywabali@gmail.com',
+                        'identifier' => env('SPOUT_IDENTIFIER'),
+                        'pin' => env('SPOUT_PIN'),
+                        'url' => [
+                            'live' => env('SPOUT_URL_LIVE'),
+                            'test' => env('SPOUT_URL_TEST'),
+                        ]
+                    ],
 
     'vtpass' => [
         'keys' => [
