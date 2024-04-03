@@ -23,7 +23,7 @@ class ServiceSeeder extends Seeder
         $airtimeSubService = ['MTN','GLO','AIRTEL', '9MOBILE',];
         $electricitySubService = ['AEDC','EEDC','EKEDC', 'KEDCO','PHEDC'];
         $cableSubService = ['DSTV','GOTV','STARTIME'];
-        $services = array_merge($spout_services, $airtimeSubService, $electricitySubService, $cableSubService, ['CASHOUT/WITHDRAWAL', 'WALLET TRANSFER', 'FUNDING/INBOUND', 'LOAN']);
+        $services = array_merge($spout_services, ['CASHOUT/WITHDRAWAL', 'WALLET TRANSFER', 'FUNDING/INBOUND', 'LOAN'], $airtimeSubService, $electricitySubService, $cableSubService);
 
         collect($services)->each(function ($service) use ($spout_services) {
             $s = (new Service([
