@@ -79,34 +79,64 @@ class Fee extends Model
 
             if (!in_array($service->slug, [$service::AIRTIME, $service::DATA])) {
                 // Charge fees
-                Fee::upsert([
+//                Fee::upsert([
+//                    'amount'        => $transfer ? 0 : 10.00,
+//                    'config'        => $config,
+//                    'amount_type'   => $transfer ? self::CONFIG : self::FIXED,
+//                    'group_id'      => $groupId,
+//                    'service_id'    => $service->id,
+//                    'title'         =>  $service->name,
+//                    'cap'           => $transfer ? 50 : 0,
+//                    'type'          => self::CHARGE,
+//                    'created_at'    => now()->toDateTimeString(),
+//                ], [
+//                    'group_id'      => $groupId,
+//                    'service_id'    => $service->id,
+//                ]);
+
+                $s = (new Fee([
                     'amount'        => $transfer ? 0 : 10.00,
                     'config'        => $config,
                     'amount_type'   => $transfer ? self::CONFIG : self::FIXED,
                     'group_id'      => $groupId,
                     'service_id'    => $service->id,
+                    'title'         =>  $service->name,
                     'cap'           => $transfer ? 50 : 0,
                     'type'          => self::CHARGE,
                     'created_at'    => now()->toDateTimeString(),
-                ], [
-                    'group_id'      => $groupId,
-                    'service_id'    => $service->id,
-                ]);
+                ]));
+
+                $s->withoutApproval()->save();
             }
 
             // Commission fees
-            Fee::upsert([
+
+//            Fee::upsert([
+//                'amount'        => 0,
+//                'amount_type'   => self::PERCENT,
+//                'group_id'      => $groupId,
+//                'service_id'    => $service->id,
+//                'cap'           => 0,
+////                'title'         =>  $service->name,
+//                'type'          => self::COMMISSION,
+//                'created_at'    => now()->toDateTimeString(),
+//            ], [
+//                'group_id'      => $groupId,
+//                'service_id'    => $service->id,
+//            ]);
+
+            $s = (new Fee([
                 'amount'        => 0,
                 'amount_type'   => self::PERCENT,
                 'group_id'      => $groupId,
                 'service_id'    => $service->id,
                 'cap'           => 0,
+                'title'         =>  $service->name,
                 'type'          => self::COMMISSION,
                 'created_at'    => now()->toDateTimeString(),
-            ], [
-                'group_id'      => $groupId,
-                'service_id'    => $service->id,
-            ]);
+            ]));
+
+            $s->withoutApproval()->save();
         });
     }
 
