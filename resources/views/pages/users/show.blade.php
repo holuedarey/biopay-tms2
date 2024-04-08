@@ -134,8 +134,9 @@
                     </div>
 
                     <div class="card-body pt-3">
-
                         @if($user->super_agent_id)
+
+
                             <div class="shadow-sm px-3 py-1 rounded mb-3">
                                 <div class="d-flex gap-2">
                                     <p class="me-auto mb-0">
@@ -145,7 +146,7 @@
                                     </p>
                                     <button type="button" class="btn btn-sm bg-light-info px-2 text-info me-2 h-fit"
                                             data-bs-toggle="modal" data-bs-target="#edit-super-agent"
-                                            x-on:click="action = '{{ route('terminals.update', $terminal) }}'"
+                                            x-on:click="action = '{{ route('terminals.update', $terminal || []) }}'"
                                     >
                                         <i class="fa fa-edit"></i> Change
                                     </button>

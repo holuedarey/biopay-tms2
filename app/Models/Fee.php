@@ -94,19 +94,6 @@ class Fee extends Model
                 ]);
             }
 
-            Fee::upsert([
-                'amount'        => $transfer ? 0 : 10.00,
-                'config'        => $config,
-                'amount_type'   => $transfer ? self::CONFIG : self::FIXED,
-                'group_id'      => $groupId,
-                'service_id'    => $service->id,
-                'cap'           => $transfer ? 50 : 0,
-                'type'          => self::CHARGE,
-                'created_at'    => now()->toDateTimeString(),
-            ], [
-                'group_id'      => $groupId,
-                'service_id'    => $service->id,
-            ]);
             // Commission fees
             Fee::upsert([
                 'amount'        => 0,

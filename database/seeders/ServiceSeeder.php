@@ -20,12 +20,12 @@ class ServiceSeeder extends Seeder
     public function run()
     {
         $spout_services = ['CABLE TV', 'AIRTIME', 'INTERNET DATA', 'ELECTRICITY', 'BANK TRANSFER'];
-        $airtimeSubService = ['MTN','GLO','AIRTEL', '9MOBILE',];
-        $electricitySubService = ['AEDC','EEDC','EKEDC', 'KEDCO','PHEDC'];
-        $cableSubService = ['DSTV','GOTV','STARTIME'];
-        $services = array_merge($spout_services, ['CASHOUT/WITHDRAWAL', 'WALLET TRANSFER', 'FUNDING/INBOUND', 'LOAN'], $airtimeSubService, $electricitySubService, $cableSubService);
+        $services = array_merge($spout_services, ['CASHOUT/WITHDRAWAL', 'WALLET TRANSFER', 'FUNDING/INBOUND', 'LOAN', 'MTN','GLO','AIRTEL', '9MOBILE','AEDC','EEDC','EKEDC', 'KEDCO','PHEDC', 'DSTV','GOTV','STARTIME']);
 
         collect($services)->each(function ($service) use ($spout_services) {
+            $airtimeSubService = ['MTN', 'GLO', 'AIRTEL', '9MOBILE',];
+            $electricitySubService = ['AEDC', 'EEDC', 'EKEDC', 'KEDCO', 'PHEDC'];
+            $cableSubService = ['DSTV', 'GOTV', 'STARTIME'];
             $s = (new Service([
                 'name'  => $service,
                 'menu_name' => str($service)->before('/')->value(),
@@ -34,7 +34,7 @@ class ServiceSeeder extends Seeder
 
             $s->withoutApproval()->save();
 
-            if (in_array($service, $spout_services)) {
+            if (in_array($service, [$spout_services, ...$airtimeSubService, ...$electricitySubService, ...$cableSubService])) {
                 $p = ServiceProvider::create([
                     'service_id' => $s->id,
                     'name' => 'Spout',
