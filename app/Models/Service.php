@@ -139,6 +139,11 @@ class Service extends Model
         return self::whereSlug(self::AIRTIME)->first();
     }
 
+    public static function airtimeService($service): static
+    {
+        return self::whereSlug($service)->first();
+    }
+
     public static function internetData(): static
     {
         return self::whereSlug(self::DATA)->first();
