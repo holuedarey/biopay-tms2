@@ -38,7 +38,7 @@ class AirtimePurchase extends Controller
         // save transaction
         $transaction = Transaction::createPendingFor(
             $request->terminal,
-            $service = Service::airtimeService($network),
+            $service = Service::airtime(),
             $amount,
             $amount,
             $reference,
