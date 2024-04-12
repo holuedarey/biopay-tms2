@@ -146,12 +146,12 @@ class User extends Authenticatable
         );
     }
 
-    public function roleType(): Attribute
-    {
-        return Attribute::get(
-            fn($value) => $this->roles->first()->type
-        );
-    }
+//    public function roleType(): Attribute
+//    {
+//        return Attribute::get(
+//            fn($value) => $this->roles->first()->type
+//        );
+//    }
 
     public function isActive(): Attribute
     {
