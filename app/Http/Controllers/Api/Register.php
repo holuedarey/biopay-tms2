@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class Register extends Controller
 {
@@ -32,7 +33,7 @@ class Register extends Controller
             'password' => 'required|confirmed',
         ]);
 
-        $data['super_agent_id'] = User::whereReferralCode($request->get('referral_code'))->first()?->id || 6;
+        $data['super_agent_id'] = !empty($request->get('referral_code')) ? User::whereReferralCode($request->get('referral_code'))->first()?->id: null;
 
         $user = User::create(collect($data)->except(['serial', 'device', 'referral_code'])->toArray());
 
