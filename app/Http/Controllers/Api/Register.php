@@ -32,7 +32,7 @@ class Register extends Controller
             'password' => 'required|confirmed',
         ]);
 
-        $data['super_agent_id'] = User::whereReferralCode($request->get('referral_code'))->first()?->id ?? 6;
+        $data['super_agent_id'] = User::whereReferralCode($request->get('referral_code'))->first()?->id || 6;
 
         $user = User::create(collect($data)->except(['serial', 'device', 'referral_code'])->toArray());
 
