@@ -22,11 +22,13 @@ use App\Http\Controllers\Api\Transactions;
 use App\Http\Controllers\Api\Transfer;
 use App\Http\Controllers\Api\Wallets;
 use App\Http\Controllers\Api\WalletTransactions;
+use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AppUpdate;
 
 Route::prefix('v1')->group(function () {
 
+    Route::get('test',             fn () =>  Service::airtimeService('MTN'));
     Route::post('register',             Register::class);
     Route::post('auth',                 Authenticate::class);
     Route::post('forgot-password',      PasswordResetLink::class);

@@ -28,7 +28,8 @@ class Service extends Model
     const MTN = 'mtn';
     const AIRTEL = 'airtel';
     const GLO = 'glo';
-    const NINEMOBILE = 'airtime';
+    const NINEMOBILE = '9mobile';
+    const ETISALAT = 'etisalat';
 
     const DATA = 'internetdata';
     const CABLETV = 'cabletv';
@@ -261,6 +262,6 @@ class Service extends Model
 
     public function isBillPayment(): bool
     {
-        return in_array($this->slug, [self::AIRTIME, self::DATA, self::CABLETV, self::ELECTRICITY]);
+        return in_array($this->slug, [self::AIRTIME, self::MTN, self::GLO, self::NINEMOBILE, self::ETISALAT, self::AIRTEL, self::DATA, self::CABLETV, self::ELECTRICITY]);
     }
 }
