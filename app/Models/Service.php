@@ -135,6 +135,10 @@ class Service extends Model
         return self::whereSlug(self::CABLETV)->first();
     }
 
+    public static function cableTvService(): static
+    {
+        return self::whereSlug(self::CABLETV)->first();
+    }
     public static function airtime(): static
     {
         return self::whereSlug(self::AIRTIME)->first();
