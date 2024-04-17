@@ -46,9 +46,9 @@ class TerminalGroup extends Model
     public function sharedCommission(Service $service, float $amount): array
     {
         $fee = $this->fees()->whereBelongsTo($service)->whereType(Fee::COMMISSION)->first();
-        Log::error("commison nfor mtn", $fee);
+        Log::error("commison for mtn". json_encode($fee));
         $commission = $fee?->getValue($amount) ?? 0;
-        Log::error("commison nfor mtn", $commission);
+        Log::error("commison nfor mtn " . $commission);
 
         $amount -= $commission;
 
@@ -58,6 +58,7 @@ class TerminalGroup extends Model
             $c = [];
             $c['for_agent'] = ((float) $fee->agent_commission /100) * $commission;
             $c['for_super_agent'] = ((float) $fee->super_agent_commission /100) * $commission;
+            Log::error("commison nfor mtn " . json_encode($c));
 
             return [$c, $amount];
         }

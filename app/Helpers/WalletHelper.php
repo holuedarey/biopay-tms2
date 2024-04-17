@@ -79,9 +79,11 @@ class WalletHelper
                 }
             }
 
+            Log::error("bill payment,". $service->isBillPayment());
+            Log::error("group". !is_null($group));
             if ($service->isBillPayment() && !is_null($group)) {
                 [$commission, $amount] = $group->sharedCommission($service, $amount);
-                Log::error("finnaly,". $commission . ' '. $amount);
+                Log::error("finnaly,". json_encode([$commission, $amount]));
             }
         }
 
