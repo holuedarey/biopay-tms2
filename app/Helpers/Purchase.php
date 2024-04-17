@@ -46,7 +46,7 @@ class Purchase
                 ]);
 
                 // Credit the superagent if there's a commission after debit
-                Log::notice($debit->data);
+                Log::error(json_encode($debit));
                 if ($debit->data['commission']['for_super_agent'] > 0 ) {
                     $wallet->agent->superAgent->wallet->credit(
                         $debit->data['commission']['for_super_agent'],
