@@ -41,6 +41,7 @@ class WalletHelper
 
             [$commission, $charge, $glAmount] = self::getCommission($service, $wallet, $amount, $charge, $group);
 
+            Log::error("printinhg ". json_encode( [$commission, $charge, $glAmount] ));
             DB::transaction(function () use ($wallet, $amount, $service, $reference, $info, $charge, $glAmount){
                 $wallet->debit($amount, $service, 'TRANSACTION', $reference, $info, $glAmount);
 
@@ -69,6 +70,7 @@ class WalletHelper
     {
         $commission = ['for_super_agent' => 0, 'for_agent' => 0];
 
+        Log::error("has super agent". $wallet->agent->hasSuperAgent());
         if ($wallet->agent->hasSuperAgent()) {
             if ($service->isBankTransfer()) {
                 if ($charge > 0 && !is_null($group)) {
@@ -79,6 +81,7 @@ class WalletHelper
 
             if ($service->isBillPayment() && !is_null($group)) {
                 [$commission, $amount] = $group->sharedCommission($service, $amount);
+                Log::error("finnaly,". $commission . ' '. $amount);
             }
         }
 

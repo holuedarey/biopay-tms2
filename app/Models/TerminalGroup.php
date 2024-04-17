@@ -6,6 +6,7 @@ use Cjmellor\Approval\Concerns\MustBeApproved;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Log;
 
 class TerminalGroup extends Model
 {
@@ -45,8 +46,9 @@ class TerminalGroup extends Model
     public function sharedCommission(Service $service, float $amount): array
     {
         $fee = $this->fees()->whereBelongsTo($service)->whereType(Fee::COMMISSION)->first();
-
+        Log::error("commison nfor mtn", $fee);
         $commission = $fee?->getValue($amount) ?? 0;
+        Log::error("commison nfor mtn", $commission);
 
         $amount -= $commission;
 
