@@ -52,7 +52,7 @@ class ElectricityPurchase extends Controller
         $narration = 'Payment for ' . strtoupper($code)  ." electricity bill: $meter - " . moneyFormat($amount);
 
         $group = $request->terminal->group;
-        $charge = $group->charge($service = Service::electricity(), $amount);
+        $charge = $group->charge($service = Service::electricityService($code), $amount);
         $totalAmount = $amount + $charge;
 
         // save transaction

@@ -135,9 +135,9 @@ class Service extends Model
         return self::whereSlug(self::CABLETV)->first();
     }
 
-    public static function cableTvService(): static
+    public static function cableTvService($service): static
     {
-        return self::whereSlug(self::CABLETV)->first();
+        return self::whereSlug($service)->first();
     }
     public static function airtime(): static
     {
@@ -157,6 +157,10 @@ class Service extends Model
     public static function electricity(): static
     {
         return self::whereSlug(self::ELECTRICITY)->first();
+    }
+    public static function electricityService($service): static
+    {
+        return self::whereSlug($service)->first();
     }
 
     public static function bankTransfer(): static

@@ -56,7 +56,7 @@ class CableTvPurchase extends Controller
         $narration = 'Purchase for ' . strtoupper($decoder)  .": $planCode - " . moneyFormat($amount) . " for {$request->account_id}";
 
         $group = $request->terminal->group;
-        $charge = $group->charge($service = Service::cableTv(), $amount);
+        $charge = $group->charge($service = Service::cableTvService($decoder), $amount);
         $totalAmount = $amount + $charge;
 
         // save transaction
