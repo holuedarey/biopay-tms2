@@ -265,7 +265,7 @@ class Spout implements
         $res = Http::spout()->post('transfer/payment', [
             'uniqueId' => $reference,
             'phoneNumber' => request('phone') ?? auth()->user()->phone,
-            'transactionId' => $transaction . request('paymentData')['transactionId'],
+            'transactionId' => $transaction . request('paymentData')['transactionId'].$transaction,
             'paymentMethod' => 'cash',
             'pin' => config('providers.spout.pin'),
             'senderName' => str(request('name'))->append(';' . config('app.name') . ';POS'),
