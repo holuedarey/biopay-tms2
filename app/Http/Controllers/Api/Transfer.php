@@ -83,7 +83,7 @@ class Transfer extends Controller
             $transaction,
             $request->wallet,
             fn() => WalletHelper::processDebit($request->wallet, $amount, $service, $reference, $narration, $charge, $group),
-            fn() => $transferService->transfer($bank_code, $account_number, $amount, $reference, $narration, $bank, $account_name)
+            fn() => $transferService->transfer($bank_code, $account_number, $amount, $reference, $narration, $bank, $account_name, $transaction->id)
         );
     }
 }

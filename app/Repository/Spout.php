@@ -260,12 +260,12 @@ class Spout implements
         return new Result(false, message: $res->spoutError('Account validation failed.'));
     }
 
-    public function transfer(string $code, string $accountNumber, float $amount, string $narration, string $reference, string $bank = null, string $accountName = null): Result
+    public function transfer(string $code, string $accountNumber, float $amount, string $narration, string $reference, string $bank = null, string $accountName = null, $transaction = ""): Result
     {
         $res = Http::spout()->post('transfer/payment', [
             'uniqueId' => $reference,
             'phoneNumber' => request('phone') ?? auth()->user()->phone,
-            'transactionId' => request('paymentData')['transactionId'],
+            'transactionId' => $transaction . request('paymentData')['transactionId'],
             'paymentMethod' => 'cash',
             'pin' => config('providers.spout.pin'),
             'senderName' => str(request('name'))->append(';' . config('app.name') . ';POS'),
