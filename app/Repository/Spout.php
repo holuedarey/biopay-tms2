@@ -263,7 +263,7 @@ class Spout implements
     public function transfer(string $code, string $accountNumber, float $amount, string $narration, string $reference, string $bank = null, string $accountName = null, $transaction = ""): Result
     {
         $res = Http::spout()->post('transfer/payment', [
-            'uniqueId' => $reference,
+            'uniqueId' => request('paymentData')['transactionId'].$transaction,
             'phoneNumber' => request('phone') ?? auth()->user()->phone,
             'transactionId' => $transaction . request('paymentData')['transactionId'].$transaction,
             'paymentMethod' => 'cash',
