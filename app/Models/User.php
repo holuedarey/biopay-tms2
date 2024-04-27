@@ -221,7 +221,7 @@ class User extends Authenticatable
     public function getInitialPassword(): string
     {
         return App::isProduction() ?
-            str($this->phone)->substr(-5)->prepend($this->first_name)->lower() : 'teqtms4231';
+                str($this->phone)->substr(-5)->prepend($this->first_name)->lower() : 'teqtms4231';
     }
 
     public function updateLevel(int $level): void

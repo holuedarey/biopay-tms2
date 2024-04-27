@@ -269,7 +269,7 @@ class Spout implements
             'paymentMethod' => 'cash',
             'pin' => config('providers.spout.pin'),
             'senderName' => str(request('name'))->append(';' . config('app.name') . ';POS'),
-            'narration' => $narration,
+            'narration' => $reference,
             'service' => 'transfer',
         ]);
 
