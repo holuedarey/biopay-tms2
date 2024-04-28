@@ -56,6 +56,7 @@
 
                             <hr class="mt-4">
 
+                            {{$com }}
                             @if($com && $fee->service->isBillPayment())
                                 <div>
                                     <div class="d-flex align-items-center mb-2">
@@ -84,12 +85,12 @@
                                 </div>
                             @else
                                 <div>
+
                                     <div class="d-flex align-items-center mb-2">
                                         Bands Configurations
-                                        <button type="button" @click="addConfig"
+                                        <button type="button" @click="configs.push({'range': '', 'amount': 0})"
                                                 class="btn btn-sm btn-primary w-fit ms-auto px-2 py-0">+ Add</button>
                                     </div>
-
                                     <x-note>To enable configuration, set&nbsp;<span class="fw-medium">Amount Type</span>&nbsp;above to&nbsp;<strong>CONFIG</strong></x-note>
 
                                     <div class="row mt-2 small fw-medium">
@@ -143,23 +144,23 @@
         </div>
     </div>
 @endsection
+{{--@if(!$com)--}}
+{{--    @push('script')--}}
+{{--        --}}
+{{--    @endpush--}}
+{{--@endif--}}
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('edit_fee', () => ({
+            configs: @js($fee->config ?? []),
 
-@if($com)
-    @push('script')
-        <script>
-            document.addEventListener('alpine:init', () => {
-                Alpine.data('edit_fee', () => ({
-                    configs: @js($fee->config ?? []),
+            addConfig() {
+                this.configs.push({'range': '', 'amount': 0});
+            },
 
-                    addConfig() {
-                        this.configs.push({'range': '', 'amount': 0});
-                    },
-
-                    deleteConfig(index) {
-                        this.configs.splice(index, 1)
-                    }
-                }))
-            })
-        </script>
-    @endpush
-@endif
+            deleteConfig(index) {
+                this.configs.splice(index, 1)
+            }
+        }))
+    })
+</script>
