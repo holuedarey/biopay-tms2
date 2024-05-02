@@ -205,9 +205,9 @@ class Spout implements
             'pin' => config('providers.spout.pin'),
         ]);
 
-        Log::error($res);
+        Log::error($res->collect());
         if ($res->isSpoutSuccess()) {
-            return new Result(true, $res->collect(), 'Electricity bill payment successful');
+            return new Result(true, $res, 'Electricity bill payment successful');
         }
 
         return new Result(false, $res->collect(), $res->spoutError('Electricity bill payment failed.'));
