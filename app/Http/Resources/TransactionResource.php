@@ -26,7 +26,7 @@ class TransactionResource extends JsonResource
             'service' => $this->whenLoaded('service', $this->service->name),
             'info'  => $this->info,
             'data'  => $this->meta ?? "",
-            'meta'  => $this->meta->response ?? "",
+            'meta'  => $this->meta->response->details->creditToken ?? "",
             'account_number' => $this->account_number,
             'bank_name' => $this->bank_name,
             'account_name' => $this->account_name,
