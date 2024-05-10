@@ -32,7 +32,7 @@ class Spout implements
 
     public function purchaseAirtime(float $amount, string $phone, string $ref, string $service): Result
     {
-        $res = Http::spout()->post('/airtime/purchase', [
+        $res = Http::timeout('90')->spout()->post('/airtime/purchase', [
             'phoneNumber' => $phone,
             'uniqueId' => $ref,
             'service' => $this->getAirtimeNetwork($service),
