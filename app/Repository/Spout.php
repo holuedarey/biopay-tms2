@@ -342,7 +342,7 @@ class Spout implements
                 'bvn' => $user->bvn
             ]);
 
-        if ($res->isSpoutSuccess()) {
+        if ($res) {
             return VirtualAccount::create([
                 'user_id' => $user->id,
                 'bank_name' => 'VFD',
