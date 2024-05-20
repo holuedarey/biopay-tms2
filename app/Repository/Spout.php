@@ -7,22 +7,27 @@ use App\Contracts\CableTvServiceInterface;
 use App\Contracts\DataServiceInterface;
 use App\Contracts\ElectricityServiceInterface;
 use App\Contracts\TransferServiceInterface;
+use App\Contracts\VirtualAccountInterface;
 use App\Enums\Network;
 use App\Exceptions\FailedApiResponse;
 use App\Helpers\Result;
 use App\Models\Bank;
+use App\Models\User;
+use App\Models\VirtualAccount;
+use Carbon\Carbon;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+use PHPUnit\Framework\ExpectationFailedException;
 
 class Spout implements
     AirtimeServiceInterface,
     DataServiceInterface,
     CableTvServiceInterface,
     ElectricityServiceInterface,
-    TransferServiceInterface
+    VirtualAccountInterface
 {
     public static function name(): string
     {
@@ -325,4 +330,35 @@ class Spout implements
             default => throw new \Exception('Invalid airtime network value.'),
         };
     }
+
+
+    public function createVirtualAccount(User $user): VirtualAccount
+    {
+        $res = Http::withHeaders(Spout::headers())->post("http://139.162.209.150:5010/api/v1/virtual-account-create", [
+                'firstname' => $user->first_name,
+                'lastname' => str($user->other_names)->before(' ')->value(),
+                'dob' => Carbon::parse($user->dob)->toDateString(),
+                'phone' => $user->phone,
+                'bvn' => $user->bvn
+            ]);
+
+        if ($res->isSpoutSuccess()) {
+            return VirtualAccount::create([
+                'user_id' => $user->id,
+                'bank_name' => 'VFD',
+                'account_no' => $res->json('data.accountNo'),
+                'provider' => 'VFD',
+                'meta' => $res->json()
+            ]);
+        }
+
+        Log::error('SPOUT: Virtual Account Creation Failed', [
+            'response' => $res->json(),
+            'user' => $user->only(['id', 'first_name', 'other_names', 'email'])
+        ]);
+
+        throw new ExpectationFailedException($res['message']);
+    }
+
+
 }

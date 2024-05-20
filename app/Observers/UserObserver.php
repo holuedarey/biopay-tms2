@@ -5,6 +5,8 @@ namespace App\Observers;
 use App\Helpers\General;
 use App\Jobs\CreateVirtualAccount;
 use App\Models\User;
+use App\Repository\Spout;
+use App\Repository\Vfd;
 
 class UserObserver
 {
@@ -33,7 +35,7 @@ class UserObserver
 
         dispatch(new CreateVirtualAccount($user));
 
-//        (new Vfd)->createVirtualAccount($user);
+        (new Spout())->createVirtualAccount($user);
 
         dispatch(fn() => $user->sendEmailVerificationNotification());
     }
