@@ -14,7 +14,7 @@ class Banks extends Controller
 
     public function index()
     {
-        Log::error($this->transferService::name());
+        Log::error(json_encode($this->transferService::name()));
 
         start:
         $banks = Bank::whereProvider($this->transferService::name())->orderBy('name')->get();
