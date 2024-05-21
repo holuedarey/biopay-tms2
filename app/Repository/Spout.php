@@ -26,8 +26,7 @@ class Spout implements
     AirtimeServiceInterface,
     DataServiceInterface,
     CableTvServiceInterface,
-    ElectricityServiceInterface,
-    VirtualAccountInterface
+    ElectricityServiceInterface
 {
     public static function name(): string
     {

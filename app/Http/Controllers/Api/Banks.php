@@ -12,19 +12,19 @@ class Banks extends Controller
 {
     public function index(TransferServiceInterface $transferService)
     {
-        \Illuminate\Support\Facades\Log::error($transferService::name());
+        Log::error($transferService::name());
 
-//        start:
-//        $banks = Bank::whereProvider($transferService::name())->orderBy('name')->get();
-//
-//        if ($banks->isEmpty()) {
-//            $res = $transferService->updateBankList();
-//
-//            if ($res->success) goto start;
-//
-//            return MyResponse::failed($res->message);
-//        }
+        start:
+        $banks = Bank::whereProvider($transferService::name())->orderBy('name')->get();
 
-        return MyResponse::success(data: $transferService::name());
+        if ($banks->isEmpty()) {
+            $res = $transferService->updateBankList();
+
+            if ($res->success) goto start;
+
+            return MyResponse::failed($res->message);
+        }
+
+        return MyResponse::success(data: $banks);
     }
 }
