@@ -65,11 +65,6 @@ class Authenticate extends Controller
             return MyResponse::failed("You account is {$user->wallet->status}", code: 403);
         }
 
-        //get Virtual Account Details
-        if(!is_null($user->virtualAccount()) ){
-            (new Spout())->createVirtualAccount($user);
-        }
-
         return MyResponse::success('Terminal authentication successful.', [
             'id'                => $user->id,
             'tid'               => $terminal->tid ?? "",
