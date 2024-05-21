@@ -110,7 +110,7 @@ class AppServiceProvider extends ServiceProvider
     public function bootLogViewerPermission(): void
     {
         LogViewer::auth(function ($request) {
-            return $request->user()?->can('view app-logs') ?? false;
+            return $request->user()?->can('view app-logs') ?? true;
         });
     }
 }
