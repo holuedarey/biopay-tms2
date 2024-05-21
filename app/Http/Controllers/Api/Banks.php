@@ -10,17 +10,17 @@ use Illuminate\Support\Facades\Log;
 
 class Banks extends Controller
 {
-    private TransferServiceInterface $transferService;
+//    private TransferServiceInterface $transferService;
 
-    public function index()
+    public function index(TransferServiceInterface $transferService)
     {
-        Log::error(json_encode($this->transferService::name()));
+        Log::error(json_encode($transferService::name()));
 
         start:
-        $banks = Bank::whereProvider($this->transferService::name())->orderBy('name')->get();
+        $banks = Bank::whereProvider($transferService::name())->orderBy('name')->get();
 
         if ($banks->isEmpty()) {
-            $res = $this->transferService->updateBankList();
+            $res = $transferService->updateBankList();
 
             if ($res->success) goto start;
 
