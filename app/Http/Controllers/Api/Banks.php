@@ -11,9 +11,7 @@ use Illuminate\Support\Facades\Log;
 
 class Banks extends Controller
 {
-//    private TransferServiceInterface $transferService;
-
-    public function index(Request $request, TransferServiceInterface $transferService)
+    public function index(TransferServiceInterface $transferService)
     {
         Log::error(json_encode($transferService::name()));
 
