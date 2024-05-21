@@ -13,9 +13,9 @@ class Banks extends Controller
     public function index(TransferServiceInterface $transferService)
     {
         start:
-        \Illuminate\Support\Facades\Log::notice($transferService::name());
+        \Illuminate\Support\Facades\Log::error($transferService::name());
+
         $banks = Bank::whereProvider($transferService::name())->orderBy('name')->get();
-        \Illuminate\Support\Facades\Log::notice($banks);
 
         if ($banks->isEmpty()) {
             $res = $transferService->updateBankList();
