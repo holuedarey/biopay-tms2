@@ -51,7 +51,7 @@ class Authenticate extends Controller
         }
 
 
-        if ( $terminal->status != 'ACTIVE' ) {
+        if ( isset($terminal->status) && $terminal->status != 'ACTIVE' ) {
             return MyResponse::failed("You terminal is $terminal->status", code: 403);
         }
 
