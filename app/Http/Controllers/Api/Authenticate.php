@@ -61,13 +61,12 @@ class Authenticate extends Controller
             return MyResponse::failed("You account is $user->status", code: 403);
         }
 
-        if ( $user->wallet && $user->wallet->status != 'ACTIVE' ) {
+        if ( !empty($user->wallet) && $user->wallet->status != 'ACTIVE' ) {
             return MyResponse::failed("You account is {$user->wallet->status}", code: 403);
         }
 
         //get Virtual Account Details
         if(!is_null($user->virtualAccount()) ){
-            $userData =  User::whereId($user->getAuthIdentifier());
             (new Spout())->createVirtualAccount($user);
         }
 
