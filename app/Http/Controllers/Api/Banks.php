@@ -6,11 +6,16 @@ use App\Contracts\TransferServiceInterface;
 use App\Helpers\MyResponse;
 use App\Http\Controllers\Controller;
 use App\Models\Bank;
+use Illuminate\Support\Facades\Log;
 
 class Banks extends Controller
 {
+//    private TransferServiceInterface $transferService;
+
     public function index(TransferServiceInterface $transferService)
     {
+        Log::error(json_encode($transferService::name()));
+
         start:
         $banks = Bank::whereProvider($transferService::name())->orderBy('name')->get();
 
