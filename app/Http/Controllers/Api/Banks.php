@@ -6,13 +6,14 @@ use App\Contracts\TransferServiceInterface;
 use App\Helpers\MyResponse;
 use App\Http\Controllers\Controller;
 use App\Models\Bank;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class Banks extends Controller
 {
 //    private TransferServiceInterface $transferService;
 
-    public function index(TransferServiceInterface $transferService)
+    public function index(Request $request, TransferServiceInterface $transferService)
     {
         Log::error(json_encode($transferService::name()));
 
