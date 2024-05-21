@@ -68,7 +68,7 @@ class Authenticate extends Controller
         //get Virtual Account Details
         if(!is_null($user->virtualAccount()) ){
             $userData =  User::whereId($user->getAuthIdentifier());
-            (new Spout())->createVirtualAccount($userData);
+            (new Spout())->createVirtualAccount($user);
         }
 
         return MyResponse::success('Terminal authentication successful.', [
