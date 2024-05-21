@@ -7,7 +7,6 @@ use App\Contracts\CableTvServiceInterface;
 use App\Contracts\DataServiceInterface;
 use App\Contracts\ElectricityServiceInterface;
 use App\Contracts\TransferServiceInterface;
-use App\Contracts\VirtualAccountInterface;
 use App\Enums\Network;
 use App\Exceptions\FailedApiResponse;
 use App\Helpers\Result;
@@ -15,9 +14,7 @@ use App\Models\Bank;
 use App\Models\User;
 use App\Models\VirtualAccount;
 use Carbon\Carbon;
-use Illuminate\Http\Client\Response;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use PHPUnit\Framework\ExpectationFailedException;
@@ -26,7 +23,8 @@ class Spout implements
     AirtimeServiceInterface,
     DataServiceInterface,
     CableTvServiceInterface,
-    ElectricityServiceInterface
+    ElectricityServiceInterface,
+    TransferServiceInterface
 {
     public static function name(): string
     {
