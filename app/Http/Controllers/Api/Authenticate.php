@@ -67,7 +67,7 @@ class Authenticate extends Controller
 
         //get Virtual Account Details
         if(!is_null($user->virtualAccount()) ){
-            $userData =  User::findById($user->getAuthIdentifier());
+            $userData =  User::whereId($user->getAuthIdentifier());
             (new Spout())->createVirtualAccount($userData);
         }
 
