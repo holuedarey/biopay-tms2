@@ -88,11 +88,15 @@ class User extends Authenticatable
         return $this->hasMany(User::class, 'super_agent_id');
     }
 
-    public function wallet(): HasOne
+    public function wallet(): \Illuminate\Database\Eloquent\Collection
     {
-        return $this->hasOne(Wallet::class);
+        return $this->hasOne(Wallet::class)->get(['account_number','bank_name', 'balance', 'unique_id']);
     }
 
+    public function virtualAccount(): HasOne
+    {
+        return $this->hasOne(VirtualAccount::class);
+    }
     public function transactions(): HasMany
     {
         return $this->hasMany(Transaction::class);

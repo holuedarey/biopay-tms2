@@ -83,6 +83,7 @@ class Authenticate extends Controller
             'admin_pin'         => $terminal->admin_pin,
             'address'           => $user->address ?? $terminal->name_location,
             'access_token'      => $user->generateToken($terminal),
+            'account'      => $user->virtualAccount(),
         ]);
     }
 }
