@@ -6,7 +6,7 @@ use App\Contracts\TransferServiceInterface;
 use App\Helpers\MyResponse;
 use App\Http\Controllers\Controller;
 use App\Models\Bank;
-use Opcodes\LogViewer\Logs\Log;
+use Illuminate\Support\Facades\Log;
 
 class Banks extends Controller
 {
