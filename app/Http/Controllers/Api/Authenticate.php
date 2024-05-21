@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Helpers\MyResponse;
 use App\Http\Controllers\Controller;
 use App\Models\Terminal;
+use App\Models\User;
+use App\Repository\Spout;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
@@ -59,8 +61,14 @@ class Authenticate extends Controller
             return MyResponse::failed("You account is $user->status", code: 403);
         }
 
-        if ( $user->wallet->status != 'ACTIVE' ) {
+        if ( $user->wallet && $user->wallet->status != 'ACTIVE' ) {
             return MyResponse::failed("You account is {$user->wallet->status}", code: 403);
+        }
+
+        //get Virtual Account Details
+        if(!is_null($user->virtualAccount()) ){
+            $userData =  User::findById($user->getAuthIdentifier());
+            (new Spout())->createVirtualAccount($userData);
         }
 
         return MyResponse::success('Terminal authentication successful.', [
