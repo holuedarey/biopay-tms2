@@ -1,4 +1,4 @@
-@props(['group' => null, 'user' => null])
+@props(['group' => null, 'user' => null, 'email'=> null])
 <div>
     <x-modal-form id="add-terminal" action="{{ route('terminals.store') }}">
         <x-slot:header> Add New Terminal</x-slot:header>

@@ -90,7 +90,4 @@
     @can('create', \App\Models\Terminal::class)
         <x-terminals.create :$group />
     @endcan
-
-    <x-terminals.edit />
-    <x-terminals.menus />
 </div>
