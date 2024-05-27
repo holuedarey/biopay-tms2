@@ -18,7 +18,7 @@
     @yield('style')
     @stack('style')
   </head>
-  
+
   <body @if(Route::current()->getName() == 'index') onload="startTime()" @elseif (Route::current()->getName() == 'button-builder') class="button-builder" @endif>
     {{--<div class="loader-wrapper">
       <div class="loader-index"><span></span></div>
@@ -45,7 +45,7 @@
         @include('layouts.simple.sidebar')
         <!-- Page Sidebar Ends-->
         <div class="page-body">
-          <div class="container-fluid">        
+          <div class="container-fluid">
             <div class="page-title">
               <div class="row">
                 <div class="col-6">
@@ -68,12 +68,12 @@
           <!-- Container-fluid Ends-->
         </div>
         <!-- footer start-->
-        @include('layouts.simple.footer') 
-        
+        @include('layouts.simple.footer')
+
       </div>
     </div>
     <!-- latest jquery-->
-    @include('layouts.simple.script')  
+    @include('layouts.simple.script')
     <!-- Plugin used-->
 
   </body>

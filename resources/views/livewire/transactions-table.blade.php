@@ -36,6 +36,7 @@
 
                                 @if(in_array($type, ['all', 'single-user']))
                                     <th scope="col">Charge</th>
+                                    <th scope="col">Revenue</th>
                                     <th scope="col">Total</th>
                                     <th scope="col">Service</th>
                                     <th scope="col">Status</th>
@@ -81,6 +82,7 @@
                                     @endif
 
                                     @if(in_array($type, ['all', 'single-user']))
+                                        <td class="text-secondary">@money($transaction->total_amount - $transaction->charge)</td>
                                         <td class="text-secondary">@money($transaction->charge)</td>
 
                                         <td class="text-success">@money($transaction->total_amount)</td>
