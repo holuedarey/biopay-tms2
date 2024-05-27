@@ -85,7 +85,7 @@
                                         <?php $providerFee = providerCharges($transaction->total_amount, $transaction->service->name)?>
                                         {{$providerFee}}
 
-                                        <td class="text-secondary">@money($transaction->total_amount - ($transaction->charge + $providerFee) )</td>
+                                        <td class="text-secondary">@money($transaction->total_amount - ($transaction->charge + 0) )</td>
                                         <td class="text-secondary">@money($transaction->charge)</td>
 
                                         <td class="text-success">@money($transaction->total_amount)</td>
