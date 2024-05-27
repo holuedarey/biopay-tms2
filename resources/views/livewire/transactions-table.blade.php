@@ -82,10 +82,7 @@
                                     @endif
 
                                     @if(in_array($type, ['all', 'single-user']))
-                                        <?php $providerFee = providerCharges($transaction->total_amount, $transaction->service->name)?>
-                                        {{$providerFee}}
-
-                                        <td class="text-secondary">{{($transaction->total_amount - ($transaction->charge + $providerFee) )}}</td>
+                                        <td class="text-secondary">@money($transaction->total_amount - ($transaction->charge + (providerCharges($transaction->total_amount, $transaction->service->name)  ?? 0)) )</td>
                                         <td class="text-secondary">@money($transaction->charge)</td>
 
                                         <td class="text-success">@money($transaction->total_amount)</td>
