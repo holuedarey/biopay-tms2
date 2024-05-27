@@ -13,12 +13,12 @@
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&amp;display=swap" rel="stylesheet">
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defered src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     @include('layouts.simple.css')
     @yield('style')
     @stack('style')
   </head>
-  
+
   <body @if(Route::current()->getName() == 'index') onload="startTime()" @elseif (Route::current()->getName() == 'button-builder') class="button-builder" @endif>
     {{--<div class="loader-wrapper">
       <div class="loader-index"><span></span></div>
@@ -45,7 +45,7 @@
         @include('layouts.simple.sidebar')
         <!-- Page Sidebar Ends-->
         <div class="page-body">
-          <div class="container-fluid">        
+          <div class="container-fluid">
             <div class="page-title">
               <div class="row">
                 <div class="col-6">
@@ -68,12 +68,12 @@
           <!-- Container-fluid Ends-->
         </div>
         <!-- footer start-->
-        @include('layouts.simple.footer') 
-        
+        @include('layouts.simple.footer')
+
       </div>
     </div>
     <!-- latest jquery-->
-    @include('layouts.simple.script')  
+    @include('layouts.simple.script')
     <!-- Plugin used-->
 
   </body>
