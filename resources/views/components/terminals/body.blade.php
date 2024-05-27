@@ -91,4 +91,52 @@
     @can('create', \App\Models\Terminal::class)
         <x-terminals.create :$group />
     @endcan
+    @push('script')
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                console.log('DOM fully loaded and parsed');
+                document.addEventListener('alpine:init', () => {
+                    Alpine.data('terminal_update', () => ({
+                        current_menus: [],
+                        terminal: {},
+                        action: null,
+
+                        new_menu: {},
+                        others: [],
+
+                        async initializeModal(route){
+                            let res = await fetch(route);
+                            let body = await res.json()
+
+                            this.current_menus = body.menus;
+                            this.terminal = body.terminal;
+                            this.action = body.route;
+
+                            this.setAvailableMenus();
+                        },
+
+                        setAvailableMenus() {
+                            let default_menus = @js(app('menus'));
+
+                            this.others = default_menus.filter(
+                                menu1 => !this.current_menus.some(menu2 => menu1.id === menu2.id),
+                            );
+
+                        },
+
+                        addNewMenu() {
+                            this.current_menus.push(this.others[this.new_menu])
+                            this.others.splice(this.new_menu, 1)
+                        },
+
+                        deleteMenu(index) {
+                            this.others.push(this.current_menus[index])
+                            this.current_menus.splice(index, 1)
+                        },
+                    }))
+                })
+            });
+
+        </script>
+    @endpush
 </div>
