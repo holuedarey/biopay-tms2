@@ -83,6 +83,8 @@
 
                                     @if(in_array($type, ['all', 'single-user']))
                                         <?php $providerFee = providerCharges($transaction->total_amount, $transaction->service->name)?>
+                                        {{$providerFee}}
+
                                         <td class="text-secondary">@money($transaction->total_amount - ($transaction->charge + $providerFee) )</td>
                                         <td class="text-secondary">@money($transaction->charge)</td>
 
