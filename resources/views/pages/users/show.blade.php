@@ -186,10 +186,17 @@
                             <div class="shadow-sm p-3 rounded">
                                 <div class="d-flex gap-2">
                                     <p class="me-auto">No terminal for this user...</p>
-                                    <button class="btn btn-sm bg-light-info px-2 txt-info h-fit"
-                                            data-bs-toggle="modal" data-bs-target="#create-terminal"
+{{--                                    <button class="btn btn-sm bg-light-info px-2 txt-info h-fit"--}}
+{{--                                            data-bs-toggle="modal" data-bs-target="#create-terminal"--}}
+{{--                                    >--}}
+{{--                                        <i class="fa fa-plus"></i>--}}
+{{--                                    </button>--}}
+                                    <button type="button"
+                                            class="btn btn-primary btn-hover-effect d-flex justify-content-center align-items-center gap-2 px-3"
+                                            data-bs-toggle="modal" data-bs-target="#add-terminal"
                                     >
-                                        <i class="fa fa-plus"></i>
+                                        <i data-feather="plus-square" style="height: 15px"></i>
+                                        <span>Add New Terminal</span>
                                     </button>
                                 </div>
                             </div>
