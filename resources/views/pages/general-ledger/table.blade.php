@@ -30,7 +30,7 @@
                             <tr class="intro-x">
                                 <td class="whitespace-nowrap">
                                     <a href="{{ $glt->user ? route('users.show', $glt->user) : '#' }}"
-                                       class="tooltip text-blue-600"
+                                       class="text-blue-600"
                                        title="{{ $glt->user?->email }}"
                                     >
                                         {{ ucwords($glt->user?->name) }}
