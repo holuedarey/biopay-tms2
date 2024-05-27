@@ -290,6 +290,7 @@
 {{--                </form>--}}
 {{--            </div>--}}
 {{--        </div>--}}
+        @props(['terminals', 'group' => null])
         @can('create', \App\Models\Terminal::class)
             <x-terminals.create :$group />
         @endcan
