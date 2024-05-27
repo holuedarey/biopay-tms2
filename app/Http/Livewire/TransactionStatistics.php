@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Http\Controllers\Wallets;
 use App\Models\Terminal;
 use App\Models\Transaction;
 use App\Models\WalletTransaction;
@@ -36,7 +37,9 @@ class TransactionStatistics extends Component
             'values' => array_values($stats_chart)
         ]);
 
-        return view('livewire.transaction-statistics', compact(['transactions', 'revenue', 'type', 'services_stats', 'terminals', 'stats_chart']));
+        $total_balance = Wallets::filterByDateDesc($this->filter)->sum('balance');
+
+        return view('livewire.transaction-statistics', compact(['transactions', 'revenue', 'type', 'services_stats', 'terminals', 'stats_chart', 'total_balance']));
     }
 
     public function getDataForChart($data): array
