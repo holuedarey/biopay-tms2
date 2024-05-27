@@ -42,6 +42,15 @@ function moneyFormat(float|null $value, string $symbol = '₦'): string
     );
 }
 
+function providerCharges(float|null $value, string $service): string
+{
+    $value ??= 0;
+
+    //get service charges
+    $serviceharge = 0.13;
+    return number_format($value * $serviceharge, 2);
+}
+
 /**
  * Get the app logo from the env
  * @return object
