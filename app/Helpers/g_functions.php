@@ -42,13 +42,13 @@ function moneyFormat(float|null $value, string $symbol = '₦'): string
     );
 }
 
-function providerCharges(float|null $value, string $service): string
+function providerCharges(float|null $value, string $service): int
 {
     $value ??= 0;
 
     //get service charges
     $serviceCharge = 0.13;
-    return number_format($value * $serviceCharge, 2);
+    return (int) number_format($value * $serviceCharge, 2);
 }
 
 /**
