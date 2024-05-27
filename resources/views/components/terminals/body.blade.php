@@ -86,7 +86,8 @@
         </div>
         <!-- Individual column searching (text inputs) Ends-->
     </div>
-
+    <x-terminals.edit />
+    <x-terminals.menus />
     @can('create', \App\Models\Terminal::class)
         <x-terminals.create :$group />
     @endcan
