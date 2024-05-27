@@ -297,7 +297,7 @@
 {{--                </form>--}}
 {{--            </div>--}}
 {{--        </div>--}}
-        @props(['terminals', 'group' => null])
+        @props(['terminals', 'group' => null, 'email' => $user->email])
         @can('create', \App\Models\Terminal::class)
             <x-terminals.create :$group />
         @endcan
