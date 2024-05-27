@@ -224,7 +224,7 @@
                                             <use href="{{ asset('assets/svg/icon-sprite.svg#income') }}"></use>
                                         </svg>
                                     </div>
-                                    <div> <span class="f-light">Overall Balance</span>
+                                    <div> <span class="f-light">Wallet Balance</span>
                                         <h6 class="mt-1 mb-0">@money($total_balance ?? 0)</h6>
                                     </div>
                                     <div class="ms-auto text-end">
