@@ -4,7 +4,15 @@
         <x-slot:header> Add New Terminal</x-slot:header>
         <div>
             @if($user)
-                <input type="text" name="email" value="{{ $user->email }}">
+                <input type="hidden" name="email" value="{{ $user->email }}">
+            @elseif($email)
+                <div class="mt-3">
+                    <label for="email" class="form-label">Agent's Email</label>
+                    <div class="w-100">
+                        <input id="email" type="email" class="form-control" placeholder="example@gmail.com" name="email" value="{{ $email }}">
+                        <x-input-error input-name="email" />
+                    </div>
+                </div>
             @else
                 <div class="mt-3">
                     <label for="email" class="form-label">Agent's Email</label>
