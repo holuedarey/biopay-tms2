@@ -192,11 +192,10 @@
 {{--                                        <i class="fa fa-plus"></i>--}}
 {{--                                    </button>--}}
                                     <button type="button"
-                                            class="btn btn-primary btn-hover-effect d-flex justify-content-center align-items-center gap-2 px-3"
+                                            class="btn btn-sm bg-light-info px-2 txt-info h-fit"
                                             data-bs-toggle="modal" data-bs-target="#add-terminal"
                                     >
-                                        <i data-feather="plus-square" style="height: 15px"></i>
-                                        <span>Add New Terminal</span>
+                                        <i class="fa fa-plus"></i>
                                     </button>
                                 </div>
                             </div>
@@ -270,33 +269,6 @@
                 </form>
             </div>
         </div>
-
-{{--        <div class="modal fade" id="create-terminal" tabindex="-1" role="dialog" aria-labelledby="ecreate-terminal" aria-hidden="true">--}}
-{{--            <div class="modal-dialog" role="document">--}}
-{{--                <form class="modal-content my-form" action="{{ route('change-super-agent', $user) }}" method="post">--}}
-{{--                    @csrf--}}
-{{--                    <div class="modal-header fw-medium">--}}
-{{--                        Change {{ \App\Models\Role::SUPERAGENT }}--}}
-{{--                        <button class="btn-close py-0" type="button" data-bs-dismiss="modal" aria-label="Close"></button>--}}
-{{--                    </div>--}}
-{{--                    <div class="modal-body">--}}
-{{--                        <p>Enter the referral code of the {{ \App\Models\Role::SUPERAGENT }} you want to assign to this--}}
-{{--                            {{ \App\Models\Role::AGENT }} account.</p>--}}
-{{--                        <div class="mt-3">--}}
-{{--                            <label for="referral_code" class="form-label">Referral Code</label>--}}
-{{--                            <div class="w-100">--}}
-{{--                                <input id="referral_code" type="text" class="form-control" name="referral_code" required>--}}
-{{--                                <x-input-error input-name="referral_code" />--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="modal-footer text-right mt-2">--}}
-{{--                        <button class="btn btn-outline-light" type="button" data-bs-dismiss="modal">Close</button>--}}
-{{--                        <button class="btn btn-primary btn-hover-effect" type="submit">Update</button>--}}
-{{--                    </div>--}}
-{{--                </form>--}}
-{{--            </div>--}}
-{{--        </div>--}}
         @props(['terminals', 'group' => null, 'email' => $user->email])
         @can('create', \App\Models\Terminal::class)
             <x-terminals.create :$group />
