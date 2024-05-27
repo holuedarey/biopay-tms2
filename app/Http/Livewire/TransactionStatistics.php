@@ -37,7 +37,7 @@ class TransactionStatistics extends Component
             'values' => array_values($stats_chart)
         ]);
 
-        $total_balance = Wallet::filterByDateDesc($this->filter)->sum('balance');
+        $total_balance = Wallet::get()->sum('balance');
 
         return view('livewire.transaction-statistics', compact(['transactions', 'revenue', 'type', 'services_stats', 'terminals', 'stats_chart', 'total_balance']));
     }
