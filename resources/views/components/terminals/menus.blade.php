@@ -60,6 +60,7 @@
 @push('script')
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
+            console.log('DOM fully loaded and parsed');
             document.addEventListener('alpine:init', () => {
                 Alpine.data('terminal_update', () => ({
                     current_menus: [],
