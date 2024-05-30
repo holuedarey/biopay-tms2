@@ -228,7 +228,7 @@
                                 </div>
                                 <div class="light-card balance-card widget-hover">
                                     <div> <span class="f-light">Overall Revenue</span>
-                                        <h6 class="mt-1 mb-0">@money(revenue ?? 0)</h6>
+                                        <h6 class="mt-1 mb-0">@money($revenue ?? 0)</h6>
                                     </div>
                                     <div class="ms-auto text-end">
                                         <span class="font-success"><i class="fa fa-circle"></i></span>
