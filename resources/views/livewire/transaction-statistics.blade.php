@@ -219,13 +219,16 @@
                         <div class="row g-sm-4 g-2">
                             <div class="col-xl-12 col-md-4">
                                 <div class="light-card balance-card widget-hover">
-{{--                                    <div class="svg-box">--}}
-{{--                                        <svg class="svg-fill">--}}
-{{--                                            <use href="{{ asset('assets/svg/icon-sprite.svg#income') }}"></use>--}}
-{{--                                        </svg>--}}
-{{--                                    </div>--}}
                                     <div> <span class="f-light">Overall Wallet Balance</span>
                                         <h6 class="mt-1 mb-0">@money($total_balance ?? 0)</h6>
+                                    </div>
+                                    <div class="ms-auto text-end">
+                                        <span class="font-success"><i class="fa fa-circle"></i></span>
+                                    </div>
+                                </div>
+                                <div class="light-card balance-card widget-hover">
+                                    <div> <span class="f-light">Overall Revenue</span>
+                                        <h6 class="mt-1 mb-0">@money(revenue ?? 0)</h6>
                                     </div>
                                     <div class="ms-auto text-end">
                                         <span class="font-success"><i class="fa fa-circle"></i></span>
