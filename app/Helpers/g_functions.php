@@ -47,7 +47,7 @@ function providerCharges(float|null $value, string $service): int
     $value ??= 0;
 
     //get service charges
-    $serviceCharge = 0.13;
+    $serviceCharge = 1;
     return (int) number_format($value * $serviceCharge, 2);
 }
 
