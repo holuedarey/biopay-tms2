@@ -227,7 +227,7 @@
                 </div>
             </div>
         </div>
-        @if(\Illuminate\Support\Facades\Auth::user()->isSuperAgent())
+        @if($use->isSuperAgent())
             <p>Super agent Account</p>
             <div class="row">
                 @if($agents)
