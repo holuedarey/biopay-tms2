@@ -43,6 +43,9 @@ class Users extends Controller
 
         $user->load(['terminals', 'wallet']);
 
+        if($user->isSuperAgent()){
+            $user->load('agents');
+        }
         $transactions = (object) [
             'today' => $user->transactions()->filterByDateDesc('today')->sumAndCount(),
             'week' => $user->transactions()->filterByDateDesc('week')->sumAndCount(),
