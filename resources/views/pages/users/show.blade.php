@@ -229,7 +229,7 @@
         </div>
 
         <div class="row">
-            @if(count($agents))
+            @if(count($agents->toArray()))
                 <h3>Agent List</h3>
                 @foreach($agents as $user)
                     <div class="col-xl-4 col-sm-6 col-xxl-3 col-ed-4 box-col-4">
