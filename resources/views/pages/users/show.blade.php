@@ -230,7 +230,7 @@
 
         <div class="row">
             @if($agents && $user->isSuperAgent())
-                <p class="card px-2 py-4">Agent List</p>
+                <h5 class="mb-0 me-auto">Agent List</h5>
                 @foreach($agents as $user)
                     <div class="col-xl-4 col-sm-6 col-xxl-3 col-ed-4 box-col-4">
                         <div class="card social-profile">
