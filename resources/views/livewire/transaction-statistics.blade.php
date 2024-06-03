@@ -11,7 +11,7 @@
                                 <select wire:model="filter" class="form-select form-control bg-transparent w-50 text-white">
                                     <option value="today">Today</option>
                                     <option value="yesterday">Yesterday</option>
-                                    <option value="week">This week</option>
+                                            <option value="week">This week</option>
                                     <option value="month">This month</option>
                                     <option value="year">This year</option>
                                     <option value="">Overall</option>
