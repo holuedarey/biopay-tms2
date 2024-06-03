@@ -44,7 +44,7 @@ class Users extends Controller
         $user->load(['terminals', 'wallet']);
         $agents = [];
         if($user->isSuperAgent()){
-            $agents = User::where('super_agent_id', $user->getAuthIdentifier());
+            $agents = User::where('super_agent_id', $user->getAuthIdentifier())->get();
         }
         $transactions = (object) [
             'today' => $user->transactions()->filterByDateDesc('today')->sumAndCount(),
