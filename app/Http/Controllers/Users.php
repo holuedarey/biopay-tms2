@@ -42,9 +42,9 @@ class Users extends Controller
         if ($user->isAdmin()) return to_route('users.edit', $user);
 
         $user->load(['terminals', 'wallet']);
-
+        $agents = [];
         if($user->isSuperAgent()){
-            $user->load('agents');
+            $agents = User::where('super_agent_id', $user->getAuthIdentifier());
         }
         $transactions = (object) [
             'today' => $user->transactions()->filterByDateDesc('today')->sumAndCount(),
@@ -53,7 +53,7 @@ class Users extends Controller
             'year' => $user->transactions()->filterByDateDesc('year')->sumAndCount(),
         ];
 
-        return view('pages.users.show', compact('user', 'transactions'));
+        return view('pages.users.show', compact('user', 'transactions', 'agents'));
     }
 
     public function store(RegisterUserRequest $request)
