@@ -227,56 +227,58 @@
                 </div>
             </div>
         </div>
+        @if($user->isSuperAgent())
 
-        <div class="row">
-            @if($agents)
-                <h3>Agent List</h3>
-                @foreach($agents as $user)
-                    <div class="col-xl-4 col-sm-6 col-xxl-3 col-ed-4 box-col-4">
-                        <div class="card social-profile">
-                            <div class="card-body">
-                                <a href="{{ route('users.show', $user) }}" class="d-block">
-                                    <div class="social-img-wrap">
-                                        <div class="social-img"><img src="{{ $user->avatar }}" alt="profile"></div>
-                                        <div class="edit-icon mb-2">
-                                            <div class="bg-white px-1 rounded-circle">
-                                                @switch($user->status)
-                                                    @case('ACTIVE')
-                                                        <i class="fa fa-check-circle text-success"></i>
-                                                        @break
-                                                    @case('SUSPENDED')
-                                                        <i class="fa fa-minus-circle text-warning"></i>
-                                                        @break
-                                                    @default
-                                                        <i class="fa fa-times-circle text-danger"></i>
-                                                @endswitch
+            <div class="row">
+                @if(!$agents->isEmpty())
+                    <h3>Agent List</h3>
+                    @foreach($agents as $user)
+                        <div class="col-xl-4 col-sm-6 col-xxl-3 col-ed-4 box-col-4">
+                            <div class="card social-profile">
+                                <div class="card-body">
+                                    <a href="{{ route('users.show', $user) }}" class="d-block">
+                                        <div class="social-img-wrap">
+                                            <div class="social-img"><img src="{{ $user->avatar }}" alt="profile"></div>
+                                            <div class="edit-icon mb-2">
+                                                <div class="bg-white px-1 rounded-circle">
+                                                    @switch($user->status)
+                                                        @case('ACTIVE')
+                                                            <i class="fa fa-check-circle text-success"></i>
+                                                            @break
+                                                        @case('SUSPENDED')
+                                                            <i class="fa fa-minus-circle text-warning"></i>
+                                                            @break
+                                                        @default
+                                                            <i class="fa fa-times-circle text-danger"></i>
+                                                    @endswitch
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="social-details">
-                                        <h5 class="mb-1"><a href="{{ route('users.show', $user) }}">{{ $user->name }}</a></h5>
-                                        <a href="mailto:{{ $user->email }}" class="f-light">{{ $user->email }}</a>
-                                        <br>
-                                        <a href="tel:{{ $user->phone }}" target="_blank"><i class="fa fa-phone"></i> {{ $user->phone }}</a>
-                                        <ul class="social-follow d-flex justify-content-center">
-                                            <li>
-                                                <x-badge>{{ $user->kycLevel->name }}</x-badge>
-                                            </li>
-                                            <li>
-                                                <x-users.status-badge :$user />
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </a>
+                                        <div class="social-details">
+                                            <h5 class="mb-1"><a href="{{ route('users.show', $user) }}">{{ $user->name }}</a></h5>
+                                            <a href="mailto:{{ $user->email }}" class="f-light">{{ $user->email }}</a>
+                                            <br>
+                                            <a href="tel:{{ $user->phone }}" target="_blank"><i class="fa fa-phone"></i> {{ $user->phone }}</a>
+                                            <ul class="social-follow d-flex justify-content-center">
+                                                <li>
+                                                    <x-badge>{{ $user->kycLevel->name }}</x-badge>
+                                                </li>
+                                                <li>
+                                                    <x-users.status-badge :$user />
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
-            @else
-                <p>No Associated Agent for this Terminal</p>
-            @endif
+                    @endforeach
+                @else
+                    <p>No Associated Agent for this Terminal</p>
+                @endif
 
-        </div>
+            </div>
+        @endif
         <!-- BEGIN: General Statistic -->
         <section>
             <livewire:transactions-table type="single-user" :user="$user" />
