@@ -227,7 +227,7 @@
                 </div>
             </div>
         </div>
-        @if($use->isSuperAgent())
+        @if($user->isSuperAgent())
             <p>Super agent Account</p>
             <div class="row">
                 @if($agents)
