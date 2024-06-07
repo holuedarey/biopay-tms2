@@ -150,8 +150,8 @@
 {{--        --}}
 {{--    @endpush--}}
 {{--@endif--}}
+<script src="../../../../public/assets/js/plugins.bundle" />
 <script>
-    import Alpine from "../../../../public/assets/js/plugins.bundle";
 
     document.addEventListener('alpine:init', () => {
         Alpine.data('edit_fee', () => ({
