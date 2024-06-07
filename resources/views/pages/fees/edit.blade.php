@@ -111,6 +111,7 @@
                                                     <input type="text" class="form-control"
                                                            :name="`config[${i}][range]`"
                                                            x-model="config.range"
+                                                           value="config"
                                                            placeholder="MIN-MAX"
                                                     >
                                                 </div>
