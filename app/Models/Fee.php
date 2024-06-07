@@ -153,7 +153,7 @@ class Fee extends Model
      * @param float $amount
      * @return float
      */
-    public function getValue(float $amount): float
+    public function getValue(float $amount): floatf
     {
         $fee = match ($this->amount_type) {
             self::FIXED => $this->amount,
