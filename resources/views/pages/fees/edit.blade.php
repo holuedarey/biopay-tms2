@@ -143,6 +143,7 @@
             </div>
         </div>
     </div>
+    {{ $fee->config }}
 @endsection
 {{--@if(!$com)--}}
 {{--    @push('script')--}}
@@ -150,6 +151,8 @@
 {{--    @endpush--}}
 {{--@endif--}}
 <script>
+    import Alpine from "../../../../public/assets/js/plugins.bundle";
+
     document.addEventListener('alpine:init', () => {
         Alpine.data('edit_fee', () => ({
             configs: @js($fee->config ?? []),

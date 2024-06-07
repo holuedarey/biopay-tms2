@@ -275,7 +275,6 @@
             @else
                 <p>No Associated Agent for this Terminal</p>
             @endif
-
         </div>
         <!-- BEGIN: General Statistic -->
         <section>
