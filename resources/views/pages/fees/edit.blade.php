@@ -153,7 +153,7 @@
 <script>
     document.addEventListener('alpine:init', () => {
         Alpine.data('edit_fee', () => ({
-            configs: @js($fee->config ?? []),
+            configs: @js(is_string($fee->config) ? json_decode($fee->config) : $fee->config ?? []),
 
             addConfig() {
                 this.configs.push({'range': '', 'amount': 0});
