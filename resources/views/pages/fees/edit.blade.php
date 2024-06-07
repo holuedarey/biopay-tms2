@@ -150,9 +150,7 @@
 {{--        --}}
 {{--    @endpush--}}
 {{--@endif--}}
-<script src="../../../../public/assets/js/plugins.bundle" />
 <script>
-
     document.addEventListener('alpine:init', () => {
         Alpine.data('edit_fee', () => ({
             configs: @js($fee->config ?? []),
