@@ -13,7 +13,7 @@
 @endsection
 
 @section('content')
-    <div class="container-fluid" x-data="edit_fee">
+    <div class="container-fluid" x-data="{edit_fee : @entangle('configs')}">
         <div class="row gap-6 mt-3">
             <div class="col-12 col-xl-7 col-lg-9 col-md-8">
                 <form action="{{ route('fees.update', $fee) }}" class="my-form" method="post">
