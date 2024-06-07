@@ -144,6 +144,7 @@
         </div>
     </div>
     {{ $fee->config }}
+    {{ $com }}
 @endsection
 {{--@if(!$com)--}}
 {{--    @push('script')--}}
