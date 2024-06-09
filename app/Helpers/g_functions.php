@@ -83,7 +83,7 @@ function providerCharges(float|null $charges, float|null $value, string $service
     //get service charges
     $serviceCharge = getAccountType($service);
     if(!empty($serviceCharge)){
-        if($service = 'MTN' || $service == 'GLO' || $service == '9MOBILE'|| $service == 'AIRTEL'){
+        if($service == 'MTN' || $service == 'GLO' || $service == '9MOBILE'|| $service == 'AIRTEL'){
             $serviceCONFIG = Service::whereSlug($service)->first();
             if (!empty($serviceCONFIG->id)){
                 $configCharge = \App\Models\Fee::where('amount', $serviceCONFIG->id)->first();
