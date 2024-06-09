@@ -23,6 +23,7 @@ function providerChargesData()
             ['GOTV' => '0.63'],
             ['STARTIME' =>'0.53'],
             ['TRANSFER' => '10'],
+            ['WITHDRAWAL' => '10'],
         ];
 }
 function searchSubArray(Array $array, $key) {
