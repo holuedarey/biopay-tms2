@@ -82,9 +82,23 @@ function providerCharges(float|null $charges, float|null $value, string $service
 {
     //get service charges
     $serviceCharge = getAccountType($service);
-    if(!empty($serviceCharge))
-        return (($value - ($value * $serviceCharge["{$service}"]))/ 100);
-    return 0;
+    if(!empty($serviceCharge)){
+        if($service = 'MTN' || $service == 'GLO' || $service == '9MOBILE'|| $service == 'AIRTEL'){
+            $serviceCONFIG = Service::airtimeService($service);
+            if (!empty($serviceCONFIG->id)){
+                $configCharge = \App\Models\Fee::where('amount', $serviceCONFIG->id)->first();
+                return  $configCharge->anount - (($value * $serviceCharge["{$service}"]) / 100) ;
+            }
+        }
+        if($service == 'WITHDRAWAL' || $service == 'BANK TRANSFER'){
+            return  $charges - (($value * $serviceCharge["{$service}"]) / 100) ;
+        }else{
+            return (($value - ($value * $serviceCharge["{$service}"]))/ 100);
+        }
+    }else{
+        return 0;
+    }
+
 }
 
 
