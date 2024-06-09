@@ -82,7 +82,7 @@ function providerCharges(float|null $charges, float|null $value, string $service
     //get service charges
     $serviceCharge = getAccountType($service);
     if(!empty($serviceCharge))
-        return ($charges - ($value * $serviceCharge["{$service}"]));
+        return ($value - ($value * $serviceCharge["{$service}"]));
     return 0;
 }
 
