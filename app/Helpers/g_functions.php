@@ -22,7 +22,7 @@ function providerChargesData()
             ['DSTV' => '0.63'],
             ['GOTV' => '0.63'],
             ['STARTIME' =>'0.53'],
-            ['TRANSFER' => '10'],
+            ['BANK TRANSFER' => '10'],
             ['WITHDRAWAL' => '10'],
         ];
 }
