@@ -5,6 +5,41 @@ use App\Enums\Action;
 use App\Enums\Status;
 use App\Models\Service;
 
+function providerChargesData()
+{
+    return
+        [
+            [ 'IBEDC' => '0.16'],
+            ['MTN' => '0.78'],
+            ['GLO' => '1.24'],
+            ['AIRTEL' => '0.80'],
+            ['9MOBILE' => '1.09'],
+            ['AEDC' => '0.49'],
+            ['EEDC' => '0.54'],
+            ['EKEDC' => '0.34'],
+            ['KEDCO' => '0.38'],
+            ['PHEDC' => '0.54'],
+            ['DSTV' => '0.63'],
+            ['GOTV' => '0.63'],
+            ['STARTIME' =>'0.53'],
+            ['TRANSFER' => '10'],
+        ];
+}
+function searchSubArray(Array $array, $key) {
+    foreach ($array as $subarray){
+        if (isset($subarray[$key]))
+            return $subarray;
+    }
+}
+
+function getAccountType($type)
+{
+    if(is_null($type)){
+        return null;
+    }
+
+    return searchSubArray(providerChargesData(), $type);
+}
 /**
  * get the color value for a given status.
  * @param string|Status|Action $value
@@ -42,14 +77,15 @@ function moneyFormat(float|null $value, string $symbol = '₦'): string
     );
 }
 
-function providerCharges(float|null $value, string $service): int
+function providerCharges(float|null $charges, float|null $value, string $service)
 {
-    $value ??= 0;
-
     //get service charges
-    $serviceCharge = 1;
-    return (int) number_format($value * $serviceCharge, 2);
+    $serviceCharge = getAccountType($service);
+    if(!empty($serviceCharge))
+        return ($charges - ($value * $serviceCharge["{$service}"]));
+    return 0;
 }
+
 
 /**
  * Get the app logo from the env

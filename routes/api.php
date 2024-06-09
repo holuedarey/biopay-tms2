@@ -28,7 +28,7 @@ use App\Http\Controllers\Api\AppUpdate;
 
 Route::prefix('v1')->group(function () {
 
-    Route::get('test',             fn () =>  Service::airtimeService('MTN'));
+    Route::get('test',             fn () =>  providerCharges(20, 100, 'IBEDC'));
     Route::post('register',             Register::class);
     Route::post('auth',                 Authenticate::class);
     Route::post('forgot-password',      PasswordResetLink::class);
