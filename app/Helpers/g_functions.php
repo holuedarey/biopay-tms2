@@ -85,7 +85,7 @@ function providerCharges(float|null $charges, float|null $value, string $service
     if(!empty($serviceCharge)){
         if($service == 'MTN' || $service == 'GLO' || $service == '9MOBILE'|| $service == 'AIRTEL'){
             $serviceCONFIG = Service::whereSlug($service)->first();
-            if (!empty($serviceCONFIG->id)){
+            if (!empty($serviceCONFIG)){
                 $configCharge = \App\Models\Fee::where('amount', $serviceCONFIG->id)->first();
                 return  $configCharge->amount - (($value * $serviceCharge[$service]) / 100) ;
             }
