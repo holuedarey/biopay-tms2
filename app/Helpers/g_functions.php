@@ -87,7 +87,7 @@ function providerCharges(float|null $charges, float|null $value, string $service
             $serviceCONFIG = Service::whereSlug($service)->first();
             if (!empty($serviceCONFIG->id)){
                 $configCharge = \App\Models\Fee::where('amount', $serviceCONFIG->id)->first();
-                return  $configCharge->anount - (($value * $serviceCharge[$service]) / 100) ;
+                return  $configCharge->amount - (($value * $serviceCharge[$service]) / 100) ;
             }
         }
         if($service == 'WITHDRAWAL' || $service == 'BANK TRANSFER'){
