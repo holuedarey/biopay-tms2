@@ -87,7 +87,7 @@ function providerCharges(float|null $charges, float|null $value, string $service
             $serviceCONFIG = Service::whereSlug($service)->first();
             \Illuminate\Support\Facades\Log::error(json_encode($serviceCONFIG));
             if (!empty($serviceCONFIG)){
-                $configCharge = \App\Models\Fee::where('amount', $serviceCONFIG->id)->first();
+                $configCharge = \App\Models\Fee::where('service_id', $serviceCONFIG->id)->first();
                 return  $configCharge->amount - (($value * $serviceCharge[$service]) / 100) ;
             }
         }
