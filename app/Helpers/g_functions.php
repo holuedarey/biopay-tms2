@@ -89,6 +89,7 @@ function providerCharges(float|null $charges, float|null $value, string $service
             if (!empty($serviceCONFIG)){
                 $configCharge = \App\Models\Fee::where('service_id', $serviceCONFIG->id)->first();
                 if ( $service == 'WITHDRAWAL' || $service == 'BANK TRANSFER'){
+                    \Illuminate\Support\Facades\Log::error($configCharge->amount_type);
                     if ($configCharge->amount_type == \App\Models\Fee::FIXED){
                         return $configCharge->amount - $serviceCharge[$service];
                     } else if ($configCharge->amount_type == \App\Models\Fee::PERCENT){
