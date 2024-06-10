@@ -92,7 +92,7 @@ function providerCharges(float|null $charges, float|null $value, string $service
                     if ($configCharge->amount_type == \App\Models\Fee::FIXED){
                         return $configCharge->amount - $serviceCharge[$service];
                     } else if ($configCharge->amount_type == \App\Models\Fee::PERCENT){
-                        return  $configCharge->amount - (($value * $serviceCharge[$service]) / 100);
+                        return  $configCharge->amount - (($value * $serviceCharge[$service]) / 100) > $configCharge->cap ? $configCharge->cap :  (($value * $serviceCharge[$service]) / 100);
                     } else if ($configCharge->amount_type == \App\Models\Fee::CONFIG){
                         $config = is_string($configCharge->config)  ? json_decode($configCharge->config) : $configCharge->config;
                         foreach ($config as $conf){
