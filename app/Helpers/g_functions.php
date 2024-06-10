@@ -85,9 +85,12 @@ function providerCharges(float|null $charges, float|null $value, string $service
     if(!empty($serviceCharge)){
         if($service == 'MTN' || $service == 'GLO' || $service == '9MOBILE'|| $service == 'AIRTEL' || $service == 'WITHDRAWAL' || $service == 'BANK TRANSFER'){
             $serviceCONFIG = Service::whereSlug($service)->first();
-            \Illuminate\Support\Facades\Log::error(json_encode($serviceCONFIG));
+            //todo handle fixed, percentage and config
             if (!empty($serviceCONFIG)){
                 $configCharge = \App\Models\Fee::where('service_id', $serviceCONFIG->id)->first();
+                if ( $service == 'WITHDRAWAL' || $service == 'BANK TRANSFER'){
+                    return  ($configCharge->amount_type == \App\Models\Fee::FIXED ? $configCharge->amount - $serviceCharge[$service]  : $configCharge->amount - (($value * $serviceCharge[$service]) / 100));
+                }
                 return  $configCharge->amount - (($value * $serviceCharge[$service]) / 100) ;
             }
         }else{
