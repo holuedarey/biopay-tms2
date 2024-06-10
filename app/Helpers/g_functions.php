@@ -84,7 +84,7 @@ function providerCharges(float|null $charges, float|null $value, string $service
     $serviceCharge = getAccountType($service);
     if(!empty($serviceCharge)){
         if($service == 'MTN' || $service == 'GLO' || $service == '9MOBILE'|| $service == 'AIRTEL' || $service == 'WITHDRAWAL' || $service == 'BANK TRANSFER'){
-            $serviceCONFIG = Service::whereSlug($service)->first();
+            $serviceCONFIG = Service::whereName($service)->first();
             //todo handle fixed, percentage and config
             \Illuminate\Support\Facades\Log::error($serviceCONFIG);
 
