@@ -86,16 +86,14 @@ function providerCharges(float|null $charges, float|null $value, string $service
         if($service == 'MTN' || $service == 'GLO' || $service == '9MOBILE'|| $service == 'AIRTEL' || $service == 'WITHDRAWAL' || $service == 'BANK TRANSFER'){
             $serviceCONFIG = Service::whereName($service)->first();
             //todo handle fixed, percentage and config
-            \Illuminate\Support\Facades\Log::error($serviceCONFIG);
 
             if (!empty($serviceCONFIG)){
                 $configCharge = \App\Models\Fee::where('service_id', $serviceCONFIG->id)->first();
                 if ( $service == 'WITHDRAWAL' || $service == 'BANK TRANSFER'){
-                    \Illuminate\Support\Facades\Log::error($configCharge->amount_type);
                     if ($configCharge->amount_type == \App\Models\Fee::FIXED){
                         return $configCharge->amount - $serviceCharge[$service];
                     } else if ($configCharge->amount_type == \App\Models\Fee::PERCENT){
-                        return  $configCharge->amount - (($value * $serviceCharge[$service]) / 100) > $configCharge->cap ? $configCharge->cap :  (($value * $serviceCharge[$service]) / 100);
+                        return  (min(($value * $configCharge->amount), $configCharge->cap)) - $serviceCharge[$service];
                     } else if ($configCharge->amount_type == \App\Models\Fee::CONFIG){
                         $config = is_string($configCharge->config)  ? json_decode($configCharge->config) : $configCharge->config;
                         foreach ($config as $conf){
