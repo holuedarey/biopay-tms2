@@ -89,7 +89,21 @@ function providerCharges(float|null $charges, float|null $value, string $service
             if (!empty($serviceCONFIG)){
                 $configCharge = \App\Models\Fee::where('service_id', $serviceCONFIG->id)->first();
                 if ( $service == 'WITHDRAWAL' || $service == 'BANK TRANSFER'){
-                    return  ($configCharge->amount_type == \App\Models\Fee::FIXED ? $configCharge->amount - $serviceCharge[$service]  : $configCharge->amount - (($value * $serviceCharge[$service]) / 100));
+                    if ($configCharge->amount_type == \App\Models\Fee::FIXED){
+                        return $configCharge->amount - $serviceCharge[$service];
+                    } else if ($configCharge->amount_type == \App\Models\Fee::PERCENT){
+                        return  $configCharge->amount - (($value * $serviceCharge[$service]) / 100);
+                    } else if ($configCharge->amount_type == \App\Models\Fee::CONFIG){
+                        $config = is_string($configCharge->config)  ? json_decode($configCharge->config) : $configCharge->config;
+                        foreach ($config as $conf){
+                            $split = explode('-', $conf['range']);
+                            if ($value > $split[0] && $value < $split[1] ){
+                                return $conf['amount'] - $serviceCharge[$service];
+                            }
+                            break;
+                        }
+                        return  $configCharge->amount - $serviceCharge[$service];
+                    }
                 }
                 return  $configCharge->amount - (($value * $serviceCharge[$service]) / 100) ;
             }
