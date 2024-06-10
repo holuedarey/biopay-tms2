@@ -99,9 +99,9 @@ function providerCharges(float|null $charges, float|null $value, string $service
                     } else if ($configCharge->amount_type == \App\Models\Fee::CONFIG){
                         $config = is_string($configCharge->config)  ? json_decode($configCharge->config) : $configCharge->config;
                         foreach ($config as $conf){
-                            $split = explode('-', $conf['range']);
+                            $split = explode('-', $conf->range);
                             if ($value > $split[0] && $value < $split[1] ){
-                                return $conf['amount'] - $serviceCharge[$service];
+                                return $conf->amount - $serviceCharge[$service];
                             }
                             break;
                         }
