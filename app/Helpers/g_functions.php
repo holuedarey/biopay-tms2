@@ -83,33 +83,28 @@ function providerCharges(float|null $charges, float|null $value, string $service
     //get service charges
     $serviceCharge = getAccountType($service);
     if(!empty($serviceCharge)){
-        if($service == 'MTN' || $service == 'GLO' || $service == '9MOBILE'|| $service == 'AIRTEL' || $service == 'WITHDRAWAL' || $service == 'BANK TRANSFER'){
-            $serviceCONFIG = Service::whereName($service)->first();
-            //todo handle fixed, percentage and config
-
-            if (!empty($serviceCONFIG)){
-                $configCharge = \App\Models\Fee::where('service_id', $serviceCONFIG->id)->first();
-                if ( $service == 'WITHDRAWAL' || $service == 'BANK TRANSFER'){
-                    if ($configCharge->amount_type == \App\Models\Fee::FIXED){
-                        return $configCharge->amount - $serviceCharge[$service];
-                    } else if ($configCharge->amount_type == \App\Models\Fee::PERCENT){
-                        return  (min(($value * $configCharge->amount), $configCharge->cap)) - $serviceCharge[$service];
-                    } else if ($configCharge->amount_type == \App\Models\Fee::CONFIG){
-                        $config = is_string($configCharge->config)  ? json_decode($configCharge->config) : $configCharge->config;
-                        foreach ($config as $conf){
-                            $split = explode('-', $conf->range);
-                            if ($value > $split[0] && $value < $split[1] ){
-                                return $conf->amount - $serviceCharge[$service];
-                            }
-                            break;
+        $serviceCONFIG = Service::whereName($service)->first();
+        if (!empty($serviceCONFIG)){
+            $configCharge = \App\Models\Fee::where('service_id', $serviceCONFIG->id)->where('type', \App\Models\Fee::CHARGE)->first();
+            if ( $service == 'WITHDRAWAL' || $service == 'BANK TRANSFER'){
+                if ($configCharge->amount_type == \App\Models\Fee::FIXED){
+                    return $configCharge->amount - $serviceCharge[$service];
+                } else if ($configCharge->amount_type == \App\Models\Fee::PERCENT){
+                    return  (min(($value * $configCharge->amount), $configCharge->cap)) - $serviceCharge[$service];
+                } else if ($configCharge->amount_type == \App\Models\Fee::CONFIG){
+                    $config = is_string($configCharge->config)  ? json_decode($configCharge->config) : $configCharge->config;
+                    foreach ($config as $conf){
+                        $split = explode('-', $conf->range);
+                        if ($value > $split[0] && $value < $split[1] ){
+                            return $conf->amount - $serviceCharge[$service];
                         }
-                        return  $configCharge->amount - $serviceCharge[$service];
+                        break;
                     }
                 }
+            }else{
+                $configCharge = \App\Models\Fee::where('service_id', $serviceCONFIG->id)->where('type', \App\Models\Fee::COMMISSION)->first();
                 return  $configCharge->amount - (($value * $serviceCharge[$service]) / 100) ;
             }
-        }else{
-            return 0;
         }
     }else{
         return 0;
