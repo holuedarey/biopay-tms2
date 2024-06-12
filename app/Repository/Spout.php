@@ -333,11 +333,13 @@ class Spout implements
     {
 
         $res = Http::withHeaders([ 'Authorization' => 'Bearer ' .config('providers.spout.token') ])->post("http://139.162.209.150:5010/api/v1/virtual-account-create", [
-                'firstname' => $user->first_name,
-                'lastname' => str($user->other_names)->before(' ')->value(),
+                'firstName' => $user->first_name,
+                'lastName' => str($user->other_names)->before(' ')->value(),
                 'dateOfBirth' => Carbon::parse($user->dob)->toDateString(),
-                'phone' => $user->phone,
-                'bvn' => $user->bvn
+                'phoneNumber' => $user->phone,
+                'bvn' => $user->bvn,
+                "walletId" =>"159795503",
+
             ]);
 
         if ($res) {
