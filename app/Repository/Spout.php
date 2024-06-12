@@ -335,7 +335,7 @@ class Spout implements
         $res = Http::withHeaders([ 'Authorization' => 'Bearer ' .config('providers.spout.token') ])->post("http://139.162.209.150:5010/api/v1/virtual-account-create", [
                 'firstname' => $user->first_name,
                 'lastname' => str($user->other_names)->before(' ')->value(),
-                'dob' => Carbon::parse($user->dob)->toDateString(),
+                'dateOfBirth' => Carbon::parse($user->dob)->toDateString(),
                 'phone' => $user->phone,
                 'bvn' => $user->bvn
             ]);
