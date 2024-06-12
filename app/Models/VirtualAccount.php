@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Collection;
 
-class VirtualAccount extends Model
+class   VirtualAccount extends Model
 {
     use HasFactory;
 
