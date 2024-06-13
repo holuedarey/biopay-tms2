@@ -86,6 +86,7 @@ class Authenticate extends Controller
             'address'           => $user->address ?? $terminal->name_location,
             'access_token'      => $user->generateToken($terminal ?? []),
             'account'           => $user->virtualAccount,
+            'consent_url'           => $user->consent_url,
         ]);
     }
 }
