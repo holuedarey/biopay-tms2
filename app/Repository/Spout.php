@@ -7,6 +7,7 @@ use App\Contracts\CableTvServiceInterface;
 use App\Contracts\DataServiceInterface;
 use App\Contracts\ElectricityServiceInterface;
 use App\Contracts\TransferServiceInterface;
+use App\Contracts\VirtualAccountInterface;
 use App\Enums\Network;
 use App\Exceptions\FailedApiResponse;
 use App\Helpers\Result;
@@ -24,7 +25,8 @@ class Spout implements
     DataServiceInterface,
     CableTvServiceInterface,
     ElectricityServiceInterface,
-    TransferServiceInterface
+    TransferServiceInterface,
+    VirtualAccountInterface
 {
     public static function name(): string
     {

@@ -35,6 +35,7 @@ class UserObserver
 
         dispatch(new CreateVirtualAccount($user));
 
+//        (new Spout())->createVirtualAccount($user);
 
         dispatch(fn() => $user->sendEmailVerificationNotification());
     }
