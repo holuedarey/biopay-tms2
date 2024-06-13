@@ -332,7 +332,7 @@ class Spout implements
     public function createVirtualAccount(User $user): VirtualAccount
     {
 
-        $res = Http::withHeaders([ 'Authorization' => 'Bearer ' .config('providers.spout.token') ])->post("http://139.162.209.150:5010/api/v1/virtual-account-create", [
+        $res = Http::withHeaders(Spout::headers())->post("http://139.162.209.150:5010/api/v1/virtual-account-create", [
                 'firstName' => $user->first_name,
                 'lastName' => str($user->other_names)->before(' ')->value(),
                 'dateOfBirth' => Carbon::parse($user->dob)->toDateString(),
@@ -343,13 +343,15 @@ class Spout implements
             ]);
 
         if ($res) {
-            return VirtualAccount::create([
-                'user_id' => $user->id,
-                'bank_name' => 'VFD',
-                'account_no' => $res->json('data.accountNo'),
-                'provider' => 'VFD',
-                'meta' => $res->json()
-            ]);
+            $user->consent_url = $res->json('url');
+            $user->save();
+//            return VirtualAccount::create([
+//                'user_id' => $user->id,
+//                'bank_name' => 'VFD',
+//                'account_no' => $res->json('data.accountNo'),
+//                'provider' => 'VFD',
+//                'meta' => $res->json()
+//            ]);
         }
 
         Log::error('SPOUT: Virtual Account Creation Failed', [
