@@ -25,8 +25,7 @@ class Spout implements
     DataServiceInterface,
     CableTvServiceInterface,
     ElectricityServiceInterface,
-    TransferServiceInterface,
-    VirtualAccountInterface
+    TransferServiceInterface
 {
     public static function name(): string
     {

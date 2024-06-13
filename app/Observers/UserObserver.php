@@ -33,9 +33,9 @@ class UserObserver
     {
         $user->wallet()->create();
 
-        dispatch((new Spout())->createVirtualAccount($user));
+//        dispatch(new CreateVirtualAccount($user));
 
-//        (new Spout())->createVirtualAccount($user);
+        (new Spout())->createVirtualAccount($user);
 
         dispatch(fn() => $user->sendEmailVerificationNotification());
     }
