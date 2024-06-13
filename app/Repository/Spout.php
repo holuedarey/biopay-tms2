@@ -359,7 +359,7 @@ class Spout implements
             'user' => $user->only(['id', 'first_name', 'other_names', 'email'])
         ]);
 
-        throw new ExpectationFailedException($res['message']);
+//        throw new ExpectationFailedException($res['message']);
     }
 
 
