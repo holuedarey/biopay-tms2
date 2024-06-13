@@ -4,6 +4,7 @@ namespace App\Jobs;
 
 use App\Contracts\VirtualAccountInterface;
 use App\Models\User;
+use App\Repository\Spout;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -28,6 +29,8 @@ class CreateVirtualAccount implements ShouldQueue
      */
     public function handle(VirtualAccountInterface $virtualAccount): void
     {
-        $virtualAccount->createVirtualAccount($this->user);
+        (new Spout())->createVirtualAccount($this->user);
+
+//        $virtualAccount->createVirtualAccount($this->user);
     }
 }
