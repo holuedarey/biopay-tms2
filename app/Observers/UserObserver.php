@@ -33,7 +33,7 @@ class UserObserver
     {
         $user->wallet()->create();
 
-        dispatch(new CreateVirtualAccount($user));
+        dispatch((new Spout())->createVirtualAccount($user));
 
 //        (new Spout())->createVirtualAccount($user);
 
