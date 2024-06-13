@@ -343,13 +343,15 @@ class Spout implements
             ]);
 
         if ($res) {
-            return VirtualAccount::create([
-                'user_id' => $user->id,
-                'bank_name' => 'VFD',
-                'account_no' => $res->json('data.accountNo'),
-                'provider' => 'VFD',
-                'meta' => $res->json()
-            ]);
+            $user->consent_url = $res->json('url');
+            $user->save();
+//            return VirtualAccount::create([
+//                'user_id' => $user->id,
+//                'bank_name' => 'VFD',
+//                'account_no' => $res->json('data.accountNo'),
+//                'provider' => 'VFD',
+//                'meta' => $res->json()
+//            ]);
         }
 
         Log::error('SPOUT: Virtual Account Creation Failed', [
