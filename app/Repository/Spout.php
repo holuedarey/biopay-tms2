@@ -343,7 +343,7 @@ class Spout implements
             ]);
 
         if ($res) {
-            $user->consent_url = $res->json('url');
+            $user->consent_url = $res->json('url') ?? "";
             $user->save();
 //            return VirtualAccount::create([
 //                'user_id' => $user->id,
