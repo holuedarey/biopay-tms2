@@ -13,5 +13,5 @@ interface VirtualAccountInterface
      * @param User $user
      * @return VirtualAccount With keys of <b>account_no</b> and <b>bank_name</b>.
      */
-    public function createVirtualAccount(User $user): mixed;
+    public function createVirtualAccount(User $user);
 }
