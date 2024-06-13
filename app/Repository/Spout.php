@@ -331,7 +331,7 @@ class Spout implements
     }
 
 
-    public function createVirtualAccount(User $user): VirtualAccount
+    public function createVirtualAccount(User $user): mixed
     {
 
         $res = Http::withHeaders(Spout::headers())->post("http://139.162.209.150:5010/api/v1/virtual-account-create", [
