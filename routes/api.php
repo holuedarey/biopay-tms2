@@ -1,5 +1,6 @@
 <?php
 
+use App\Helpers\MyResponse;
 use App\Http\Controllers\Api\AddBvn;
 use App\Http\Controllers\Api\AirtimePurchase;
 use App\Http\Controllers\Api\Authenticate;
@@ -32,6 +33,8 @@ Route::prefix('v1')->group(function () {
     Route::get('test',             fn () =>  providerCharges(20, 100, 'IBEDC'));
     Route::post('release-account',             function(Request $request) {
         \Illuminate\Support\Facades\Log::error(json_encode($request->all()));
+        return MyResponse::success('Account Release successfully');
+
     });
     Route::post('register',             Register::class);
     Route::post('auth',                 Authenticate::class);
