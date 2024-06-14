@@ -220,9 +220,12 @@
                             </p>
                         </div>
 
-                        <div class="text-center mt-4">
-                            <p class="px-4"><a href="{{ $user->consent_url }} " class="btn btn-sm bg-light-info px-2 txt-info h-fit">Activate Account</a></p>
-                        </div>
+                        @if(!empty($user->consent_url))
+                            <div class="text-center mt-4">
+                                <p class="px-4"><a href="{{ $user->consent_url }} " class="btn btn-sm bg-light-info px-2 txt-info h-fit">Activate Account</a></p>
+                            </div>
+                        @endif
+
                     </div>
                 </div>
             </div>
