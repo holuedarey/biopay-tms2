@@ -33,6 +33,13 @@ Route::prefix('v1')->group(function () {
     Route::get('test',             fn () =>  providerCharges(20, 100, 'IBEDC'));
     Route::post('release-account',             function(Request $request) {
         \Illuminate\Support\Facades\Log::error(json_encode($request->all()));
+        $virtual_account  = \App\Models\VirtualAccount::create([
+                'user_id' => $request->userId,
+                'bank_name' => $request->bankName,
+                'account_no' => $request->accountNo,
+                'provider' => 'VFD',
+                'meta' => $request
+            ]);
         return MyResponse::success('Account Release successfully');
 
     });
