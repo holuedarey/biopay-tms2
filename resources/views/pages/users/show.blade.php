@@ -220,8 +220,8 @@
                             </p>
                         </div>
 
-                        <div class="text-center mt-1">
-                            <p><a href="{{ $user->consent_url }}">Activate Account</a></p>
+                        <div class="text-center mt-4">
+                            <p><a href="{{ $user->consent_url }} " class="btn btn-sm bg-light-info px-2 txt-info h-fit">Activate Account</a></p>
                         </div>
                     </div>
                 </div>
