@@ -221,7 +221,7 @@
                         </div>
 
                         <div class="text-center mt-1">
-
+                            <p><a href="{{ $user->consent_url }}">Activate Account</a></p>
                         </div>
                     </div>
                 </div>
