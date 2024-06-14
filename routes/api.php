@@ -25,10 +25,14 @@ use App\Http\Controllers\Api\WalletTransactions;
 use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AppUpdate;
+use Illuminate\Http\Request;
 
 Route::prefix('v1')->group(function () {
 
     Route::get('test',             fn () =>  providerCharges(20, 100, 'IBEDC'));
+    Route::get('release-account',             function(Request $request) {
+        \Illuminate\Support\Facades\Log::error(json_encode($request->all()));
+    });
     Route::post('register',             Register::class);
     Route::post('auth',                 Authenticate::class);
     Route::post('forgot-password',      PasswordResetLink::class);
