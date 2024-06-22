@@ -17,11 +17,20 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
         // Telescope::night();
 
         $this->hideSensitiveRequestDetails();
+<<<<<<< HEAD
 	Telescope::tag(function (IncomingEntry $entry) {
+=======
+
+        Telescope::tag(function (IncomingEntry $entry) {
+>>>>>>> ffa65d6a977d1a3fe332e0d00cf118d6963503db
             return $entry->type === 'request'
                 ? ['status:'.$entry->content['response_status'], 'path:'.$entry->content['uri']]
                 : [];
         });
+<<<<<<< HEAD
+=======
+
+>>>>>>> ffa65d6a977d1a3fe332e0d00cf118d6963503db
         $isLocal = $this->app->environment('local');
 
         Telescope::filter(function (IncomingEntry $entry) use ($isLocal) {
@@ -61,8 +70,13 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
     {
         Gate::define('viewTelescope', function ($user) {
             return in_array($user->email, [
+<<<<<<< HEAD
                 'info@getstack.africa',
                 'holudare2076@gmail.com'
+=======
+                'holudare2076@gmail.com',
+                'info@getstack.africa',
+>>>>>>> ffa65d6a977d1a3fe332e0d00cf118d6963503db
             ]);
         });
     }

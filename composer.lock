@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "96135691a249b527d0dc15b07eaa0d34",
+=======
+    "content-hash": "a10f8b46507fcb100dcf23470fd7618b",
+>>>>>>> ffa65d6a977d1a3fe332e0d00cf118d6963503db
     "packages": [
         {
             "name": "brick/math",
@@ -1853,6 +1857,7 @@
         },
         {
             "name": "laravel/telescope",
+<<<<<<< HEAD
             "version": "v5.0.4",
             "source": {
                 "type": "git",
@@ -1863,6 +1868,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/telescope/zipball/b5f9783c8e1ec3ec387b289d3ca8a8f85e76b4fb",
                 "reference": "b5f9783c8e1ec3ec387b289d3ca8a8f85e76b4fb",
+=======
+            "version": "v5.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/telescope.git",
+                "reference": "ae5c28ca1e40a7a66bfc9b2557e7e1d84d95363c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/telescope/zipball/ae5c28ca1e40a7a66bfc9b2557e7e1d84d95363c",
+                "reference": "ae5c28ca1e40a7a66bfc9b2557e7e1d84d95363c",
+>>>>>>> ffa65d6a977d1a3fe332e0d00cf118d6963503db
                 "shasum": ""
             },
             "require": {
@@ -1916,9 +1933,15 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/telescope/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/laravel/telescope/tree/v5.0.4"
             },
             "time": "2024-04-22T09:19:03+00:00"
+=======
+                "source": "https://github.com/laravel/telescope/tree/v5.0.5"
+            },
+            "time": "2024-05-09T17:09:01+00:00"
+>>>>>>> ffa65d6a977d1a3fe332e0d00cf118d6963503db
         },
         {
             "name": "laravel/tinker",
@@ -9562,5 +9585,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
