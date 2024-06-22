@@ -7,8 +7,6 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-<<<<<<< HEAD
-=======
     | Telescope Master Switch
     |--------------------------------------------------------------------------
     |
@@ -22,7 +20,6 @@ return [
 
     /*
     |--------------------------------------------------------------------------
->>>>>>> ffa65d6a977d1a3fe332e0d00cf118d6963503db
     | Telescope Domain
     |--------------------------------------------------------------------------
     |
@@ -69,18 +66,6 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-<<<<<<< HEAD
-    | Telescope Master Switch
-    |--------------------------------------------------------------------------
-    |
-    | This option may be used to disable all Telescope watchers regardless
-    | of their individual configuration, which simply provides a single
-    | and convenient way to enable or disable Telescope data storage.
-    |
-    */
-
-    'enabled' => env('TELESCOPE_ENABLED', true),
-=======
     | Telescope Queue
     |--------------------------------------------------------------------------
     |
@@ -94,7 +79,6 @@ return [
         'connection' => env('TELESCOPE_QUEUE_CONNECTION', null),
         'queue' => env('TELESCOPE_QUEUE', null),
     ],
->>>>>>> ffa65d6a977d1a3fe332e0d00cf118d6963503db
 
     /*
     |--------------------------------------------------------------------------
