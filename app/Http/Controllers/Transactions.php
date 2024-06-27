@@ -10,6 +10,7 @@ class Transactions extends Controller
     {
         $request->user()->can('read transactions');
 
+
         return view('pages.transactions.index');
     }
 }
