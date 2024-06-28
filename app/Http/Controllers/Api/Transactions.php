@@ -20,11 +20,6 @@ class Transactions extends Controller
         $startDate = !empty($start) ? Carbon::parse($start)->setTimezone('Africa/Lagos')->startOfDay() : Carbon::now()->setTimezone('Africa/Lagos')->startOfDay();
         $endDate = !empty($end) ? Carbon::parse($end)->setTimezone('Africa/Lagos')->endOfDay() : Carbon::now()->setTimezone('Africa/Lagos')->endOfDay();
 
-
-        $transactions = TransactionResource::collection(
-            auth()->user()->transactions()->whereBetween('created_at', [$startDate, $endDate])->latest()->paginate($request->get('limit'))
-        );
-
         $transactions = TransactionResource::collection(
             auth()->user()->transactions()
                 ->whereBetween('created_at', [$startDate, $endDate])
