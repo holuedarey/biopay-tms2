@@ -1,4 +1,9 @@
 name: CICD Speed Financial
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 jobs:
   run_pull:
     name: run pull
