@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RoleRequest;
 use App\Models\User;
+use Psy\Readline\Hoa\Console;
 use Spatie\Permission\Models\Permission;
 use App\Models\Role;
 
@@ -55,6 +56,7 @@ class Roles extends Controller
     public function update(RoleRequest $request, Role $role)
     {
         \Auth::user()->can('read admin');
+
 
         if (!in_array($role->type, [Role::SUPERAGENT, Role::AGENT]))
             $role->update(['name' => $request->name]);
