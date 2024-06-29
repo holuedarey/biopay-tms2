@@ -17,6 +17,8 @@ class Transactions extends Controller
         $start = $request->get('startDate');
         $end = $request->get('endDate');
 
+        //check if it works
+
         $startDate = !empty($start) ? Carbon::parse($start)->setTimezone('Africa/Lagos')->startOfDay() : Carbon::now()->setTimezone('Africa/Lagos')->startOfDay();
         $endDate = !empty($end) ? Carbon::parse($end)->setTimezone('Africa/Lagos')->endOfDay() : Carbon::now()->setTimezone('Africa/Lagos')->endOfDay();
 
