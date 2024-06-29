@@ -111,6 +111,7 @@
         <div class="modal-dialog">
             <form action="{{ route('roles.update', $role) }}" class="modal-content my-form" method="post">
                 @csrf
+                @method('PUT')
                 <div class="modal-header fw-medium">
                     Edit Role Name and/or Permissions
                     <button class="btn-close py-0" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
