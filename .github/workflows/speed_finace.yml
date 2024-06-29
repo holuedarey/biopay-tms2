@@ -1,4 +1,5 @@
-name: Deploy
+name: CICD Speed Financial
+run-name: ${{ github.actor }} is running Build and deploy 🚀
 
 # Controls when the action will run.
 on:
