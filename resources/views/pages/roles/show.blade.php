@@ -109,7 +109,7 @@
     <!-- Edit Role to Users -->
     <div class="modal modal-lg fade" id="edit-role" tabindex="-1" role="dialog" aria-labelledby="edit-role" aria-hidden="true">
         <div class="modal-dialog">
-            <form action="{{ route('roles.update', $role) }}" class="modal-content my-form" >
+            <form action="{{ route('roles.update', $role) }}" class="modal-content my-form" method="post" >
                 @csrf
                 @method('PUT')
                 <div class="modal-header fw-medium">
