@@ -53,28 +53,9 @@ class Roles extends Controller
         return to_route('roles.index')->with('success', 'New role added!');
     }
 
-//    public function update(RoleRequest $request, Role $role)
-//    {
-//        \Auth::user()->can('read admin');
-//
-//
-//        if (!in_array($role->type, [Role::SUPERAGENT, Role::AGENT]))
-//            $role->update(['name' => $request->name]);
-//
-////            Don't change agent's permissions
-//        if ($role != Role::AGENT) {
-//            $role->syncPermissions($request->permissions);
-//        }
-//
-//        return  back()->with('success', 'Role edited!');
-//    }
-
-    public function update(RoleRequest $request,Role $role)
+    public function update(RoleRequest $request, Role $role)
     {
-
-        try {
-
-            \Auth::user()->can('read admin');
+        \Auth::user()->can('read admin');
 
 
         if (!in_array($role->type, [Role::SUPERAGENT, Role::AGENT]))
@@ -85,10 +66,9 @@ class Roles extends Controller
             $role->syncPermissions($request->permissions);
         }
 
-            return  back()->with('success', 'Role edited!');
-      } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Failed to update role. ' . $e->getMessage());
-        }
+        return  back()->with('success', 'Role edited!');
     }
+
+
 
 }
