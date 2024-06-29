@@ -28,6 +28,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AppUpdate;
 use Illuminate\Http\Request;
 
+//Route::get('/hash',function(){
+//    $hashed = Hash::make('123456789');
+//    echo $hashed;
+//});
+
 Route::prefix('v1')->group(function () {
 
     Route::get('test',             fn () =>  providerCharges(20, 100, 'IBEDC'));

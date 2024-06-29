@@ -15,21 +15,21 @@ class DatabaseSeeder extends Seeder
     {
         // create default configs
 
-        /*$this->call([
-            ConfigSeeder::class,
-            RoleSeeder::class,
-            RoutingSeeder::class,
-            DocumentSeeder::class,
-            KycLevelSeeder::class,
-            UserSeeder::class,
-            ServiceSeeder::class,
-            TerminalGroupSeeder::class,
-            FeeSeeder::class,
-            GeneralLedgerSeeder::class,
-//            GLTSeeder::class,
-//            TerminalSeeder::class,
+//        $this->call([
+//           // ConfigSeeder::class,
+//            //RoleSeeder::class,
+//            RoutingSeeder::class,
+//            //DocumentSeeder::class,
+//           // KycLevelSeeder::class,
+////            UserSeeder::class,
+////            ServiceSeeder::class,
+////            TerminalGroupSeeder::class,
+////            FeeSeeder::class,
+////            GeneralLedgerSeeder::class,
+////            GLTSeeder::class,
+////            TerminalSeeder::class,
 //            TransactionSeeder::class,
-        ]);*/
+//        ]);
 
         $dump = \File::get(database_path('seeders/dump.sql'));
         \DB::connection()->getPdo()->exec($dump);
