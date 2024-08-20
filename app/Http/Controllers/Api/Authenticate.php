@@ -6,6 +6,7 @@ use App\Helpers\MyResponse;
 use App\Http\Controllers\Controller;
 use App\Models\Terminal;
 use App\Models\User;
+use App\Models\VirtualAccount;
 use App\Repository\Spout;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -56,7 +57,7 @@ class Authenticate extends Controller
         }
 
         $user = auth()->user();
-
+        $accountNo = VirtualAccount::where('user_id', $user->id)->value('account_no');
         if ( $user->status != 'ACTIVE' ) {
             return MyResponse::failed("You account is $user->status", code: 403);
         }
@@ -72,6 +73,7 @@ class Authenticate extends Controller
             'tmk'               => $terminal->tmk ?? "",
             'tsk'               => $terminal->tsk?? "",
             'tpk'               => $terminal->tpk?? "",
+	    'account_number'    =>$accountNo,
             'country_code'      => $terminal->country_code ?? "",
             'currency_code'     => $terminal->currency_code ?? "",
             'serial'            => $terminal->serial ?? "",
