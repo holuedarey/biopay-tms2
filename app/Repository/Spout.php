@@ -348,12 +348,12 @@ class Spout implements
             $user->consent_url = $res->json('url') ?? "";
             $user->save();
 
-	 $deserializedArray = json_decode($res, true);
+	 $responseData = $res->json();
             return VirtualAccount::create([
                 'user_id' => $user->id,
                 'bank_name' => 'VFD',
-                //'account_no' => $res->json('accountDetails.accountNo'),
-		'account_no' => $deserializedArray['accountDetails']['accountNo'],
+		//'account_no' => 'my account',
+		'account_number' => $res->json('accountDetails.accountNo'),
                 'provider' => 'VFD',
                 'meta' => $res->json()
             ]);
