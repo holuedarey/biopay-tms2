@@ -113,6 +113,7 @@ Route::prefix('v1')->group(function () {
         Route::apiResource('profile',                   Profile::class)->only(['index', 'store']);
         Route::apiResource('services',                  Services::class)->only('index');
         Route::apiResource('kyc-docs',                  KycDocs::class)->only('store', 'destroy');
+        Route::get('kyc-docs/{user_id}',                [KycDocs::class, 'fetchImage']);
         Route::apiResource('wallets',                   Wallets::class)->only('index');
         Route::apiResource('transactions',              Transactions::class)->only(['index', 'show']);
         Route::apiResource('wallet-transactions',       WalletTransactions::class)->only('index');

@@ -6,8 +6,10 @@ use App\Helpers\FileHelper;
 use App\Helpers\MyResponse;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\KycRequest;
+use App\Models\Kyc;
 use App\Models\KycDoc;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class KycDocs extends Controller
 {
@@ -24,4 +26,46 @@ class KycDocs extends Controller
 
         $kycDoc->delete();
     }
+
+    public function fetchImage($user_id)
+    {
+        // Retrieve all KYC documents for the given user ID
+        $kycDocs = Kyc::where('user_id', $user_id)->get();
+
+        if ($kycDocs->isEmpty()) {
+            return MyResponse::failed('Documents not found', null, 404);
+        }
+
+        $files = [];
+
+        foreach ($kycDocs as $kycDoc) {
+            // Get the path to the image
+            $path = $kycDoc->file;
+
+            // Check if the file exists
+            if (Storage::exists($path)) {
+                // Get the file contents
+                $fileContents = Storage::get($path);
+
+                // Encode the file in Base64
+                $base64File = base64_encode($fileContents);
+
+                // Add the encoded file to the array along with the file name
+                $files[] = [
+                    'file' => $base64File,
+                    'file_name' => basename($path),
+                ];
+            }
+        }
+
+        if (empty($files)) {
+            return MyResponse::failed('No files found', null, 404);
+        }
+
+        // Return the Base64 encoded files
+        return MyResponse::success('KYC documents fetched successfully', $files);
+    }
+
+
+
 }
