@@ -36,17 +36,16 @@ class KycDocs extends Controller
             return MyResponse::failed('Documents not found', null, 404);
         }
 
-        dd($kycDocs);
         $files = [];
 
         foreach ($kycDocs as $kycDoc) {
-            // Get the path to the image
+            // Get the path to the image, assuming it's relative to storage/app/public
             $path = $kycDoc->file;
 
-            // Check if the file exists
-            if (Storage::exists($path)) {
+            // Check if the file exists on the public disk
+            if (Storage::disk('public')->exists($path)) {
                 // Get the file contents
-                $fileContents = Storage::get($path);
+                $fileContents = Storage::disk('public')->get($path);
 
                 // Encode the file in Base64
                 $base64File = base64_encode($fileContents);
@@ -56,16 +55,20 @@ class KycDocs extends Controller
                     'file' => $base64File,
                     'file_name' => $kycDoc->name,
                 ];
+            } else {
+                // Optionally, log or handle the case where the file does not exist
+                // For example: \Log::warning("File not found: $path");
             }
         }
 
         if (empty($files)) {
-            return MyResponse::failed('No files found', null, 404);
+            return MyResponse::failed('No valid files found', null, 404);
         }
 
         // Return the Base64 encoded files
         return MyResponse::success('KYC documents fetched successfully', $files);
     }
+
 
 
 
