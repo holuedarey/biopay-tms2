@@ -53,7 +53,7 @@ class KycDocs extends Controller
                 // Add the encoded file to the array along with the file name
                 $files[] = [
                     'file' => $base64File,
-                    'file_name' => basename($path),
+                    'file_name' => $kycDoc->name,
                 ];
             }
         }
