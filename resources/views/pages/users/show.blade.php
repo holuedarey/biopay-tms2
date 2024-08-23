@@ -61,6 +61,11 @@
                             <h5 class="mb-1">@money($user->wallet->balance)</h5>
                             <span class="f-light">Wallet Balance</span>
                         </div>
+                        <div class="social-content mt-1">
+
+                            <span class="f-light">Account Number</span>
+                            <h5 class="mb-1">{{$accountNumber ?? "________"}}</h5>
+                        </div>
                     </div>
                 </div>
             </div>

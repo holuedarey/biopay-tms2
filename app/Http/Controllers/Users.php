@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateUserRequest;
 use App\Models\Role;
 use App\Models\TerminalGroup;
 use App\Models\User;
+use App\Models\VirtualAccount;
 use App\Models\Wallet;
 use App\Notifications\AccountRegistration;
 
@@ -53,7 +54,10 @@ class Users extends Controller
             'year' => $user->transactions()->filterByDateDesc('year')->sumAndCount(),
         ];
 
-        return view('pages.users.show', compact('user', 'transactions', 'agents'));
+        $accountNumber = VirtualAccount::where('user_id', $user->id)->value('account_number');
+        //$accountNumber = VirtualAccount::where('user_id', $user->id)->value('account_no');
+
+        return view('pages.users.show', compact('user', 'transactions', 'agents','accountNumber'));
     }
 
     public function store(RegisterUserRequest $request)
