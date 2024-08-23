@@ -36,6 +36,7 @@ class KycDocs extends Controller
             return MyResponse::failed('Documents not found', null, 404);
         }
 
+        dd($kycDocs);
         $files = [];
 
         foreach ($kycDocs as $kycDoc) {
