@@ -83,7 +83,7 @@ Route::prefix('v1')->group(function () {
             'Authorization' => config('providers.spout.hashed_key'),
             'Token' => config('providers.spout.token'),
         ])->post("http://139.162.209.150:5010/api/v1/b2b/release/account", $data);
-
+        dd($response);
         // Check if the request was successful
         if ($response->successful()) {
             // Log the successful response from the external service
