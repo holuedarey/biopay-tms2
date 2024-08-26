@@ -68,8 +68,8 @@ Route::prefix('v1')->group(function () {
         // Log the request data
         Log::error(json_encode($request->all()));
 
-        // Retrieve user details (assuming $user is defined elsewhere)
-        $user = auth()->user(); // Example, adjust as per your context
+//        // Retrieve user details (assuming $user is defined elsewhere)
+//        $user = auth()->user(); // Example, adjust as per your context
 
         // Prepare the data for the external API request
         $data = [
