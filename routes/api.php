@@ -24,6 +24,7 @@ use App\Http\Controllers\Api\Transfer;
 use App\Http\Controllers\Api\Wallets;
 use App\Http\Controllers\Api\WalletTransactions;
 use App\Models\Service;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +38,7 @@ use Illuminate\Support\Facades\Validator;
 //});
 
 Route::prefix('v1')->group(function () {
+    Route::post('vfd-impact-callback', \App\Http\Controllers\VfdWebhook::class);
 
     Route::get('test',             fn () =>  providerCharges(20, 100, 'IBEDC'));
 //    Route::post('release-account',             function(Request $request) {
@@ -51,57 +53,96 @@ Route::prefix('v1')->group(function () {
 //        return MyResponse::success('Account Release successfully');
 //
 //    });
+Route::post('release-account', function(Request $request) {
 
-    Route::post('release-account',             function(Request $request) {
-        // Validate the request
         $validator = Validator::make($request->all(), [
             'accountNo' => 'required|digits:10|string',
             'walletId' => 'required|string',
             'bvn' => 'required|digits:11|integer'
         ]);
 
-        // If validation fails, return an error response
         if ($validator->fails()) {
             return MyResponse::failed('Validation error', $validator->errors());
         }
 
-        // Log the request data
         Log::error(json_encode($request->all()));
 
-//        // Retrieve user details (assuming $user is defined elsewhere)
-//        $user = auth()->user(); // Example, adjust as per your context
-
-        // Prepare the data for the external API request
         $data = [
             'accountNo' => $request->input('accountNo'),
             'walletId' => $request->input('walletId'),
             'bvn' => $request->input('bvn'),
         ];
 
-        // Send the HTTP POST request to the external API
-        $response = Http::withHeaders([
-            'Authorization' => config('providers.spout.hashed_key'),
-            'Token' => config('providers.spout.token'),
-        ])->post("http://139.162.209.150:5010/api/v1/b2b/release/account", $data);
-        dd($response);
-        // Check if the request was successful
-        if ($response->successful()) {
-            // Log the successful response from the external service
-            Log::info('API Response:', ['response' => $response->json()]);
+        // Send a request asynchronously or delay before returning a response
+        Cache::put('release_account_' . $request->input('accountNo'), 'processing', 300); // Save a processing status to cache for 5 minutes
 
-            // Return a success response
-            return MyResponse::success('Account released successfully');
-        } else {
-            // Log the failed response
-            Log::error('API Request Failed:', [
-                'status' => $response->status(),
-                'response' => $response->json()
-            ]);
+        dispatch(function() use ($data) {
+            $response = Http::withHeaders([
+                'Authorization' => config('providers.spout.hashed_key'),
+                'Token' => config('providers.spout.token'),
+            ])->post("http://139.162.209.150:5010/api/v1/b2b/release/account", $data);
 
-            // Return an error response
-            return MyResponse::failed('Account release failed', $response->json());
-        }
+            if ($response->successful()) {
+                Log::info('Release Account API Response:', ['response' => $response->json()]);
+
+                Cache::put('release_account_' . $data['accountNo'], 'success', 300); // Update status to success
+            } else {
+                Log::error('Release Account API Request Failed:', [
+                    'status' => $response->status(),
+                    'response' => $response->json()
+                ]);
+
+                Cache::put('release_account_' . $data['accountNo'], 'failed', 300); // Update status to failed
+            }
+        })->delay(now()->addSeconds(1)); // Delay the task execution to simulate an async process
+
+        return MyResponse::success('Request processing');
     });
+//    Route::post('release-account',             function(Request $request) {
+//        // Validate the request
+//        $validator = Validator::make($request->all(), [
+//            'accountNo' => 'required|digits:10|string',
+//            'walletId' => 'required|string',
+//            'bvn' => 'required|digits:11|integer'
+//        ]);
+//
+//        if ($validator->fails()) {
+//            return MyResponse::failed('Validation error', $validator->errors());
+//        }
+//
+//        Log::error(json_encode($request->all()));
+//
+//        // Prepare the data for the external API request
+//        $data = [
+//            'accountNo' => $request->input('accountNo'),
+//            'walletId' => $request->input('walletId'),
+//            'bvn' => $request->input('bvn'),
+//        ];
+//
+//        // Send the HTTP POST request to the external API
+//        $response = Http::withHeaders([
+//            'Authorization' => config('providers.spout.hashed_key'),
+//            'Token' => config('providers.spout.token'),
+//        ])->post("http://139.162.209.150:5010/api/v1/b2b/release/account", $data);
+//        //dd($response);
+//        // Check if the request was successful
+//        if ($response->successful()) {
+//            // Log the successful response from the external service
+//            Log::info('API Response:', ['response' => $response->json()]);
+//
+//            // Return a success response
+//            return MyResponse::success('Account released successfully');
+//        } else {
+//            // Log the failed response
+//            Log::error('API Request Failed:', [
+//                'status' => $response->status(),
+//                'response' => $response->json()
+//            ]);
+//
+//            // Return an error response
+//            return MyResponse::failed('Account release failed', $response->json());
+//        }
+//    });
     Route::post('register',             Register::class);
     Route::post('auth',                 Authenticate::class);
     Route::post('forgot-password',      PasswordResetLink::class);

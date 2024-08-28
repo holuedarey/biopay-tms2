@@ -14,7 +14,7 @@ class VfdWebhook extends Controller
     public function __invoke(Request $request)
     {
         $reference = $request->get('reference');
-
+       //log $request->all();
         if (VirtualAccountCredit::whereReference($reference)->exists()){
             Log::warning('VFD: DUPLICATE TRANSACTION', $request->all());
             exit('Duplicate');
@@ -23,9 +23,10 @@ class VfdWebhook extends Controller
         $va = VirtualAccount::whereAccountNo($request->get('account_number'))->firstOrFail();
 
         $amount = $request->float('amount');
-
+        //lookup up service for funding, pick service charges, remove from ammount
+        // amount = amount - service charges;
         $va->credits()->create([
-            'amount' => $amount,
+            'amount' => $amount, //fix
             'reference' => $reference,
             'provider' => 'VFD',
             'paid_at' => Carbon::parse($request->get('timestamp')),
