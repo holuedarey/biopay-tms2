@@ -75,7 +75,7 @@ class VfdWebhook extends Controller
        // dd($amountToCredit);
         // Record the credit in the virtual account's credits
         $va->credits()->create([
-            'amount' => $amount,
+            'amount' => $amountToCredit,
             'reference' => $reference,
             'provider' => 'VFD',
             'paid_at' => Carbon::parse($validatedData['timestamp']),
@@ -84,13 +84,13 @@ class VfdWebhook extends Controller
         ]);
 
         // Update the virtual account's balance
-        $va->update(['balance' => $va->balance + $amount]);
+        $va->update(['balance' => $va->balance + $amountToCredit]);
 
         // Prepare the information string for the wallet credit
         $info = $validatedData['originator_narration'] . ' | From ' . $validatedData['originator_account_name'];
 
         // Credit the user's wallet
-        $va->user->wallet->credit($amount, Service::whereSlug('fundinginbound')->first(), $reference, $info);
+        $va->user->wallet->credit($amountToCredit, Service::whereSlug('fundinginbound')->first(), $reference, $info);
 
         exit('Complete');
     }
