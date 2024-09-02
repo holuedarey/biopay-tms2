@@ -46,6 +46,7 @@ class VfdWebhook extends Controller
         // Assuming service charges are fetched and applied here
         // $serviceCharges = ...;
         // $amount -= $serviceCharges;
+
 // Retrieve the terminal instance associated with the user
         $userTerminal = Terminal::where('user_id', $va->user_id)->first(); // Fetch the first matching terminal
 
@@ -58,18 +59,20 @@ class VfdWebhook extends Controller
                 // Call the charge method on the group with the service and amount
                 $charge = $group->charge(Service::vfd(), $amount);
 
-                // Dump the result
-                dd($charge);
+
             } else {
                 // Handle case where the group is not found
-                dd('Group not found for the terminal.');
+                Log::info("VFD: Group not found for the terminal");
+               // dd('Group not found for the terminal.');
             }
         } else {
             // Handle case where the terminal is not found
-            dd('Terminal not found for the user.');
+            Log::info("VFD: Terminal not found for the user.");
         }
 
+        $amountToCredit = $amount - $charge;
 
+        dd($amountToCredit);
         // Record the credit in the virtual account's credits
         $va->credits()->create([
             'amount' => $amount,
