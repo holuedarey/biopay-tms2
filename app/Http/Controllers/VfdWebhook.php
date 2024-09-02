@@ -27,10 +27,10 @@ class VfdWebhook extends Controller
 
         $reference = $validatedData['reference'];
 
-        Log::debug("VFD: TRANSACTION Request", $validatedData);
+        Log::alert("VFD: TRANSACTION Request", $validatedData);
 
         if (VirtualAccountCredit::where('reference', $reference)->exists()) {
-            Log::debug('VFD: DUPLICATE TRANSACTION', $validatedData);
+            Log::alert('VFD: DUPLICATE TRANSACTION', $validatedData);
             exit('Duplicate');
         }
 
@@ -61,13 +61,13 @@ class VfdWebhook extends Controller
 
             } else {
                 // Handle case where the group is not found
-                Log::debug("VFD: Group not found for the terminal");
+                Log::alert("VFD: Group not found for the terminal");
                 exit('VFD: Group not found for the terminal');
                // dd('Group not found for the terminal.');
             }
         } else {
             // Handle case where the terminal is not found
-            Log::debug("VFD: Terminal not found for the user.");
+            Log::alert("VFD: Terminal not found for the user.");
             exit('VFD: Terminal not found for the user.');
         }
 
@@ -92,7 +92,7 @@ class VfdWebhook extends Controller
 
         // Credit the user's wallet
         $va->user->wallet->credit($amountToCredit, Service::whereSlug('fundinginbound')->first(), $reference, $info);
-        Log::debug("VFD: Account funded successfully.", $validatedData);
+        Log::alert("VFD: Account funded successfully.", $validatedData);
         exit('Complete');
     }
 
