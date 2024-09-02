@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Service;
+use App\Models\Terminal;
 use App\Models\VirtualAccount;
 use App\Models\VirtualAccountCredit;
 use Carbon\Carbon;
@@ -13,33 +14,64 @@ class VfdWebhook extends Controller
 {
     public function __invoke(Request $request)
     {
-        $reference = $request->get('reference');
-       //log $request->all();
-        if (VirtualAccountCredit::whereReference($reference)->exists()){
-            Log::warning('VFD: DUPLICATE TRANSACTION', $request->all());
+        // Validate incoming request
+        $validatedData = $request->validate([
+            'reference' => 'required|string',
+            'amount' => 'required|numeric',
+            'account_number' => 'required|string',
+            'originator_account_number' => 'required|string',
+            'originator_account_name' => 'required|string',
+            'timestamp' => 'required|date',
+            'originator_narration' => 'nullable|string'
+        ]);
+
+        $reference = $validatedData['reference'];
+
+        // Log the transaction request
+        Log::info("VFD: TRANSACTION Request", $validatedData);
+
+        if (VirtualAccountCredit::where('reference', $reference)->exists()) {
+            Log::warning('VFD: DUPLICATE TRANSACTION', $validatedData);
             exit('Duplicate');
         }
 
-        $va = VirtualAccount::whereAccountNo($request->get('account_number'))->firstOrFail();
+       // Find the virtual account by account number
+        $va = VirtualAccount::where('account_no', $validatedData['account_number'])->firstOrFail();
 
-        $amount = $request->float('amount');
-        //lookup up service for funding, pick service charges, remove from ammount
-        // amount = amount - service charges;
+        // Get the amount from the request
+        $amount = (float) $validatedData['amount'];
+
+        // Look up the service for funding, apply service charges, and subtract from the amount
+        // Assuming service charges are fetched and applied here
+        // $serviceCharges = ...;
+        // $amount -= $serviceCharges;
+
+        $userGroup = Terminal::where('user_id', $va->user_id);
+        $charge = $userGroup->group->charge(Service::vfd(), $amount);
+
+        dd($charge);
+
+
+        // Record the credit in the virtual account's credits
         $va->credits()->create([
-            'amount' => $amount, //fix
+            'amount' => $amount,
             'reference' => $reference,
             'provider' => 'VFD',
-            'paid_at' => Carbon::parse($request->get('timestamp')),
-            'info' => $request->get('originator_narration'),
-            'meta' => $request->all()
+            'paid_at' => Carbon::parse($validatedData['timestamp']),
+            'info' => $validatedData['originator_narration'],
+            'meta' => $validatedData
         ]);
 
-        $va->update(['balance' => $amount]);
+        // Update the virtual account's balance
+        $va->update(['balance' => $va->balance + $amount]);
 
-        $info = $request->get('originator_narration') . ' | From ' . $request->get('originator_account_name');
+        // Prepare the information string for the wallet credit
+        $info = $validatedData['originator_narration'] . ' | From ' . $validatedData['originator_account_name'];
 
+        // Credit the user's wallet
         $va->user->wallet->credit($amount, Service::whereSlug('fundinginbound')->first(), $reference, $info);
 
         exit('Complete');
     }
+
 }

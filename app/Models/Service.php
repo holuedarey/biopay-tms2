@@ -40,6 +40,7 @@ class Service extends Model
     const CASHOUT = 'cashoutwithdrawal';
     const LOAN = 'loan';
     const WALLETTRANSFER = 'wallettransfer';
+    const VFD = 'vfd';
 
     protected $guarded = ['id'];
 
@@ -166,6 +167,11 @@ class Service extends Model
     public static function bankTransfer(): static
     {
         return self::whereSlug(self::BANKTRANSFER)->first();
+    }
+
+    public static function vfd(): static
+    {
+        return self::whereSlug(self::VFD)->first();
     }
 
     public function scopeWithSearch(Builder $query, $search): Builder
