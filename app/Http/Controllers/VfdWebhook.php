@@ -38,7 +38,7 @@ class VfdWebhook extends Controller
        // Find the virtual account by account number
         $va = VirtualAccount::where('account_number', $validatedData['account_number'])->firstOrFail();
 
-        dd($va);
+
         // Get the amount from the request
         $amount = (float) $validatedData['amount'];
 
@@ -48,6 +48,9 @@ class VfdWebhook extends Controller
         // $amount -= $serviceCharges;
 
         $userGroup = Terminal::where('user_id', $va->user_id);
+
+        dd($userGroup);
+
         $charge = $userGroup->group->charge(Service::vfd(), $amount);
 
         dd($charge);
