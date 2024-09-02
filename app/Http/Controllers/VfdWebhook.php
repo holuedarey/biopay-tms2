@@ -72,7 +72,7 @@ class VfdWebhook extends Controller
 
         $amountToCredit = $amount - $charge;
 
-        dd($amountToCredit);
+       // dd($amountToCredit);
         // Record the credit in the virtual account's credits
         $va->credits()->create([
             'amount' => $amount,
