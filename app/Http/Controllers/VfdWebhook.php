@@ -63,11 +63,13 @@ class VfdWebhook extends Controller
             } else {
                 // Handle case where the group is not found
                 Log::info("VFD: Group not found for the terminal");
+                exit('VFD: Group not found for the terminal');
                // dd('Group not found for the terminal.');
             }
         } else {
             // Handle case where the terminal is not found
             Log::info("VFD: Terminal not found for the user.");
+            exit('VFD: Terminal not found for the user.');
         }
 
         $amountToCredit = $amount - $charge;
