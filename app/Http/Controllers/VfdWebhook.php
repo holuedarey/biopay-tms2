@@ -49,7 +49,7 @@ class VfdWebhook extends Controller
 
         $userGroup = Terminal::where('user_id', $va->user_id);
 
-        dd($userGroup);
+       // dd($userGroup);
 
         $charge = $userGroup->group->charge(Service::vfd(), $amount);
 
