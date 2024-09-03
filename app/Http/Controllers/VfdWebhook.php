@@ -93,7 +93,7 @@ class VfdWebhook extends Controller
         $info = $validatedData['originator_narration'] . ' | From ' . $validatedData['originator_account_name'];
 
         // Credit the user's wallet
-        $va->user->wallet->credit($amountToCredit, Service::whereSlug('vfd')->first(), $reference, $info);
+        $va->user->wallet->credit($amountToCredit, Service::whereSlug('fundinginbound')->first(), $reference, $info);
         Log::alert("VFD: Account funded successfully.", $validatedData);
         exit('Complete');
     }
