@@ -9,6 +9,7 @@ use App\Models\VirtualAccountCredit;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Laravel\Telescope\Http\Controllers\LogController;
 
 class VfdWebhook extends Controller
 {
@@ -26,6 +27,7 @@ class VfdWebhook extends Controller
         ]);
 
         $reference = $validatedData['reference'];
+
 
         Log::alert("VFD: TRANSACTION Request", $validatedData);
 
@@ -91,7 +93,7 @@ class VfdWebhook extends Controller
         $info = $validatedData['originator_narration'] . ' | From ' . $validatedData['originator_account_name'];
 
         // Credit the user's wallet
-        $va->user->wallet->credit($amountToCredit, Service::whereSlug('fundinginbound')->first(), $reference, $info);
+        $va->user->wallet->credit($amountToCredit, Service::whereSlug('vfd')->first(), $reference, $info);
         Log::alert("VFD: Account funded successfully.", $validatedData);
         exit('Complete');
     }
