@@ -96,7 +96,7 @@ class VfdWebhook extends Controller
         // Credit the user's wallet
         $va->user->wallet->credit($amountToCredit, Service::whereSlug('fundinginbound')->first(), $reference, $info);
 
-        $transaction = Transaction::createPendingFor(
+        $transaction = Transaction::createSuccessFor(
             $userTerminal,
             $service = Service::vfdService("vfd"),
             $amountToCredit,

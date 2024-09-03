@@ -140,4 +140,29 @@ class Transaction extends Model
             'device'       => request('DEVICE'),
         ]);
     }
+
+    public static function createSuccessFor(
+        Terminal $terminal,
+        Service $service,
+        float $amount,
+        float $totalAmount,
+        string $reference,
+        string $narration,
+        string $provider): static
+    {
+        return $terminal->agent->transactions()->create([
+            'terminal_id'   => $terminal->id,
+            'amount'        => $amount,
+            'total_amount'  => $totalAmount,
+            'charge'        => $totalAmount - $amount,
+            'reference'     => $reference,
+            'info'          => $narration,
+            'type_id'       => $service->id,
+            'status'        => Status::SUCCESSFUL,
+            'provider'      => $provider,
+            'version'       => request('VERSION'),
+            'channel'       => request('CHANNEL'),
+            'device'       => request('DEVICE'),
+        ]);
+    }
 }
