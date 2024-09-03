@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Service;
 use App\Models\Terminal;
+use App\Models\Transaction;
 use App\Models\VirtualAccount;
 use App\Models\VirtualAccountCredit;
 use Carbon\Carbon;
@@ -94,6 +95,17 @@ class VfdWebhook extends Controller
 
         // Credit the user's wallet
         $va->user->wallet->credit($amountToCredit, Service::whereSlug('fundinginbound')->first(), $reference, $info);
+
+        $transaction = Transaction::createPendingFor(
+            $userTerminal,
+            $service = Service::vfdService("vfd"),
+            $amountToCredit,
+            $amount,
+            $reference,
+            $validatedData['originator_narration'],
+            "VFD"
+        );
+
         Log::alert("VFD: Account funded successfully.", $validatedData);
         exit('Complete');
     }

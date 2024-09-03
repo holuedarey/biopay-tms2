@@ -174,6 +174,10 @@ class Service extends Model
         return self::whereSlug(self::VFD)->first();
     }
 
+    public static function vfdService($service): static
+    {
+        return self::whereSlug($service)->first();
+    }
     public function scopeWithSearch(Builder $query, $search): Builder
     {
         return $query->where('name', 'like', '%' . $search . '%');
