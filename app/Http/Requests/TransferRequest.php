@@ -17,7 +17,8 @@ class TransferRequest extends TerminalTransactionRequest
     public function rules(): array
     {
         return [
-            'bank_code' => 'required|exists:banks,code',
+            'bank_code' => 'required',
+//            'bank_code' => 'required|exists:banks,code',
             'account_number' => 'required|string|size:10',
             'account_name' => 'required|string',
             'bank' => 'nullable|string',

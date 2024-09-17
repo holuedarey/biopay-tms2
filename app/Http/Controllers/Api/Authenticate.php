@@ -57,7 +57,7 @@ class Authenticate extends Controller
         }
 
         $user = auth()->user();
-        $accountNo = VirtualAccount::where('user_id', $user->id)->value('account_no');
+        $accountNo = VirtualAccount::where('user_id', $user->id)->value('account_number');
         if ( $user->status != 'ACTIVE' ) {
             return MyResponse::failed("You account is $user->status", code: 403);
         }

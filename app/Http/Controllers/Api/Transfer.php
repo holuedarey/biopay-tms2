@@ -25,9 +25,10 @@ class Transfer extends Controller
 
         $request->validate([
             'account_number' => 'required|string|size:10',
-            'bank_code' => ['required', 'string',
-                Rule::exists('banks', 'code')->where('provider', $transferService::name())
-            ],
+            //'bank_code' => ['required', 'string',
+              //  Rule::exists('banks', 'code')->where('provider', $transferService::name())
+            //],
+            'bank_code' => ['required', 'string'],
             'amount' => 'required|numeric|min:100'
         ]);
 
@@ -48,7 +49,8 @@ class Transfer extends Controller
 
         $amount = (float) $request->get('amount');
         $bank_code = $request->get('bank_code');
-        $bank = Bank::whereCode($bank_code)->whereProvider($transferService::name())->firstOrFail()->name;
+        $bank = $request->get('bank_name');
+//        $bank = Bank::whereCode($bank_code)->whereProvider($transferService::name())->firstOrFail()->name;
         $account_number = $request->get('account_number');
         $account_name = $request->get('account_name');
 
