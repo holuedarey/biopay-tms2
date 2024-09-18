@@ -88,4 +88,59 @@ class Transfer extends Controller
             fn() => $transferService->transfer($bank_code, $account_number, $amount, $reference, $narration, $bank, $account_name, $transaction->id)
         );
     }
+
+    public function downloadTransactions(Request $request)
+    {
+        // Validate the date range input
+        $request->validate([
+            'start_date' => 'required|date',
+            'end_date'   => 'required|date|after_or_equal:start_date',
+        ]);
+
+        // Retrieve transactions based on the authenticated user and the provided date range
+        $transactions = auth()->user()->transactions()
+            ->whereBetween('created_at', [$request->start_date, $request->end_date])
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        // Define the file name with the current timestamp
+        $fileName = 'transactions_' . now()->format('Y_m_d_H_i_s') . '.csv';
+
+        // Set the headers for downloading the file
+        $headers = [
+            "Content-type"        => "text/csv",
+            "Content-Disposition" => "attachment; filename=$fileName",
+            "Pragma"              => "no-cache",
+            "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
+            "Expires"             => "0"
+        ];
+
+        // Callback function to create CSV content
+        $callback = function() use ($transactions) {
+            $file = fopen('php://output', 'w');
+
+            // Add the CSV column headers
+            fputcsv($file, ['Reference', 'Amount', 'Charge', 'Total Amount', 'Bank Name', 'Account Number', 'Status', 'Date']);
+
+            // Add each transaction as a row in the CSV
+            foreach ($transactions as $transaction) {
+                fputcsv($file, [
+                    $transaction->reference,
+                    moneyFormat($transaction->amount),
+                    moneyFormat($transaction->charge),
+                    moneyFormat($transaction->total_amount),
+                    $transaction->bank_name,
+                    $transaction->account_number,
+                    $transaction->status,
+                    $transaction->created_at->format('Y-m-d H:i:s')
+                ]);
+            }
+
+            fclose($file);
+        };
+
+        // Return the CSV download response
+        return response()->stream($callback, 200, $headers);
+    }
+
 }

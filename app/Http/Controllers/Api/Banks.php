@@ -30,7 +30,7 @@ class Banks extends Controller
         return MyResponse::success(data: $banks);
     }*/
 
- 
+
 
    public function index(TransferServiceInterface $transferService)
     {
@@ -39,7 +39,7 @@ class Banks extends Controller
         start:
         $banks = Bank::whereProvider($transferService::name())->orderBy('name')->get();
 
-        if ($transferService::name() === "SPOUT") {
+        if ($transferService::name() === "SPOUT-") {
 
               $jsonString = '[
             {
@@ -1235,7 +1235,7 @@ class Banks extends Controller
             'code' => $bank['bankCode'] ?? 'Unknown', // Access array keys directly, with default value
             'provider' => 'Etransact', // Set provider to Etransact
         ];
-    }	
+    }
             // Return the formatted bank list
             return MyResponse::success(data: $formattedBanks);
         }

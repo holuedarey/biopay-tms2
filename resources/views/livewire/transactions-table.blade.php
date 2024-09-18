@@ -9,6 +9,7 @@
                 </p>
 
                 <x-table-filter :placeholder="$placeholder" />
+                @livewire('transaction-export')
             </div>
             <div class="card-body">
                 <div class="">
