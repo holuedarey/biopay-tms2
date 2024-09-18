@@ -22,14 +22,17 @@ class TransactionExport extends Component
 
         // Fetch transactions based on the date range
        // $transactions = Transaction::whereBetween('created_at', [$this->start_date, $this->end_date])->get();
-        $transactions = WalletTransaction::latest()->with(['wallet', 'agent'])
-            ->successful();
+        $transactions = WalletTransaction::whereBetween('created_at', [$this->start_date, $this->end_date])
+            ->latest()
+            ->with(['wallet', 'agent'])
+            ->successful()
+            ->get();
 
         //dd($transactions);
         // Create the CSV content
         $csvData = "Name,Amount,Reference,Date\n"; // Header row
         foreach ($transactions as $transaction) {
-            dd($transaction->amount );
+
             $csvData .= $transaction->agent->name . ",";
             $csvData .= $transaction->amount . ",";
             $csvData .= $transaction->reference . ",";
