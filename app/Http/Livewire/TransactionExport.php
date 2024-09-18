@@ -96,7 +96,7 @@ class TransactionExport extends Component
         $endDate = $this->end_date ?: now()->endOfDay()->toDateString();
 
         // Add 24 hours to start and end dates
-        $startDate = now()->parse($startDate)->subDay()->toDateString();
+       // $startDate = now()->parse($startDate)->subDay()->toDateString();
         $endDate = now()->parse($endDate)->addDay()->toDateString();
 
         //dd($startDate);
