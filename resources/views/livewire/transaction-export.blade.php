@@ -1,11 +1,12 @@
 <div>
     <div class="d-flex align-items-center">
-        <input type="text" id="start_date" wire:model="start_date" class="form-control datepicker  mr-3" placeholder="Start Date" autocomplete="off">
-        <input type="text" id="end_date" wire:model="end_date" class="form-control datepicker" placeholder="End Date" autocomplete="off">
+        <input type="text" id="start_date" wire:model="start_date" class="form-control datepicker mr-3" placeholder="Start Date" autocomplete="off">
+        <input type="text" id="end_date" wire:model="end_date" class="form-control datepicker mr-3" placeholder="End Date" autocomplete="off">
 
-        <!-- Added margin-left class to the button -->
-        <button wire:click="export" class="btn btn-primary mr-3">Download CSV</button>
+        <!-- Button with margin-right class -->
+        <button wire:click="export" class="btn btn-primary">Download CSV</button>
     </div>
+
 
     @error('start_date') <span class="text-danger">{{ $message }}</span> @enderror
     @error('end_date') <span class="text-danger">{{ $message }}</span> @enderror
