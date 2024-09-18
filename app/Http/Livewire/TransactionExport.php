@@ -25,7 +25,7 @@ class TransactionExport extends Component
         $transactions = WalletTransaction::latest()->with(['wallet', 'agent'])
             ->successful();
 
-        dd($transactions);
+        //dd($transactions);
         // Create the CSV content
         $csvData = "Name,Amount,Reference,Date\n"; // Header row
         foreach ($transactions as $transaction) {
