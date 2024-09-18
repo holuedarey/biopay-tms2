@@ -99,7 +99,7 @@ class TransactionExport extends Component
         $startDate = now()->parse($startDate)->subDay()->toDateString();
         $endDate = now()->parse($endDate)->addDay()->toDateString();
 
-        dd($startDate);
+        //dd($startDate);
         // Validate the date inputs
         $this->validate([
             'start_date' => 'nullable|date',
