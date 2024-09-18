@@ -92,13 +92,14 @@ class TransactionExport extends Component
     public function export()
     {
         // If no dates are provided, default to today's transactions
-        $startDate = $this->start_date ? $this->start_date : now()->startOfDay()->toDateString();
-        $endDate = $this->end_date ? $this->end_date : now()->endOfDay()->toDateString();
+        $startDate = $this->start_date ?: now()->startOfDay()->toDateString();
+        $endDate = $this->end_date ?: now()->endOfDay()->toDateString();
 
         // Add 24 hours to start and end dates
         $startDate = now()->parse($startDate)->addDay()->toDateString();
         $endDate = now()->parse($endDate)->addDay()->toDateString();
 
+        dd($startDate);
         // Validate the date inputs
         $this->validate([
             'start_date' => 'nullable|date',
@@ -111,9 +112,6 @@ class TransactionExport extends Component
             ->with(['wallet', 'agent'])
             ->successful()
             ->get();
-
-        // Debugging output
-        dd($transactions);
 
         // Create the CSV content
         $csvData = "Name,Amount,Reference,Date\n"; // Header row
