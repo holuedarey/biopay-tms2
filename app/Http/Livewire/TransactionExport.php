@@ -51,11 +51,53 @@ class TransactionExport extends Component
 //        ]);
 //    }
 
+//    public function export()
+//    {
+//        // If no dates are provided, default to today's transactions
+//        $startDate = $this->start_date ?? now()->startOfDay()->toDateString();
+//        $endDate = $this->end_date ?? now()->endOfDay()->toDateString();
+//
+//        // Validate the date inputs
+//        $this->validate([
+//            'start_date' => 'nullable|date',
+//            'end_date' => 'nullable|date|after_or_equal:start_date',
+//        ]);
+//
+//        // Fetch transactions based on the date range
+//        $transactions = WalletTransaction::whereBetween('created_at', [$startDate, $endDate])
+//            ->latest()
+//            ->with(['wallet', 'agent'])
+//            ->successful()
+//            ->get();
+//
+//        // Create the CSV content
+//        $csvData = "Name,Amount,Reference,Date\n"; // Header row
+//        foreach ($transactions as $transaction) {
+//            $csvData .= $transaction->agent->name . ",";
+//            $csvData .= $transaction->amount . ",";
+//            $csvData .= $transaction->reference . ",";
+//            $csvData .= $transaction->created_at->format('Y-m-d H:i:s') . "\n";
+//        }
+//
+//        // Generate a CSV file response
+//        $filename = "transactions_" . now()->format('YmdHis') . ".csv";
+//
+//        return response()->streamDownload(function () use ($csvData) {
+//            echo $csvData;
+//        }, $filename, [
+//            'Content-Type' => 'text/csv',
+//            'Content-Disposition' => "attachment; filename=\"$filename\"",
+//        ]);
+//    }
     public function export()
     {
         // If no dates are provided, default to today's transactions
-        $startDate = $this->start_date ?? now()->startOfDay()->toDateString();
-        $endDate = $this->end_date ?? now()->endOfDay()->toDateString();
+        $startDate = $this->start_date ? $this->start_date : now()->startOfDay()->toDateString();
+        $endDate = $this->end_date ? $this->end_date : now()->endOfDay()->toDateString();
+
+        // Add 24 hours to start and end dates
+        $startDate = now()->parse($startDate)->addDay()->toDateString();
+        $endDate = now()->parse($endDate)->addDay()->toDateString();
 
         // Validate the date inputs
         $this->validate([
@@ -69,6 +111,9 @@ class TransactionExport extends Component
             ->with(['wallet', 'agent'])
             ->successful()
             ->get();
+
+        // Debugging output
+        dd($transactions);
 
         // Create the CSV content
         $csvData = "Name,Amount,Reference,Date\n"; // Header row
