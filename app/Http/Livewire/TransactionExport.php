@@ -29,6 +29,7 @@ class TransactionExport extends Component
         // Create the CSV content
         $csvData = "Name,Amount,Reference,Date\n"; // Header row
         foreach ($transactions as $transaction) {
+            dd($transaction->amount );
             $csvData .= $transaction->agent->name . ",";
             $csvData .= $transaction->amount . ",";
             $csvData .= $transaction->reference . ",";
