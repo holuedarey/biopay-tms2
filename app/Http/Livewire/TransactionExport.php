@@ -30,13 +30,14 @@ class TransactionExport extends Component
 
         //dd($transactions);
         // Create the CSV content
-        $csvData = "Name,Amount,Reference,Date\n"; // Header row
+        $csvData = "Name,Amount,Reference,Date, Info\n"; // Header row
         foreach ($transactions as $transaction) {
 
             $csvData .= $transaction->agent->name . ",";
             $csvData .= $transaction->amount . ",";
             $csvData .= $transaction->reference . ",";
-            $csvData .= $transaction->created_at->format('Y-m-d H:i:s') . "\n";
+            $csvData .= $transaction->created_at->format('Y-m-d H:i:s') ;
+            $csvData .= $transaction->info. "\n";
         }
 
         // Generate a CSV file response
