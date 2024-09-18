@@ -1,6 +1,6 @@
 <div>
     <div class="d-flex align-items-center">
-        <input type="text" id="start_date" wire:model="start_date" class="form-control datepicker" placeholder="Start Date" autocomplete="off">
+        <input type="text" id="start_date" wire:model="start_date" class="form-control datepicker  ml-3" placeholder="Start Date" autocomplete="off">
         <input type="text" id="end_date" wire:model="end_date" class="form-control datepicker" placeholder="End Date" autocomplete="off">
 
         <!-- Added margin-left class to the button -->
