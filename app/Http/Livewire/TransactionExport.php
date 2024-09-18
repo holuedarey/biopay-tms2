@@ -12,32 +12,71 @@ class TransactionExport extends Component
     public $start_date;
     public $end_date;
 
+//    public function export()
+//    {
+//        // Validate the date inputs
+//        $this->validate([
+//            'start_date' => 'required|date',
+//            'end_date' => 'required|date|after_or_equal:start_date',
+//        ]);
+//
+//        // Fetch transactions based on the date range
+//       // $transactions = Transaction::whereBetween('created_at', [$this->start_date, $this->end_date])->get();
+//        $transactions = WalletTransaction::whereBetween('created_at', [$this->start_date, $this->end_date])
+//            ->latest()
+//            ->with(['wallet', 'agent'])
+//            ->successful()
+//            ->get();
+//
+//        //dd($transactions);
+//        // Create the CSV content
+//        $csvData = "Name,Amount,Reference,Date, Info\n"; // Header row
+//        foreach ($transactions as $transaction) {
+//
+//            $csvData .= $transaction->agent->name . ",";
+//            $csvData .= $transaction->amount . ",";
+//            $csvData .= $transaction->reference . ",";
+//            $csvData .= $transaction->created_at->format('Y-m-d H:i:s') ;
+//            $csvData .= $transaction->info. "\n";
+//        }
+//
+//        // Generate a CSV file response
+//        $filename = "transactions_" . now()->format('YmdHis') . ".csv";
+//
+//        return response()->streamDownload(function () use ($csvData) {
+//            echo $csvData;
+//        }, $filename, [
+//            'Content-Type' => 'text/csv',
+//            'Content-Disposition' => "attachment; filename=\"$filename\"",
+//        ]);
+//    }
+
     public function export()
     {
+        // If no dates are provided, default to today's transactions
+        $startDate = $this->start_date ?? now()->startOfDay()->toDateString();
+        $endDate = $this->end_date ?? now()->endOfDay()->toDateString();
+
         // Validate the date inputs
         $this->validate([
-            'start_date' => 'required|date',
-            'end_date' => 'required|date|after_or_equal:start_date',
+            'start_date' => 'nullable|date',
+            'end_date' => 'nullable|date|after_or_equal:start_date',
         ]);
 
         // Fetch transactions based on the date range
-       // $transactions = Transaction::whereBetween('created_at', [$this->start_date, $this->end_date])->get();
-        $transactions = WalletTransaction::whereBetween('created_at', [$this->start_date, $this->end_date])
+        $transactions = WalletTransaction::whereBetween('created_at', [$startDate, $endDate])
             ->latest()
             ->with(['wallet', 'agent'])
             ->successful()
             ->get();
 
-        //dd($transactions);
         // Create the CSV content
-        $csvData = "Name,Amount,Reference,Date, Info\n"; // Header row
+        $csvData = "Name,Amount,Reference,Date\n"; // Header row
         foreach ($transactions as $transaction) {
-
             $csvData .= $transaction->agent->name . ",";
             $csvData .= $transaction->amount . ",";
             $csvData .= $transaction->reference . ",";
-            $csvData .= $transaction->created_at->format('Y-m-d H:i:s') ;
-            $csvData .= $transaction->info. "\n";
+            $csvData .= $transaction->created_at->format('Y-m-d H:i:s') . "\n";
         }
 
         // Generate a CSV file response
