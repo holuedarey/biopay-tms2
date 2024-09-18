@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\WalletTransaction;
 use Livewire\Component;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\Response;
@@ -20,7 +21,9 @@ class TransactionExport extends Component
         ]);
 
         // Fetch transactions based on the date range
-        $transactions = Transaction::whereBetween('created_at', [$this->start_date, $this->end_date])->get();
+       // $transactions = Transaction::whereBetween('created_at', [$this->start_date, $this->end_date])->get();
+        $transactions = WalletTransaction::latest()->with(['wallet', 'agent'])
+            ->successful();
 
         dd($transactions);
         // Create the CSV content
