@@ -4,7 +4,7 @@
         <input type="text" id="end_date" wire:model="end_date" class="form-control datepicker" placeholder="End Date" autocomplete="off">
 
         <!-- Added margin-left class to the button -->
-        <button wire:click="export" class="btn btn-primary ml-3">Download CSV</button>
+        <button wire:click="export" class="btn btn-primary mr-3">Download CSV</button>
     </div>
 
     @error('start_date') <span class="text-danger">{{ $message }}</span> @enderror
