@@ -114,13 +114,10 @@ class TransactionExport extends Component
             ->get();
 
         // Create the CSV content
-        $csvData = "Name,Amount,Charge, Revenue,Service, Reference,Date\n"; // Header row
+        $csvData = "Name,Amount,Reference,Date\n"; // Header row
         foreach ($transactions as $transaction) {
             $csvData .= $transaction->agent->name . ",";
             $csvData .= $transaction->amount . ",";
-            $csvData .= $transaction->charge . ",";
-            $csvData .= $transaction->revenue . ",";
-            $csvData .= $transaction->service . ",";
             $csvData .= $transaction->reference . ",";
             $csvData .= $transaction->created_at->format('Y-m-d H:i:s') . "\n";
         }
