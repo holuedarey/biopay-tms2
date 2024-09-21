@@ -9,7 +9,8 @@
                 </p>
 
                 <x-table-filter :placeholder="$placeholder" />
-                @livewire('transaction-export')
+{{--               @livewire('transaction-export')--}}
+                @livewire('transaction-export', ['type' => $type])
             </div>
             <div class="card-body">
                 <div class="">
