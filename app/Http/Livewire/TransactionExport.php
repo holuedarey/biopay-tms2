@@ -178,38 +178,55 @@ class TransactionExport extends Component
                 ->with(['wallet', 'agent'])
                 ->successful()
                 ->get();
+            $csvData = "Name,Amount,prev_balance,new_balance,Reference,Date\n"; // Header row
+        foreach ($transactions as $transaction) {
+            $csvData .= $transaction->agent->name . ",";
+            $csvData .= $transaction->amount . ",";
+            $csvData .= $transaction->prev_balance . ",";
+            $csvData .= $transaction->new_balance . ",";
+            $csvData .= $transaction->reference . ",";
+            $csvData .= $transaction->created_at->format('Y-m-d H:i:s') . "\n";
+        }
+            // Generate a CSV file response
+            $filename = "wallet_transactions_" . now()->format('YmdHis') . ".csv";
+
+            return response()->streamDownload(function () use ($csvData) {
+                echo $csvData;
+            }, $filename, [
+                'Content-Type' => 'text/csv',
+                'Content-Disposition' => "attachment; filename=\"$filename\"",
+            ]);
+
         } else {
             $transactions = Transaction::whereBetween('created_at', [$startDate, $endDate])
                 ->latest()
                 ->with(['agent'])
                 ->get();
-        }
 
-        // Create the CSV content
-        $csvData = "Name,Amount,prev_balance,new_balance,Reference,Date\n"; // Header row
-        foreach ($transactions as $transaction) {
-            if ($this->type === 'wallet') {
-                $csvData .= $transaction->agent->name . ",";
-                $csvData .= $transaction->amount . ",";
-                $csvData .= $transaction->prev_balance . ",";
-                $csvData .= $transaction->new_balance . ",";
-            } else {
-                $csvData .=  $transaction->agent->name. ",";
-                $csvData .= $transaction->amount . ",";
+            // Create the CSV content
+            $csvData = "Name,Amount,Charge,Revenue,Total,Reference,Date\n"; // Header row
+            foreach ($transactions as $transaction) {
+
+                    $csvData .= $transaction->agent->name . ",";
+                    $csvData .= $transaction->amount . ",";
+                    $csvData .= $transaction->charge . ",";
+                    $csvData .= $transaction->revenue . ",";
+                    $csvData .= $transaction->reference . ",";
+                    $csvData .= $transaction->created_at->format('Y-m-d H:i:s') . "\n";
             }
-            $csvData .= $transaction->reference . ",";
-            $csvData .= $transaction->created_at->format('Y-m-d H:i:s') . "\n";
+
+            // Generate a CSV file response
+            $filename = "transactions_" . now()->format('YmdHis') . ".csv";
+
+            return response()->streamDownload(function () use ($csvData) {
+                echo $csvData;
+            }, $filename, [
+                'Content-Type' => 'text/csv',
+                'Content-Disposition' => "attachment; filename=\"$filename\"",
+            ]);
         }
 
-        // Generate a CSV file response
-        $filename = "transactions_" . now()->format('YmdHis') . ".csv";
 
-        return response()->streamDownload(function () use ($csvData) {
-            echo $csvData;
-        }, $filename, [
-            'Content-Type' => 'text/csv',
-            'Content-Disposition' => "attachment; filename=\"$filename\"",
-        ]);
     }
 
     public function render()
