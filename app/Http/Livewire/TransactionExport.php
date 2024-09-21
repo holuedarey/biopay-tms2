@@ -181,7 +181,7 @@ class TransactionExport extends Component
         } else {
             $transactions = Transaction::whereBetween('created_at', [$startDate, $endDate])
                 ->latest()
-                ->with(['user'])
+                ->with(['agent'])
                 ->get();
         }
 
