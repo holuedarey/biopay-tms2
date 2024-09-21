@@ -194,7 +194,7 @@ class TransactionExport extends Component
                 $csvData .= $transaction->prev_balance . ",";
                 $csvData .= $transaction->new_balance . ",";
             } else {
-                $csvData .= $transaction->user->name . ",";
+                $csvData .=  $transaction->agent->name. ",";
                 $csvData .= $transaction->amount . ",";
             }
             $csvData .= $transaction->reference . ",";
