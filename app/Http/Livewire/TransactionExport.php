@@ -211,6 +211,7 @@ class TransactionExport extends Component
                     $csvData .= $transaction->amount . ",";
                     $csvData .= $transaction->charge . ",";
                     $csvData .= $transaction->revenue . ",";
+                    $csvData .= $transaction->total . ",";
                     $csvData .= $transaction->reference . ",";
                     $csvData .= $transaction->created_at->format('Y-m-d H:i:s') . "\n";
             }
