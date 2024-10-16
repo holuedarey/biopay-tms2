@@ -36,7 +36,7 @@ use Illuminate\Support\Facades\Validator;
 //    $hashed = Hash::make('123456789');
 //    echo $hashed;
 //});
-
+//Route::prefix('v1')->middleware('decode')->group(function () {
 Route::prefix('v1')->group(function () {
     Route::post('vfd-impact-callback', \App\Http\Controllers\VfdWebhook::class);
 
