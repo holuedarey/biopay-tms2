@@ -108,6 +108,7 @@ class User extends Authenticatable
             ->where('wallet_transactions.status', Status::SUCCESSFUL);
     }
 
+
     public function terminals(): HasMany
     {
         return $this->hasMany(Terminal::class);
