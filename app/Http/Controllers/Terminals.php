@@ -18,6 +18,7 @@ class Terminals extends Controller
     public function index()
     {
         $terminals = Terminal::with('agent')->get();
+        //dd($terminals);
         return view('pages.terminals.index', compact('terminals'));
     }
 

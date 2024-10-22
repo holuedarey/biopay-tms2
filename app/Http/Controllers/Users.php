@@ -56,7 +56,7 @@ class Users extends Controller
 
         $accountNumber = VirtualAccount::where('user_id', $user->id)->value('account_number');
         //$accountNumber = VirtualAccount::where('user_id', $user->id)->value('account_no');
-
+      //  dd($user);
         return view('pages.users.show', compact('user', 'transactions', 'agents','accountNumber'));
     }
 

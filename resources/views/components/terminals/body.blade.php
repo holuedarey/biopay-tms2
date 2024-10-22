@@ -39,8 +39,13 @@
                             @foreach($terminals as $terminal)
                                 <tr class="product-removes">
                                     <td>
-                                        <x-users.row-data :user="$terminal->agent" />
-                                    </td>
+                                        @if ($terminal->agent)
+                                            <x-users.row-data :user="$terminal->agent" />
+                                        @else
+                                            <p>No agent found for terminal {{ $terminal->name }}</p>
+                                        @endif
+{{--                                        <x-users.row-data :user="$terminal->agent" />--}}
+{{--                                    </td>--}}
                                     <td>
                                         <p class="f-light">{{ $terminal->tid }}</p>
                                     </td>

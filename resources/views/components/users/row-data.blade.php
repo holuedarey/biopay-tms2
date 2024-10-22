@@ -1,5 +1,6 @@
 @php
-    $user->isAdmin() ? route('users.edit', $user) : route('users.show', $user);
+    //dd($user);
+      $user->isAdmin() ? route('users.edit', $user) : route('users.show', $user);
 @endphp
 <a href="{{ route('users.show', $user) }}" class="product-names" style="width: 250px">
     <div class="light-product-box rounded-circle">
