@@ -36,4 +36,5 @@ class Transactions extends Controller
     public function show(Transaction $transaction) {
         return MyResponse::success('Transaction details', $transaction);
     }
+
 }

@@ -54,8 +54,8 @@ class Users extends Controller
             'year' => $user->transactions()->filterByDateDesc('year')->sumAndCount(),
         ];
 
-        $accountNumber = VirtualAccount::where('user_id', $user->id)->value('account_number');
-        //$accountNumber = VirtualAccount::where('user_id', $user->id)->value('account_no');
+        //$accountNumber = VirtualAccount::where('user_id', $user->id)->value('account_number');
+        $accountNumber = VirtualAccount::where('user_id', $user->id)->value('account_no');
       //  dd($user);
         return view('pages.users.show', compact('user', 'transactions', 'agents','accountNumber'));
     }

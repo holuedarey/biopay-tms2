@@ -42,7 +42,7 @@
                                         @if ($terminal->agent)
                                             <x-users.row-data :user="$terminal->agent" />
                                         @else
-                                            <p>No agent found for terminal {{ $terminal->name }}</p>
+                                            <p>No agent found for terminal</p>
                                         @endif
 {{--                                        <x-users.row-data :user="$terminal->agent" />--}}
 {{--                                    </td>--}}

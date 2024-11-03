@@ -16,6 +16,7 @@ use App\Models\User;
 use App\Models\VirtualAccount;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use PHPUnit\Framework\ExpectationFailedException;
@@ -329,31 +330,77 @@ class Spout implements
         };
     }
 
+    public static function virtual_url(string $baseEndpoint): string
+    {
+        $url = App::isProduction() ? config('providers.virtual.url.live') : config('providers.virtual.url.test');
+
+        return str($url)->append($baseEndpoint)->value();
+    }
+
 
     public function createVirtualAccount(User $user)
     {
 
 //        $res = Http::withHeaders(Spout::headers())->post("http://139.162.209.150:5010/api/v1/virtual-account-create", [
-        $res = Http::withHeaders([ 'Authorization' => config('providers.spout.hashed_key') , 'Token' => config('providers.spout.token') ])->post("http://139.162.209.150:5010/api/v1/b2b/virtual/account", [
-                'firstName' => $user->first_name,
-                'lastName' => str($user->other_names)->before(' ')->value(),
-                'dateOfBirth' => Carbon::parse($user->dob)->toDateString(),
-                'phoneNumber' => $user->phone,
-                'bvn' => $user->bvn,
-                "walletId" =>"159795503",
+//        $res = Http::withHeaders([ 'Authorization' => config('providers.spout.hashed_key') , 'Token' => config('providers.spout.token') ])->post("http://139.162.214.131:5010/api/v1/b2b/virtual/account", [
+//                'firstName' => $user->first_name,
+//                'lastName' => str($user->other_names)->before(' ')->value(),
+//                'dateOfBirth' => Carbon::parse($user->dob)->toDateString(),
+//                'phoneNumber' => $user->phone,
+//                'bvn' => $user->bvn,
+//                "walletId" =>"159795503",
+//            ]);
+//
+//        if ($res) {
+//            $user->consent_url = $res->json('url') ?? "";
+//            $user->save();
+//
+//	 $responseData = $res->json();
+//            return VirtualAccount::create([
+//                'user_id' => $user->id,
+//                'bank_name' => 'VFD',
+//		//'account_no' => 'my account',
+//                'account_number' => $res->json('accountDetails.accountNo'),
+//                'provider' => 'VFD',
+//                'meta' => $res->json()
+//            ]);
+//        }
 
-            ]);
+        $b2bName = config('providers.spout.identifier');
+        $virtual_url = self::virtual_url("/b2b/virtual/account");
+        $res = Http::withHeaders([ 'Authorization' =>
+            config('providers.spout.hashed_key') , 'Token' => config('providers.spout.token') ])
+            ->post($virtual_url, [
+            'b2bCompanyName' => $b2bName,
+            'firstName' => $user->first_name,
+            'lastName' => str($user->other_names)->before(' ')->value(),
+            'dateOfBirth' => Carbon::parse($user->dob)->toDateString(),
+            'phoneNumber' => $user->phone,
+            'bvn' => $user->bvn,
+            "walletId" =>"141557338",
+        ]);
 
         if ($res) {
+
+            Log::error('SPOUT: Virtual Account Creation Failed', [
+                'response' => $res->json(),
+                'user' => $user->only(['id', 'first_name', 'other_names', 'email'])
+            ]);
+
             $user->consent_url = $res->json('url') ?? "";
             $user->save();
 
-	 $responseData = $res->json();
+            $responseData = $res->json();
+            $data = $res->json('data');
+            $accountNo = $data['accountNo'] ?? null;
+
+            $data2 = $res->json('accountDetails');
+            $accountNo2 = $data2['accountNo'] ?? null;
+
             return VirtualAccount::create([
                 'user_id' => $user->id,
                 'bank_name' => 'VFD',
-		//'account_no' => 'my account',
-		'account_number' => $res->json('accountDetails.accountNo'),
+                'account_no' => $accountNo ?? $accountNo2,
                 'provider' => 'VFD',
                 'meta' => $res->json()
             ]);

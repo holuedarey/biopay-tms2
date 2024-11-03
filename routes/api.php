@@ -24,6 +24,9 @@ use App\Http\Controllers\Api\Transfer;
 use App\Http\Controllers\Api\Wallets;
 use App\Http\Controllers\Api\WalletTransactions;
 use App\Models\Service;
+use App\Models\VirtualAccount;
+use App\Service\TransactionService;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
@@ -41,18 +44,60 @@ Route::prefix('v1')->group(function () {
     Route::post('vfd-impact-callback', \App\Http\Controllers\VfdWebhook::class);
 
     Route::get('test',             fn () =>  providerCharges(20, 100, 'IBEDC'));
-//    Route::post('release-account',             function(Request $request) {
-//        \Illuminate\Support\Facades\Log::error(json_encode($request->all()));
-//        $virtual_account  = \App\Models\VirtualAccount::create([
-//                'user_id' => $request->userId,
-//                'bank_name' => $request->bankName,
-//                'account_no' => $request->accountNo,
-//                'provider' => 'VFD',
-//                'meta' => $request
-//            ]);
-//        return MyResponse::success('Account Release successfully');
+
+
+//    Route::post('release-fund', function (Request $request) {
+//        // Validate the request data
+//        $validatedData = $request->validate([
+//            'amount' => 'required|numeric|min:1',
+//            'walletId' => 'required|string',
+//            'accountNumber' => 'required|string|size:10', // assuming a 10-digit account number
+//        ]);
+//
+//        $userId = Auth::id(); // or $request->user()->id;
+//
+//        dd($userId);
+//        // Log the validated request data along with userId
+//        Log::info('Fund release request received:', array_merge($validatedData, ['userId' => $userId]));
+//
+//
+//        // Log the validated request data
+//        Log::info('Fund release request received:', $validatedData);
+//
+//        // Fetch pending transactions using the helper function
+//        $pendingTransactions = TransactionService::getPendingTransactions($validatedData['accountNumber']);
+//
+//        if ($pendingTransactions !== null) {
+//            // Find the matching item in the response
+//            $matchingTransaction = collect($pendingTransactions)->firstWhere(function ($item) use ($validatedData) {
+//                return $item['account_number'] === $validatedData['accountNumber'] &&
+//                    $item['amount'] === (string)$validatedData['amount'];
+//            });
+//
+//            if ($matchingTransaction) {
+//                $impact_id = $matchingTransaction['_id'];
+//
+////                return response()->json([
+////                    'success' => true,
+////                    'message' => 'Matching item found',
+////                    'data' => $impact_id,
+////                ]);
+//
+//                $result = TransactionService::releaseFund($validatedData['walletId'], $impact_id);
+//
+//                if ($result) {
+//                    return MyResponse::success('Fund released successfully', $result);
+//
+//                } else {
+//                    return MyResponse::failed('Unable to release fund. Please try again.', $result);
+//                }
+//            }
+//
+//        }
 //
 //    });
+
+
 Route::post('release-account', function(Request $request) {
 
         $validator = Validator::make($request->all(), [
@@ -187,6 +232,55 @@ Route::post('release-account', function(Request $request) {
         Route::get('levels/add-bvn',           AddBvn::class);
 
         Route::get('logout',    Logout::class);
+
+        Route::post('release-fund', function (Request $request) {
+
+            $userId = Auth::user()->id;
+            $accountNumber = VirtualAccount::where('user_id', $userId)->value('account_no');
+
+            if ( $accountNumber == "") {
+                return MyResponse::failed('No account number associated with this user.');
+            }
+
+            $validatedData = $request->validate([
+                'amount' => 'required|numeric|min:1'
+            ]);
+
+            $validatedData['accountNumber'] = $accountNumber;
+            $validatedData['walletId'] = 141557338;
+
+            Log::info('Fund release request received:', array_merge($validatedData, ['userId' => $userId]));
+
+            Log::info('Fund release request received:', $validatedData);
+
+            // Fetch pending transactions using the helper function
+            $pendingTransactions = TransactionService::getPendingTransactions($validatedData['accountNumber']);
+
+            if ($pendingTransactions !== null) {
+                // Find the matching item in the response
+                $matchingTransaction = collect($pendingTransactions)->firstWhere(function ($item) use ($validatedData) {
+                    return $item['account_number'] === $validatedData['accountNumber'] &&
+                        $item['amount'] === (string)$validatedData['amount'];
+                });
+
+                if ($matchingTransaction) {
+                    $impact_id = $matchingTransaction['_id'];
+                    $result = TransactionService::releaseFund($validatedData['walletId'], $impact_id);
+                    if ($result) {
+                        return MyResponse::success('Fund released successfully', $result);
+
+                    } else {
+                        return MyResponse::failed('Unable to release fund. Please try again.', $result);
+                    }
+                }
+
+            }
+
+            return MyResponse::failed('No pending transaction found for account number ' . $accountNumber . '.');
+
+        });
+
+
     });
 });
 

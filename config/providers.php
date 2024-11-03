@@ -66,5 +66,11 @@ return [
             'test' => 'TGc2OURtRU82Nk5wWHBKZGFnYmJSWHZPQm9VYTpmbnFWZVI2a2IyMlFIcmZPY01TUDJoVFkwMThh',
             'live' => ''
         ],
+    ],
+    'virtual' => [
+        'url' => [
+            'test' => env('SPOUT_VIRTUAL_SERVICES_TEST'),
+            'live' => env('SPOUT_VIRTUAL_SERVICES_LIVE')
+        ],
     ]
 ];
