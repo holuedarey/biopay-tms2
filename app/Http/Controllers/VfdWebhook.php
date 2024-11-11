@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\MyResponse;
 use App\Models\Service;
 use App\Models\Terminal;
 use App\Models\Transaction;
@@ -34,7 +35,8 @@ class VfdWebhook extends Controller
 
         if (VirtualAccountCredit::where('reference', $reference)->exists()) {
             Log::alert('VFD: DUPLICATE TRANSACTION', $validatedData);
-            exit('Duplicate');
+            return MyResponse::success('success');
+            //exit('Duplicate');
         }
 
        // Find the virtual account by account number
@@ -65,13 +67,15 @@ class VfdWebhook extends Controller
             } else {
                 // Handle case where the group is not found
                 Log::alert("VFD: Group not found for the terminal");
-                exit('VFD: Group not found for the terminal');
+                return MyResponse::failed('failed');
+               // exit('VFD: Group not found for the terminal');
                // dd('Group not found for the terminal.');
             }
         } else {
             // Handle case where the terminal is not found
             Log::alert("VFD: Terminal not found for the user.");
-            exit('VFD: Terminal not found for the user.');
+            return MyResponse::failed('failed');
+            //exit('VFD: Terminal not found for the user.');
         }
 
         $amountToCredit = $amount - $charge;
@@ -107,7 +111,8 @@ class VfdWebhook extends Controller
         );
 
         Log::alert("VFD: Account funded successfully.", $validatedData);
-        exit('Complete');
+        return MyResponse::success('success');
+       // exit('Complete');
     }
 
 }
