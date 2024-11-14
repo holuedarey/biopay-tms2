@@ -35,7 +35,7 @@ class VfdWebhook extends Controller
 
         if (VirtualAccountCredit::where('reference', $reference)->exists()) {
             Log::alert('VFD: DUPLICATE TRANSACTION', $validatedData);
-            return MyResponse::success('success');
+            return MyResponse::success('success', statusCode: "01");
             //exit('Duplicate');
         }
 
@@ -67,14 +67,14 @@ class VfdWebhook extends Controller
             } else {
                 // Handle case where the group is not found
                 Log::alert("VFD: Group not found for the terminal");
-                return MyResponse::failed('failed');
+                return MyResponse::failed('failed',statusCode: "99");
                // exit('VFD: Group not found for the terminal');
                // dd('Group not found for the terminal.');
             }
         } else {
             // Handle case where the terminal is not found
             Log::alert("VFD: Terminal not found for the user.");
-            return MyResponse::failed('failed');
+            return MyResponse::failed('failed', statusCode: "99");
             //exit('VFD: Terminal not found for the user.');
         }
 
@@ -111,7 +111,7 @@ class VfdWebhook extends Controller
         );
 
         Log::alert("VFD: Account funded successfully.", $validatedData);
-        return MyResponse::success('success');
+        return MyResponse::success('success', statusCode: "00");
        // exit('Complete');
     }
 

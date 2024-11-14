@@ -40,7 +40,7 @@ class Service extends Model
     const CASHOUT = 'cashoutwithdrawal';
     const LOAN = 'loan';
     const WALLETTRANSFER = 'wallettransfer';
-    const VFD = 'vfd';
+    const VFD = 'fundinginbound';
 
     protected $guarded = ['id'];
 
