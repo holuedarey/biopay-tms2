@@ -251,7 +251,7 @@ class Spout implements
             'amount' => request('amount'),
             'accountNo' => $accountNumber,
             'service' => 'transfer',
-            'channel' => 'androidpos'
+            'channel' => 'b2b'
         ]);
 
         if ($res->isSpoutSuccess()) {
