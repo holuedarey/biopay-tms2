@@ -44,4 +44,16 @@ class Terminals extends Controller
 
         return back()->with('pending', 'Terminal update awaiting approval.');
     }
+
+    public function show($id)
+    {
+        // Fetch transactions associated with the terminal ID
+        $terminal = Terminal::where('tid', $id)->first();;
+        //dd($terminal->id);
+        $terminal_id = $terminal->id;
+        $tid = $id;
+
+        //dd($terminal_id);
+        return view('pages.terminals.show', compact('terminal_id', 'tid'));
+    }
 }

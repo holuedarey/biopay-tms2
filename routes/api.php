@@ -191,3 +191,11 @@ Route::post('release-account', function(Request $request) {
 });
 
 Route::post('paygate-webhook', PaygateWebhook::class);
+
+
+Route::prefix('v2')->group(function () {
+
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::post('/terminal-monitoring', [JaizBankController::class, 'healthData']);
+    });
+});

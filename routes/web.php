@@ -38,7 +38,7 @@ use App\Models\Role;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppUpdatesController;
 use App\Http\Controllers\ActivityLogController;
-
+use App\Http\Controllers\TerminalMonitoring;
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::redirect('/', 'dashboard');
@@ -93,6 +93,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('providers',                    Providers::class)->only(['index', 'store', 'destroy']);
     Route::resource('menus',                        Menus::class)->only('index');
     Route::resource('terminals.menus',              TerminalMenus::class)->only(['index', 'store']);
+    Route::resource('terminal-monitoring',          TerminalMonitoring::class)->only(['index', 'update', 'create', 'store']);
     Route::resource('wallets',                      Wallets::class)->only(['index', 'update']);
     Route::resource('wallet-transactions',          WalletTransactions::class)->only('index');
     Route::resource('processors',                   Processors::class)->only(['index', 'store', 'update']);
@@ -100,6 +101,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('routing',                      Routing::class)->only(['index', 'show']);
     Route::resource('loans',                        Loans::class)->only(['index', 'update']);
     Route::resource('virtual-account-credits',      VirtualAccountCredits::class)->only('index');
+    Route::get('/terminal/{id}', [Terminals::class, 'show'])->name('termina.show');
 
     Route::post('change-super-agent/{user}',             ChangeSuperAgent::class)->name('change-super-agent');
 
@@ -112,4 +114,4 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 Route::post('vfd-impact-callback', VfdWebhook::class)->withoutMiddleware(VerifyCsrfToken::class);
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

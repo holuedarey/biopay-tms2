@@ -54,6 +54,12 @@ class SideMenu
                         'title' => 'Menus',
                         'permission' => 'read menus'
                     ],
+
+                    'terminal-monitoring' => [
+                        'route_name' => 'terminal-monitoring.index',
+                        'title' => 'Terminal Monitoring',
+                        'permission' => 'read menus'
+                    ]
                 ]
             ],
 
@@ -181,10 +187,10 @@ class SideMenu
                         'title' => 'Routing',
                     ],
 
-//                    'settlement' => [
-////                        'route_name' => 'manage-users.agents',
-//                        'title' => 'Settlements'
-//                    ],
+                    //                    'settlement' => [
+                    ////                        'route_name' => 'manage-users.agents',
+                    //                        'title' => 'Settlements'
+                    //                    ],
                 ],
                 'permission' => 'read settings'
             ],
@@ -199,12 +205,12 @@ class SideMenu
             'app-management' => [
                 'title' => 'App Management',
                 'icon' => 'brand-android-robot',
-//                'sub_menu' => [
-//                    'app' => [
-//                        'title' => 'App Updates',
-//                        'route_name' => 'app-updates.index',
-//                    ]
-//                ],
+                //                'sub_menu' => [
+                //                    'app' => [
+                //                        'title' => 'App Updates',
+                //                        'route_name' => 'app-updates.index',
+                //                    ]
+                //                ],
                 'route_name' => 'app-updates.index',
                 'permission' => 'read settings',
             ],
@@ -215,6 +221,7 @@ class SideMenu
                 'title' => 'Audit Trail',
                 'permission' => 'read admin'
             ],
+
         ];
     }
 }
