@@ -61,7 +61,7 @@ Route::prefix('v1')->group(function () {
         ]);
 
         $validatedData['accountNumber'] = $accountNumber;
-        $validatedData['walletId'] = "156740521";
+        $validatedData['walletId'] = "159795503";
 
         //test "141557338"
         // Log::info('Fund release request received:', array_merge($validatedData, ['userId' => $userId]));
