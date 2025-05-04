@@ -29,6 +29,9 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AppUpdate;
+use App\Http\Controllers\TerminalMonitoring;
+use App\Models\VirtualAccount;
+use App\Service\TransactionService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -40,20 +43,41 @@ use Illuminate\Support\Facades\Validator;
 Route::prefix('v1')->group(function () {
     Route::post('vfd-impact-callback', \App\Http\Controllers\VfdWebhook::class);
 
-    Route::get('test',             fn () =>  providerCharges(20, 100, 'IBEDC'));
-//    Route::post('release-account',             function(Request $request) {
-//        \Illuminate\Support\Facades\Log::error(json_encode($request->all()));
-//        $virtual_account  = \App\Models\VirtualAccount::create([
-//                'user_id' => $request->userId,
-//                'bank_name' => $request->bankName,
-//                'account_no' => $request->accountNo,
-//                'provider' => 'VFD',
-//                'meta' => $request
-//            ]);
-//        return MyResponse::success('Account Release successfully');
-//
-//    });
-Route::post('release-account', function(Request $request) {
+    Route::get('test',             fn() =>  providerCharges(20, 100, 'IBEDC'));
+
+    Route::post('release-fund', function (Request $request) {
+
+        $userId = Auth::user()->id;
+        $accountNumber = VirtualAccount::where('user_id', $userId)->value('account_no');
+
+        // $accountNumber = "1001651786";
+        if ($accountNumber == "") {
+            return MyResponse::failed('No account number associated with this user.');
+        }
+
+        $validatedData = $request->validate([
+            'amount' => 'required|numeric|min:1',
+            'reference' => 'required|min:1'
+        ]);
+
+        $validatedData['accountNumber'] = $accountNumber;
+        $validatedData['walletId'] = "156740521";
+
+        //test "141557338"
+        // Log::info('Fund release request received:', array_merge($validatedData, ['userId' => $userId]));
+
+        Log::info('Fund release request received:', $validatedData);
+
+        $result = TransactionService::releaseFund($validatedData['walletId'],  $validatedData['reference'], $accountNumber, $validatedData['amount']);
+
+        if ($result->responseCode == "00") {
+            return MyResponse::success('Fund released successfully', $result);
+        } else {
+            $errorMessage = $result->message ?? 'Unable to release fund. Please try again.';
+            return MyResponse::failed($errorMessage, $result, 400);
+        }
+    });
+    Route::post('release-account', function (Request $request) {
 
         $validator = Validator::make($request->all(), [
             'accountNo' => 'required|digits:10|string',
@@ -76,7 +100,7 @@ Route::post('release-account', function(Request $request) {
         // Send a request asynchronously or delay before returning a response
         Cache::put('release_account_' . $request->input('accountNo'), 'processing', 300); // Save a processing status to cache for 5 minutes
 
-        dispatch(function() use ($data) {
+        dispatch(function () use ($data) {
             $response = Http::withHeaders([
                 'Authorization' => config('providers.spout.hashed_key'),
                 'Token' => config('providers.spout.token'),
@@ -98,51 +122,7 @@ Route::post('release-account', function(Request $request) {
 
         return MyResponse::success('Request processing');
     });
-//    Route::post('release-account',             function(Request $request) {
-//        // Validate the request
-//        $validator = Validator::make($request->all(), [
-//            'accountNo' => 'required|digits:10|string',
-//            'walletId' => 'required|string',
-//            'bvn' => 'required|digits:11|integer'
-//        ]);
-//
-//        if ($validator->fails()) {
-//            return MyResponse::failed('Validation error', $validator->errors());
-//        }
-//
-//        Log::error(json_encode($request->all()));
-//
-//        // Prepare the data for the external API request
-//        $data = [
-//            'accountNo' => $request->input('accountNo'),
-//            'walletId' => $request->input('walletId'),
-//            'bvn' => $request->input('bvn'),
-//        ];
-//
-//        // Send the HTTP POST request to the external API
-//        $response = Http::withHeaders([
-//            'Authorization' => config('providers.spout.hashed_key'),
-//            'Token' => config('providers.spout.token'),
-//        ])->post("http://139.162.209.150:5010/api/v1/b2b/release/account", $data);
-//        //dd($response);
-//        // Check if the request was successful
-//        if ($response->successful()) {
-//            // Log the successful response from the external service
-//            Log::info('API Response:', ['response' => $response->json()]);
-//
-//            // Return a success response
-//            return MyResponse::success('Account released successfully');
-//        } else {
-//            // Log the failed response
-//            Log::error('API Request Failed:', [
-//                'status' => $response->status(),
-//                'response' => $response->json()
-//            ]);
-//
-//            // Return an error response
-//            return MyResponse::failed('Account release failed', $response->json());
-//        }
-//    });
+
     Route::post('register',             Register::class);
     Route::post('auth',                 Authenticate::class);
     Route::post('forgot-password',      PasswordResetLink::class);
@@ -154,7 +134,7 @@ Route::post('release-account', function(Request $request) {
         Route::apiResource('profile',                   Profile::class)->only(['index', 'store']);
         Route::apiResource('services',                  Services::class)->only('index');
         Route::apiResource('kyc-docs',                  KycDocs::class)->only('store', 'destroy');
-     //   Route::get('kyc-docs/{user_id}',                [KycDocs::class, 'fetchImage']);
+        //   Route::get('kyc-docs/{user_id}',                [KycDocs::class, 'fetchImage']);
         Route::apiResource('wallets',                   Wallets::class)->only('index');
         Route::apiResource('transactions',              Transactions::class)->only(['index', 'show']);
         Route::apiResource('wallet-transactions',       WalletTransactions::class)->only('index');
@@ -171,7 +151,7 @@ Route::post('release-account', function(Request $request) {
         Route::apiResource('data-plans',                DataPurchase::class)->only('index');
         Route::apiResource('data-purchase',             DataPurchase::class)->only('store');
 
-        Route::prefix('app-update')->group(function (){
+        Route::prefix('app-update')->group(function () {
             Route::post('/',                     [AppUpdate::class, 'check']);
             Route::post('/download_count',       [AppUpdate::class, 'update']);
         });
@@ -196,6 +176,6 @@ Route::post('paygate-webhook', PaygateWebhook::class);
 Route::prefix('v2')->group(function () {
 
     Route::middleware('auth:sanctum')->group(function () {
-        Route::post('/terminal-monitoring', [JaizBankController::class, 'healthData']);
+        Route::post('/terminal-monitoring', [TerminalMonitoring::class, 'healthData']);
     });
 });
