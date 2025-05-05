@@ -122,15 +122,17 @@ class TransactionService
                     'account_number' => $accountNumber,
                     'amount' => $amount
                 ]);
+
+
             $responseData = $response->json();
 
+            // Properly convert array to string using json_encode
             if ($response->failed()) {
-                throw new \RuntimeException("API request failed with status: {$responseData}");
+                throw new \RuntimeException("API request failed with status: " . json_encode($responseData));
             }
 
-
             // Validate and standardize response
-            if ($responseData['responseCode'] !== '00') {
+            if (($responseData['responseCode'] ?? null) !== '00') {
                 Log::error('Fund release failed', [
                     'error' => $responseData['message'] ?? 'Unknown error',
                     'reference' => $reference
