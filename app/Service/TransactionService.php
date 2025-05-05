@@ -17,7 +17,7 @@ class TransactionService
 
     public static function url(string $baseEndpoint): string
     {
-        $url = App::isProduction() ? config('providers.spout.url.live') : config('providers.spout.url.test');
+        $url = App::isProduction() ? config('providers.virtual.url.live') : config('providers.virtual.url.test');
 
         return str($url)->append($baseEndpoint)->value();
     }
