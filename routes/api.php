@@ -47,20 +47,21 @@ Route::prefix('v1')->group(function () {
 
     Route::post('release-fund', function (Request $request) {
 
-        $userId = Auth::user()->id;
-        $accountNumber = VirtualAccount::where('user_id', $userId)->value('account_no');
+        // // $userId = Auth::user()->id;
+        // // $accountNumber = VirtualAccount::where('user_id', $userId)->value('account_no');
 
-        // $accountNumber = "1001651786";
-        if ($accountNumber == "") {
-            return MyResponse::failed('No account number associated with this user.');
-        }
+        // // $accountNumber = "1001651786";
+        // if ($accountNumber == "") {
+        //     return MyResponse::failed('No account number associated with this user.');
+        // }
 
         $validatedData = $request->validate([
             'amount' => 'required|numeric|min:1',
-            'reference' => 'required|min:1'
+            'reference' => 'required|min:1',
+            'accountNumber' => 'required|digits:10'
         ]);
 
-        $validatedData['accountNumber'] = $accountNumber;
+        // $validatedData['accountNumber'] = $accountNumber;
         $validatedData['walletId'] = "159795503";
 
         //test "141557338"
@@ -68,7 +69,7 @@ Route::prefix('v1')->group(function () {
 
         Log::info('Fund release request received:', $validatedData);
 
-        $result = TransactionService::releaseFund($validatedData['walletId'],  $validatedData['reference'], $accountNumber, $validatedData['amount']);
+        $result = TransactionService::releaseFund($validatedData['walletId'],  $validatedData['reference'],  $validatedData['accountNumber'], $validatedData['amount']);
 
         if ($result->responseCode == "00") {
             return MyResponse::success('Fund released successfully', $result);
