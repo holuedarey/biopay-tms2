@@ -45,7 +45,7 @@ class Spout implements
             'paymentMethod' => 'cash'
         ]);
 
-//        $res['responseCode'] == '00'
+        //        $res['responseCode'] == '00'
         if (true) {
             return new Result(true, $res->collect(), 'Airtime purchase successful');
         }
@@ -267,7 +267,7 @@ class Spout implements
     public function transfer(string $code, string $accountNumber, float $amount, string $narration, string $reference, string $bank = null, string $accountName = null, $transaction = ""): Result
     {
         $res = Http::spout()->post('transfer/payment', [
-            'uniqueId' => request('paymentData')['transactionId'].$transaction,
+            'uniqueId' => request('paymentData')['transactionId'] . $transaction,
             'phoneNumber' => request('phone') ?? auth()->user()->phone,
             'transactionId' => request('paymentData')['transactionId'],
             'paymentMethod' => 'cash',
@@ -333,27 +333,27 @@ class Spout implements
     public function createVirtualAccount(User $user)
     {
 
-//        $res = Http::withHeaders(Spout::headers())->post("http://139.162.209.150:5010/api/v1/virtual-account-create", [
-        $res = Http::withHeaders([ 'Authorization' => config('providers.spout.hashed_key') , 'Token' => config('providers.spout.token') ])->post("http://139.162.209.150:5010/api/v1/b2b/virtual/account", [
-                'firstName' => $user->first_name,
-                'lastName' => str($user->other_names)->before(' ')->value(),
-                'dateOfBirth' => Carbon::parse($user->dob)->toDateString(),
-                'phoneNumber' => $user->phone,
-                'bvn' => $user->bvn,
-                "walletId" =>"159795503",
-
-            ]);
+        //        $res = Http::withHeaders(Spout::headers())->post("http://139.162.209.150:5010/api/v1/virtual-account-create", [
+        $res = Http::withHeaders(['Authorization' => config('providers.spout.hashed_key'), 'Token' => config('providers.spout.token')])->post("http://139.162.209.150:5010/api/v1/b2b/virtual/account", [
+            'firstName' => $user->first_name,
+            'lastName' => str($user->other_names)->before(' ')->value(),
+            'dateOfBirth' => Carbon::parse($user->dob)->toDateString(),
+            'phoneNumber' => $user->phone,
+            'bvn' => $user->bvn,
+            "walletId" => "159795503",
+            'b2bCompanyName' => 'speedfinance'
+        ]);
 
         if ($res) {
             $user->consent_url = $res->json('url') ?? "";
             $user->save();
 
-	 $responseData = $res->json();
+            $responseData = $res->json();
             return VirtualAccount::create([
                 'user_id' => $user->id,
                 'bank_name' => 'VFD',
-		//'account_no' => 'my account',
-		'account_number' => $res->json('accountDetails.accountNo'),
+                //'account_no' => 'my account',
+                'account_number' => $res->json('accountDetails.accountNo'),
                 'provider' => 'VFD',
                 'meta' => $res->json()
             ]);
@@ -364,8 +364,6 @@ class Spout implements
             'user' => $user->only(['id', 'first_name', 'other_names', 'email'])
         ]);
 
-//        throw new ExpectationFailedException($res['message']);
+        //        throw new ExpectationFailedException($res['message']);
     }
-
-
 }
