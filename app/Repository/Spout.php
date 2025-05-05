@@ -340,20 +340,36 @@ class Spout implements
             'dateOfBirth' => Carbon::parse($user->dob)->toDateString(),
             'phoneNumber' => $user->phone,
             'bvn' => $user->bvn,
-            "walletId" => "159795503",
-            "b2bCompanyName" => "speedfinancial"
+            'walletId' => '159795503',
+            'b2bCompanyName' => 'speedfinancial'
         ]);
 
         if ($res) {
             $user->consent_url = $res->json('url') ?? "";
             $user->save();
 
+
             $responseData = $res->json();
+
+            $accountNumber = data_get($responseData, 'accountDetails.accountNo')
+                ?? data_get($responseData, 'data.accountNo') ?? null;
+
+            if (!$accountNumber) {
+                // Log the response for debugging if account number isn't found
+                logger()->warning('Virtual account number not found in response', [
+                    'response' => $responseData,
+                    'user_id' => $user->id
+                ]);
+
+                throw new \RuntimeException('Failed to extract account number from provider response');
+            }
+
+
             return VirtualAccount::create([
                 'user_id' => $user->id,
                 'bank_name' => 'VFD',
                 //'account_no' => 'my account',
-                'account_number' => $res->json('accountDetails.accountNo'),
+                'account_number' => $accountNumber,
                 'provider' => 'VFD',
                 'meta' => $res->json()
             ]);
