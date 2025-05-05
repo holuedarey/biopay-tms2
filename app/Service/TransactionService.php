@@ -122,12 +122,12 @@ class TransactionService
                     'account_number' => $accountNumber,
                     'amount' => $amount
                 ]);
+            $responseData = $response->json();
 
             if ($response->failed()) {
-                throw new \RuntimeException("API request failed with status: {$response}");
+                throw new \RuntimeException("API request failed with status: {$responseData}");
             }
 
-            $responseData = $response->json();
 
             // Validate and standardize response
             if ($responseData['responseCode'] !== '00') {
