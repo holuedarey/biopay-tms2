@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use Exception;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
@@ -123,7 +124,7 @@ class TransactionService
                 ]);
 
             if ($response->failed()) {
-                throw new \RuntimeException("API request failed with status: {$response->status()}");
+                throw new \RuntimeException("API request failed with status: {$response}");
             }
 
             $responseData = $response->json();
@@ -148,7 +149,7 @@ class TransactionService
                 'message' => $responseData['message'] ?? 'Funds released successfully',
                 'data' => $responseData['data'] ?? null
             ];
-        } catch (ValidationException $e) {
+        } catch (Exception $e) {
             // Re-throw business validation exceptions
             throw $e;
         }
