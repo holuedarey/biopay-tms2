@@ -76,6 +76,8 @@ Route::prefix('v1')->group(function () {
             return MyResponse::failed($errorMessage, $result, 400);
         }
     });
+    
+    
     Route::post('release-account', function (Request $request) {
 
         $validator = Validator::make($request->all(), [
