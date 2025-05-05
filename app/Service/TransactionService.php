@@ -128,33 +128,29 @@ class TransactionService
 
             $responseData = $response->json();
 
-            // Validate and standardize successful response
-            if (($responseData['responseCode'] ?? null) === '00') {
+            // Validate and standardize response
+            if ($responseData['responseCode'] !== '00') {
+                Log::error('Fund release failed', [
+                    'error' => $responseData['message'] ?? 'Unknown error',
+                    'reference' => $reference
+                ]);
+
                 return (object)[
-                    'responseCode' => '00',
-                    'message' => $responseData['message'] ?? 'Funds released successfully',
-                    'data' => $responseData['data'] ?? null
+                    'responseCode' => '99',
+                    'message' => $responseData['message'] ?? 'Fund release failed',
+                    'data' => null
                 ];
             }
 
-            // Handle business logic failures
-            throw new ValidationException(
-                $responseData['message'] ?? 'Fund release failed'
-            );
+            // Successful response
+            return (object)[
+                'responseCode' => '00',
+                'message' => $responseData['message'] ?? 'Funds released successfully',
+                'data' => $responseData['data'] ?? null
+            ];
         } catch (ValidationException $e) {
             // Re-throw business validation exceptions
             throw $e;
-        } catch (\Exception $e) {
-            Log::error('Fund release failed', [
-                'error' => $e->getMessage(),
-                'reference' => $reference
-            ]);
-
-            return (object)[
-                'responseCode' => '99',
-                'message' => $e->getMessage(),
-                'data' => null
-            ];
         }
     }
 }
