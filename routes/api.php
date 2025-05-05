@@ -73,11 +73,11 @@ Route::prefix('v1')->group(function () {
             return MyResponse::success('Fund released successfully', $result);
         } else {
             $errorMessage = $result->message ?? 'Unable to release fund. Please try again.';
-            return MyResponse::failed($errorMessage, $result, 400);
+            return MyResponse::failed($errorMessage, null, 400);
         }
     });
-    
-    
+
+
     Route::post('release-account', function (Request $request) {
 
         $validator = Validator::make($request->all(), [
