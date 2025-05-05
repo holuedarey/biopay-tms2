@@ -127,9 +127,9 @@ class TransactionService
             $responseData = $response->json();
 
             // Properly convert array to string using json_encode
-            if ($response->failed()) {
-                throw new \RuntimeException("API request failed with status: " . json_encode($responseData));
-            }
+            // if ($response->failed()) {
+            //     throw new \RuntimeException("API request failed with status: " . json_encode($responseData));
+            // }
 
             // Validate and standardize response
             if (($responseData['responseCode'] ?? null) !== '00') {
