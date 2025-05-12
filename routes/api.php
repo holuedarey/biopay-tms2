@@ -79,49 +79,43 @@ Route::prefix('v1')->group(function () {
 
 
     Route::post('release-account', function (Request $request) {
-
         $validator = Validator::make($request->all(), [
-            'accountNo' => 'required|digits:10|string',
+            'accountNo' => 'required|digits:10',
             'walletId' => 'required|string',
-            'bvn' => 'required|digits:11|integer'
+            'bvn' => 'required|digits:11',
         ]);
 
         if ($validator->fails()) {
             return MyResponse::failed('Validation error', $validator->errors());
         }
 
-        Log::error(json_encode($request->all()));
+        $data = $validator->validated();
 
-        $data = [
-            'accountNo' => $request->input('accountNo'),
-            'walletId' => $request->input('walletId'),
-            'bvn' => $request->input('bvn'),
-        ];
+        Log::info('Sending Release Account request', $data);
 
-        // Send a request asynchronously or delay before returning a response
-        Cache::put('release_account_' . $request->input('accountNo'), 'processing', 300); // Save a processing status to cache for 5 minutes
-
-        dispatch(function () use ($data) {
+        try {
             $response = Http::withHeaders([
                 'Authorization' => config('providers.spout.hashed_key'),
                 'Token' => config('providers.spout.token'),
             ])->post("http://139.162.209.150:5010/api/v1/b2b/release/account", $data);
 
             if ($response->successful()) {
-                Log::info('Release Account API Response:', ['response' => $response->json()]);
-
-                Cache::put('release_account_' . $data['accountNo'], 'success', 300); // Update status to success
+                Log::info('Release Account API success:', ['response' => $response->json()]);
+                return MyResponse::success('Release account successful', $response->json());
             } else {
-                Log::error('Release Account API Request Failed:', [
+                Log::error('Release Account API failed:', [
                     'status' => $response->status(),
-                    'response' => $response->json()
+                    'body' => $response->body(),
                 ]);
-
-                Cache::put('release_account_' . $data['accountNo'], 'failed', 300); // Update status to failed
+                return MyResponse::failed('Release account failed', $response->json());
             }
-        })->delay(now()->addSeconds(1)); // Delay the task execution to simulate an async process
-
-        return MyResponse::success('Request processing');
+        } catch (\Throwable $e) {
+            Log::error('Exception during release account:', [
+                'message' => $e->getMessage(),
+                'trace' => $e->getTraceAsString(),
+            ]);
+            return MyResponse::failed('Unexpected error occurred while releasing account');
+        }
     });
 
     Route::post('register',             Register::class);
