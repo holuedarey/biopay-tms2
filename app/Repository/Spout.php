@@ -341,7 +341,8 @@ class Spout implements
             'phoneNumber' => $user->phone,
             'bvn' => $user->bvn,
             'walletId' => '159795503',
-            'b2bCompanyName' => 'speedfinancial'
+            'b2bCompanyName' => 'speedfinancial',
+            'email' => $user->email
         ]);
 
         if ($res) {
