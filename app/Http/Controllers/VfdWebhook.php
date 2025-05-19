@@ -10,7 +10,6 @@ use App\Models\VirtualAccountCredit;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use Laravel\Telescope\Http\Controllers\LogController;
 
 class VfdWebhook extends Controller
 {
@@ -28,56 +27,53 @@ class VfdWebhook extends Controller
         ]);
 
         $reference = $validatedData['reference'];
-
-
         Log::alert("VFD: TRANSACTION Request", $validatedData);
 
+        // Check for duplicate transaction
         if (VirtualAccountCredit::where('reference', $reference)->exists()) {
             Log::alert('VFD: DUPLICATE TRANSACTION', $validatedData);
-            exit('Duplicate');
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Duplicate transaction',
+            ], 409);
         }
 
-       // Find the virtual account by account number
-        $va = VirtualAccount::where('account_number', $validatedData['account_number'])->firstOrFail();
+        // Find the virtual account by account number
+        $va = VirtualAccount::where('account_number', $validatedData['account_number'])->first();
+        if (!$va) {
+            Log::alert("VFD: Virtual account not found", ['account_number' => $validatedData['account_number']]);
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Virtual account not found',
+            ], 404);
+        }
 
-
-        // Get the amount from the request
         $amount = (float) $validatedData['amount'];
 
-        // Look up the service for funding, apply service charges, and subtract from the amount
-        // Assuming service charges are fetched and applied here
-        // $serviceCharges = ...;
-        // $amount -= $serviceCharges;
-
-// Retrieve the terminal instance associated with the user
-        $userTerminal = Terminal::where('user_id', $va->user_id)->first(); // Fetch the first matching terminal
-
-        if ($userTerminal) {
-            // Ensure the group relationship is loaded
-            $group = $userTerminal->group;
-
-            // Check if the group is available
-            if ($group) {
-                // Call the charge method on the group with the service and amount
-                $charge = $group->charge(Service::vfd(), $amount);
-
-
-            } else {
-                // Handle case where the group is not found
-                Log::alert("VFD: Group not found for the terminal");
-                exit('VFD: Group not found for the terminal');
-               // dd('Group not found for the terminal.');
-            }
-        } else {
-            // Handle case where the terminal is not found
-            Log::alert("VFD: Terminal not found for the user.");
-            exit('VFD: Terminal not found for the user.');
+        // Retrieve the terminal instance associated with the user
+        $userTerminal = Terminal::where('user_id', $va->user_id)->first();
+        if (!$userTerminal) {
+            Log::alert("VFD: Terminal not found for the user", ['user_id' => $va->user_id]);
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Terminal not found for the user',
+            ], 404);
         }
 
+        $group = $userTerminal->group;
+        if (!$group) {
+            Log::alert("VFD: Group not found for the terminal", ['terminal_id' => $userTerminal->id]);
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Group not found for the terminal',
+            ], 404);
+        }
+
+        // Apply service charge
+        $charge = $group->charge(Service::vfd(), $amount);
         $amountToCredit = $amount - $charge;
 
-       // dd($amountToCredit);
-        // Record the credit in the virtual account's credits
+        // Record credit transaction
         $va->credits()->create([
             'amount' => $amountToCredit,
             'reference' => $reference,
@@ -87,18 +83,22 @@ class VfdWebhook extends Controller
             'meta' => $validatedData
         ]);
 
-        // Update the virtual account's balance
+        // Update virtual account balance
         $va->update(['balance' => $va->balance + $amountToCredit]);
 
-        // Prepare the information string for the wallet credit
+        // Credit wallet
         $info = $validatedData['originator_narration'] . ' | From ' . $validatedData['originator_account_name'];
+        $va->user->wallet->credit(
+            $amountToCredit,
+            Service::whereSlug('fundinginbound')->first(),
+            $reference,
+            $info
+        );
 
-        // Credit the user's wallet
-        $va->user->wallet->credit($amountToCredit, Service::whereSlug('fundinginbound')->first(), $reference, $info);
-
-        $transaction = Transaction::createSuccessFor(
+        // Log transaction
+        Transaction::createSuccessFor(
             $userTerminal,
-            $service = Service::vfdService("vfd"),
+            Service::vfdService("vfd"),
             $amountToCredit,
             $amount,
             $reference,
@@ -106,8 +106,17 @@ class VfdWebhook extends Controller
             "VFD"
         );
 
-        Log::alert("VFD: Account funded successfully.", $validatedData);
-        exit('Complete');
-    }
+        Log::alert("VFD: Account funded successfully", $validatedData);
 
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Account funded successfully',
+            'data' => [
+                'reference' => $reference,
+                'credited_amount' => $amountToCredit,
+                'charged_amount' => $charge,
+                'new_balance' => $va->balance,
+            ],
+        ]);
+    }
 }
